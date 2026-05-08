@@ -21,70 +21,15 @@
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
-        "menu_color_scheme": "",
         "enable_country_selector": true,
         "enable_language_selector": true,
-        "enable_customer_avatar": true,
         "margin_bottom": 0,
         "padding_top": 20,
         "padding_bottom": 20
       }
-    },
-    "mango_hero_slider_RPrbhM": {
-      "type": "mango-hero-slider",
-      "blocks": {
-        "slide_TrU3g9": {
-          "type": "slide",
-          "settings": {
-            "title": "Banganapalli",
-            "image": "shopify://shop_images/bangapalii.png",
-            "background_type": "split",
-            "bg_top": "#1e1e1e",
-            "bg_bottom": "#ff9308",
-            "bg_solid": "#22a355",
-            "cta_text": "Order Now",
-            "cta_link": ""
-          }
-        },
-        "slide_Ve47Te": {
-          "type": "slide",
-          "settings": {
-            "title": "Alphonso",
-            "background_type": "split",
-            "bg_top": "#1e1e1e",
-            "bg_bottom": "#22a355",
-            "bg_solid": "#22a355",
-            "cta_text": "Order Now",
-            "cta_link": ""
-          }
-        },
-        "slide_rXBYYT": {
-          "type": "slide",
-          "settings": {
-            "title": "Kesar",
-            "background_type": "split",
-            "bg_top": "#1e1e1e",
-            "bg_bottom": "#e8a000",
-            "bg_solid": "#22a355",
-            "cta_text": "Order Now",
-            "cta_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_TrU3g9",
-        "slide_Ve47Te",
-        "slide_rXBYYT"
-      ],
-      "name": "Mango Hero Slider",
-      "settings": {
-        "autoplay": true,
-        "autoplay_speed": 5
-      }
     }
   },
   "order": [
-    "header",
-    "mango_hero_slider_RPrbhM"
+    "header"
   ]
 }

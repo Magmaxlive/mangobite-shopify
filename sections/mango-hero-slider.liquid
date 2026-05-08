@@ -47,61 +47,63 @@
     background-color: var(--slide-bg-solid, #22c55e);
   }
 
-  /* Content — all elements overlap via absolute positioning */
+  /* Content wrapper */
   .mango-hero__content {
     position: absolute;
     inset: 0;
     z-index: 2;
   }
 
-  /* Title sits behind the image circle */
+  /* Image circle — centered, upper half, sits BEHIND the title */
+  .mango-hero__image-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: clamp(260px, 38vw, 520px);
+    height: clamp(260px, 38vw, 520px);
+    border-radius: 50%;
+    overflow: visible;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+  }
+
+  .mango-hero__image-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+
+  /* Title — left-aligned, huge, at the diagonal split line, IN FRONT of image */
   .mango-hero__title {
     position: absolute;
-    bottom: 22%;
-    left: 0;
+    top: 50%;
+    transform: translateY(-30%);
+    left: 2%;
     right: 0;
-    text-align: center;
-    font-size: clamp(5rem, 13vw, 12rem);
+    text-align: left;
+    font-size: clamp(4.5rem, 10vw, 11rem);
     font-weight: 900;
     color: #ffffff;
     line-height: 1;
     margin: 0;
     letter-spacing: -0.02em;
-    text-shadow: 0 4px 40px rgba(0,0,0,0.25);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
     font-style: italic;
     white-space: nowrap;
-    z-index: 1;
-  }
-
-  /* Image circle centered, on top of title */
-  .mango-hero__image-circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -54%);
-    width: clamp(220px, 32vw, 420px);
-    height: clamp(220px, 32vw, 420px);
-    border-radius: 50%;
-    overflow: hidden;
-    background: rgba(255,255,255,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid rgba(255,255,255,0.2);
-    backdrop-filter: blur(4px);
     z-index: 2;
   }
 
-  .mango-hero__image-circle img {
-    width: 95%;
-    height: 95%;
-    object-fit: contain;
-  }
-
-  /* Button below the image */
+  /* Order Now — centered, lower section */
   .mango-hero__cta {
     position: absolute;
-    bottom: 8%;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     display: inline-block;
@@ -204,14 +206,14 @@
 
   @media screen and (max-width: 749px) {
     .mango-hero__title {
-      font-size: clamp(3rem, 13vw, 5rem);
-      bottom: 24%;
+      font-size: clamp(3rem, 12vw, 5rem);
+      left: 1%;
     }
     .mango-hero__image-circle {
-      width: clamp(160px, 55vw, 260px);
-      height: clamp(160px, 55vw, 260px);
+      width: clamp(200px, 60vw, 300px);
+      height: clamp(200px, 60vw, 300px);
     }
-    .mango-hero__arrow { font-size: 2.2rem; }
+    .mango-hero__arrow { font-size: 2rem; padding: 0.8rem 1rem; }
     .mango-hero__cta { font-size: 1.4rem; padding: 1rem 3rem; }
   }
 </style>
