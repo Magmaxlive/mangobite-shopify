@@ -1,5 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "mango_hero": {
+      "type": "mango-hero-slider",
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "title": "Banganapalli",
+            "background_type": "split",
+            "bg_top": "#1e1e1e",
+            "bg_bottom": "#FF9308",
+            "cta_text": "Order Now",
+            "cta_link": "/collections/all"
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "title": "Alphonso",
+            "background_type": "split",
+            "bg_top": "#1e1e1e",
+            "bg_bottom": "#22a355",
+            "cta_text": "Order Now",
+            "cta_link": "/collections/all"
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "title": "Kesar",
+            "background_type": "split",
+            "bg_top": "#1e1e1e",
+            "bg_bottom": "#e8a000",
+            "cta_text": "Order Now",
+            "cta_link": "/collections/all"
+          }
+        }
+      },
+      "block_order": ["slide-1", "slide-2", "slide-3"],
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 5
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -200,6 +252,7 @@
     }
   },
   "order": [
+    "mango_hero",
     "image_banner",
     "rich_text",
     "featured_collection",
