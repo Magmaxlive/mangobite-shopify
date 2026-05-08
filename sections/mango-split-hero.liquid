@@ -1,0 +1,286 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+
+<style>
+  .mango-split {
+    position: relative;
+    background: {{ section.settings.background_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    overflow: hidden;
+  }
+
+  .mango-split__deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: clamp(200px, 28vw, 380px);
+    pointer-events: none;
+  }
+
+  .mango-split__inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 80px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(30px, 5vw, 80px);
+  }
+
+  .mango-split__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .mango-split__subtitle {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.subtitle_color }};
+    margin-bottom: 1.4rem;
+  }
+
+  .mango-split__heading {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.6rem, 4.5vw, 5.2rem);
+    color: {{ section.settings.heading_color }};
+    line-height: 1.08;
+    margin: 0 0 1.6rem;
+  }
+
+  .mango-split__text {
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    line-height: 1.85;
+    color: {{ section.settings.text_color }};
+    margin: 0 0 2.8rem;
+    max-width: 500px;
+  }
+
+  .mango-split__btn {
+    display: inline-block;
+    background: {{ section.settings.btn_bg }};
+    color: {{ section.settings.btn_color }};
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1.1rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  }
+
+  .mango-split__btn:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+  }
+
+  .mango-split__image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mango-split__image-wrap img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  @media screen and (max-width: 749px) {
+    .mango-split__inner {
+      grid-template-columns: 1fr;
+    }
+    .mango-split__image-wrap {
+      order: -1;
+    }
+    .mango-split__image-wrap img {
+      max-width: 80vw;
+    }
+    .mango-split__deco {
+      width: 55vw;
+      opacity: 0.6;
+    }
+  }
+</style>
+
+<section class="mango-split" id="mango-split-{{ section.id }}">
+
+  <!-- Decorative swirl top-left -->
+  <svg class="mango-split__deco" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Spiral 1 -->
+    <path d="M38 75 C38 75 20 75 20 58 C20 41 38 41 38 58 C38 72 28 78 22 68 C16 58 28 48 35 55"
+      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <!-- Spiral 2 -->
+    <path d="M85 75 C85 75 67 75 67 58 C67 41 85 41 85 58 C85 72 75 78 69 68 C63 58 75 48 82 55"
+      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <!-- Spiral 3 -->
+    <path d="M132 75 C132 75 114 75 114 58 C114 41 132 41 132 58 C132 72 122 78 116 68 C110 58 122 48 129 55"
+      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <!-- Spiral 4 -->
+    <path d="M179 75 C179 75 161 75 161 58 C161 41 179 41 179 58 C179 72 169 78 163 68 C157 58 169 48 176 55"
+      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <!-- Wavy tail -->
+    <path d="M179 58 C200 58 205 45 220 45 C235 45 240 65 255 65 C270 65 275 50 290 50 C305 50 315 60 330 58 C355 55 380 52 410 52"
+      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  </svg>
+
+  <div class="mango-split__inner">
+    <div class="mango-split__content">
+      {%- if section.settings.subtitle != blank -%}
+        <span class="mango-split__subtitle">{{ section.settings.subtitle }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mango-split__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <p class="mango-split__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.btn_text != blank -%}
+        <a href="{{ section.settings.btn_link }}" class="mango-split__btn">
+          {{ section.settings.btn_text }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="mango-split__image-wrap">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1000
+          | image_tag: loading: 'lazy', alt: section.settings.heading
+        }}
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mango Split Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "deco_color",
+      "label": "Decorative swirl color",
+      "default": "#CC9944"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle (uppercase small text)",
+      "default": "Welcome to Mango Bite — Top Mango Exporter"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#555555"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Buy Fresh Mangoes!"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#22c55e"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Body text",
+      "default": "Your ultimate destination for premium New Zealand mangoes available online! Explore our diverse range of fresh mangoes, including popular varieties like Banganapalli (Benishan), Alphonso (King of Mangoes), Kesar, Dasheri, Langra, Chaunsa, Rajapuri, Totapuri, and more."
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#444444"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image (mango with leaves)"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button background",
+      "default": "#1e1e1e"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mango Split Hero",
+      "settings": {
+        "subtitle": "Welcome to Mango Bite — Top Mango Exporter",
+        "heading": "Buy Fresh Mangoes!",
+        "text": "Your ultimate destination for premium New Zealand mangoes available online! Explore our diverse range of fresh mangoes, including popular varieties like Banganapalli (Benishan), Alphonso (King of Mangoes), Kesar, Dasheri, Langra, Chaunsa, Rajapuri, Totapuri, and more. With convenient mango delivery straight to your doorstep, you can enjoy the delicious taste and health benefits of mangoes from the comfort of your home.",
+        "btn_text": "Shop Now",
+        "btn_bg": "#1e1e1e",
+        "heading_color": "#22c55e",
+        "deco_color": "#CC9944"
+      }
+    }
+  ]
+}
+{% endschema %}
