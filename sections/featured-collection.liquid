@@ -1,6 +1,38 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
+<style>
+  .card-atc {
+    margin-top: 1rem;
+    padding: 0 0.4rem;
+  }
+
+  .card-atc__btn {
+    width: 100%;
+    background-color: #FF9308;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    letter-spacing: 0.03em;
+  }
+
+  .card-atc__btn:hover {
+    background-color: #e07d00;
+    transform: translateY(-1px);
+  }
+
+  .card-atc__btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+  }
+</style>
+
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 
@@ -129,6 +161,20 @@
                   section_id: section.id,
                   quick_add: section.settings.quick_add
                 %}
+
+                <div class="card-atc">
+                  <form action="{{ routes.cart_add_url }}" method="post">
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <input type="hidden" name="quantity" value="1">
+                    <button
+                      type="submit"
+                      class="card-atc__btn"
+                      {% unless product.available %}disabled{% endunless %}
+                    >
+                      {%- if product.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
+                    </button>
+                  </form>
+                </div>
               </li>
               {%- assign skip_card_product_styles = true -%}
             {%- endfor -%}
