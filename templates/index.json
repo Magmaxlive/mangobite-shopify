@@ -16,6 +16,7 @@
           "type": "slide",
           "settings": {
             "title": "Banganapalli",
+            "image": "shopify://shop_images/bangapalii.png",
             "background_type": "split",
             "bg_top": "#1e1e1e",
             "bg_bottom": "#ff9308",
@@ -28,6 +29,7 @@
           "type": "slide",
           "settings": {
             "title": "Alphonso",
+            "image": "shopify://shop_images/Alphonso-mango-1_440bfd7e-53cb-4b5f-b422-d4ca2b9499b3.png",
             "background_type": "split",
             "bg_top": "#1e1e1e",
             "bg_bottom": "#22a355",
@@ -40,6 +42,7 @@
           "type": "slide",
           "settings": {
             "title": "Kesar",
+            "image": "shopify://shop_images/kesar-1.png",
             "background_type": "split",
             "bg_top": "#1e1e1e",
             "bg_bottom": "#e8a000",
@@ -55,6 +58,7 @@
         "slide-3"
       ],
       "settings": {
+        "leaf_image": "shopify://shop_images/leaf4.png",
         "autoplay": true,
         "autoplay_speed": 5
       }
