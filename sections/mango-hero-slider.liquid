@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+
 <style>
   .mango-hero {
     position: relative;
@@ -23,13 +26,13 @@
     overflow: hidden;
   }
 
-  /* Split background (dark top + color bottom) */
+  /* Split background — angled to match -6deg title tilt */
   .mango-hero__slide--split::before {
     content: '';
     position: absolute;
     inset: 0;
     background: var(--slide-bg-top, #1e1e1e);
-    clip-path: polygon(0 0, 100% 0, 100% 48%, 0 58%);
+    clip-path: polygon(0 0, 100% 0, 100% 44%, 0 62%);
     z-index: 0;
   }
 
@@ -38,7 +41,7 @@
     position: absolute;
     inset: 0;
     background: var(--slide-bg-bottom, #FF9308);
-    clip-path: polygon(0 57%, 100% 47%, 100% 100%, 0 100%);
+    clip-path: polygon(0 61%, 100% 43%, 100% 100%, 0 100%);
     z-index: 0;
   }
 
@@ -84,19 +87,20 @@
   .mango-hero__title {
     position: absolute;
     top: 50%;
-    transform: translateY(-30%);
+    transform: translateY(-30%) rotate(-6deg);
     left: 0;
     right: 0;
     text-align: center;
+    font-family: 'Lilita One', cursive;
     font-size: clamp(7rem, 16vw, 17rem);
     font-weight: 900;
-    -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+    -webkit-text-stroke: 3px rgba(255,255,255,0.2);
     color: #ffffff;
     line-height: 1;
     margin: 0;
-    letter-spacing: -0.02em;
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-    font-style: italic;
+    letter-spacing: 0.01em;
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.2), 7px 7px 0 rgba(0,0,0,0.08);
+    font-style: normal;
     white-space: nowrap;
     overflow: visible;
     z-index: 2;
