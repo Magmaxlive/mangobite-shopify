@@ -10,15 +10,14 @@
   }
 
   .mango-split__deco {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: clamp(200px, 28vw, 380px);
+    display: block;
+    width: clamp(180px, 26vw, 340px);
+    margin-bottom: 1.6rem;
     pointer-events: none;
   }
 
   .mango-split__inner {
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 clamp(20px, 5vw, 80px);
     display: grid;
@@ -34,7 +33,7 @@
 
   .mango-split__subtitle {
     display: block;
-    font-size: 0.8rem;
+    font-size: 1.4rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -52,7 +51,7 @@
   }
 
   .mango-split__text {
-    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    font-size: clamp(1.8rem, 1.3vw, 1.1rem);
     line-height: 1.85;
     color: {{ section.settings.text_color }};
     margin: 0 0 2.8rem;
@@ -63,7 +62,7 @@
     display: inline-block;
     background: {{ section.settings.btn_bg }};
     color: {{ section.settings.btn_color }};
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -104,35 +103,40 @@
       max-width: 80vw;
     }
     .mango-split__deco {
-      width: 55vw;
-      opacity: 0.6;
+      width: clamp(140px, 50vw, 240px);
     }
   }
 </style>
 
 <section class="mango-split" id="mango-split-{{ section.id }}">
-
   <!-- Decorative swirl top-left -->
-  <svg class="mango-split__deco" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <!-- Spiral 1 -->
-    <path d="M38 75 C38 75 20 75 20 58 C20 41 38 41 38 58 C38 72 28 78 22 68 C16 58 28 48 35 55"
-      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <!-- Spiral 2 -->
-    <path d="M85 75 C85 75 67 75 67 58 C67 41 85 41 85 58 C85 72 75 78 69 68 C63 58 75 48 82 55"
-      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <!-- Spiral 3 -->
-    <path d="M132 75 C132 75 114 75 114 58 C114 41 132 41 132 58 C132 72 122 78 116 68 C110 58 122 48 129 55"
-      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <!-- Spiral 4 -->
-    <path d="M179 75 C179 75 161 75 161 58 C161 41 179 41 179 58 C179 72 169 78 163 68 C157 58 169 48 176 55"
-      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <!-- Wavy tail -->
-    <path d="M179 58 C200 58 205 45 220 45 C235 45 240 65 255 65 C270 65 275 50 290 50 C305 50 315 60 330 58 C355 55 380 52 410 52"
-      stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-  </svg>
 
   <div class="mango-split__inner">
     <div class="mango-split__content">
+      <svg
+        class="mango-split__deco"
+        viewBox="0 0 420 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <!-- Spiral 1 -->
+        <path d="M38 75 C38 75 20 75 20 58 C20 41 38 41 38 58 C38 72 28 78 22 68 C16 58 28 48 35 55"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <!-- Spiral 2 -->
+        <path d="M85 75 C85 75 67 75 67 58 C67 41 85 41 85 58 C85 72 75 78 69 68 C63 58 75 48 82 55"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <!-- Spiral 3 -->
+        <path d="M132 75 C132 75 114 75 114 58 C114 41 132 41 132 58 C132 72 122 78 116 68 C110 58 122 48 129 55"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <!-- Spiral 4 -->
+        <path d="M179 75 C179 75 161 75 161 58 C161 41 179 41 179 58 C179 72 169 78 163 68 C157 58 169 48 176 55"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <!-- Wavy tail -->
+        <path d="M179 58 C200 58 205 45 220 45 C235 45 240 65 255 65 C270 65 275 50 290 50 C305 50 315 60 330 58 C355 55 380 52 410 52"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      </svg>
+
       {%- if section.settings.subtitle != blank -%}
         <span class="mango-split__subtitle">{{ section.settings.subtitle }}</span>
       {%- endif -%}
