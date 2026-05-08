@@ -1,0 +1,429 @@
+<style>
+  .mango-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .mango-hero__slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: transform;
+  }
+
+  .mango-hero__slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Split background (dark top + color bottom) */
+  .mango-hero__slide--split::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--slide-bg-top, #1e1e1e);
+    clip-path: polygon(0 0, 100% 0, 100% 48%, 0 58%);
+    z-index: 0;
+  }
+
+  .mango-hero__slide--split::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--slide-bg-bottom, #FF9308);
+    clip-path: polygon(0 57%, 100% 47%, 100% 100%, 0 100%);
+    z-index: 0;
+  }
+
+  /* Solid background */
+  .mango-hero__slide--solid {
+    background-color: var(--slide-bg-solid, #22c55e);
+  }
+
+  /* Content */
+  .mango-hero__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .mango-hero__title {
+    font-size: clamp(5rem, 12vw, 11rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    margin: 0 0 2rem;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    font-style: italic;
+  }
+
+  .mango-hero__image-circle {
+    width: clamp(180px, 28vw, 320px);
+    height: clamp(180px, 28vw, 320px);
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -2rem auto 2.5rem;
+    border: 3px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(4px);
+  }
+
+  .mango-hero__image-circle img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+  }
+
+  .mango-hero__cta {
+    display: inline-block;
+    background: #ffffff;
+    color: #FF4500;
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 1.2rem 4rem;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .mango-hero__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  }
+
+  /* Floating leaves */
+  .mango-hero__leaf {
+    position: absolute;
+    z-index: 1;
+    width: clamp(40px, 6vw, 90px);
+    height: clamp(40px, 6vw, 90px);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(18px, 3vw, 40px);
+    animation: floatLeaf 4s ease-in-out infinite;
+    backdrop-filter: blur(2px);
+  }
+
+  .mango-hero__leaf:nth-child(1) { top: 12%; left: 4%;  animation-delay: 0s;    animation-duration: 4.5s; }
+  .mango-hero__leaf:nth-child(2) { top: 28%; right: 8%; animation-delay: 0.8s;  animation-duration: 5s; }
+  .mango-hero__leaf:nth-child(3) { bottom: 20%; left: 10%; animation-delay: 1.4s; animation-duration: 4s; }
+  .mango-hero__leaf:nth-child(4) { bottom: 12%; right: 6%; animation-delay: 2s;  animation-duration: 5.5s; }
+
+  @keyframes floatLeaf {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%       { transform: translateY(-16px) rotate(8deg); }
+  }
+
+  /* Arrows */
+  .mango-hero__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 3.5rem;
+    line-height: 1;
+    padding: 1rem 1.5rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .mango-hero__arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.15);
+  }
+
+  .mango-hero__arrow--prev { left: 1.5rem; }
+  .mango-hero__arrow--next { right: 1.5rem; }
+
+  /* Dots */
+  .mango-hero__dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.8rem;
+    z-index: 10;
+  }
+
+  .mango-hero__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    padding: 0;
+  }
+
+  .mango-hero__dot--active {
+    background: #ffffff;
+    transform: scale(1.3);
+  }
+
+  @media screen and (max-width: 749px) {
+    .mango-hero__title { font-size: clamp(3.5rem, 15vw, 6rem); }
+    .mango-hero__arrow { font-size: 2.5rem; }
+  }
+</style>
+
+{%- if section.blocks.size > 0 -%}
+<section class="mango-hero" id="mango-hero-{{ section.id }}" aria-label="Hero slider">
+  <div class="mango-hero__slides" id="mango-slides-{{ section.id }}">
+    {%- for block in section.blocks -%}
+      {%- assign bg_type = block.settings.background_type -%}
+      <div
+        class="mango-hero__slide mango-hero__slide--{{ bg_type }}"
+        style="
+          {%- if bg_type == 'split' -%}
+            --slide-bg-top: {{ block.settings.bg_top }};
+            --slide-bg-bottom: {{ block.settings.bg_bottom }};
+          {%- else -%}
+            --slide-bg-solid: {{ block.settings.bg_solid }};
+          {%- endif -%}
+        "
+        {{ block.shopify_attributes }}
+      >
+        <!-- Floating leaves -->
+        <div class="mango-hero__leaf">🌿</div>
+        <div class="mango-hero__leaf">🌿</div>
+        <div class="mango-hero__leaf">🌿</div>
+        <div class="mango-hero__leaf">🌿</div>
+
+        <div class="mango-hero__content">
+          <h2 class="mango-hero__title">{{ block.settings.title }}</h2>
+
+          {%- if block.settings.image != blank -%}
+            <div class="mango-hero__image-circle">
+              {{
+                block.settings.image
+                | image_url: width: 600
+                | image_tag: loading: 'lazy', alt: block.settings.title
+              }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.cta_text != blank -%}
+            <a href="{{ block.settings.cta_link }}" class="mango-hero__cta">
+              {{ block.settings.cta_text }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if section.blocks.size > 1 -%}
+    <button class="mango-hero__arrow mango-hero__arrow--prev" aria-label="Previous slide">&#8592;</button>
+    <button class="mango-hero__arrow mango-hero__arrow--next" aria-label="Next slide">&#8594;</button>
+
+    <div class="mango-hero__dots">
+      {%- for block in section.blocks -%}
+        <button
+          class="mango-hero__dot{% if forloop.first %} mango-hero__dot--active{% endif %}"
+          aria-label="Go to slide {{ forloop.index }}"
+        ></button>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
+
+<script>
+  (function () {
+    var section   = document.getElementById('mango-hero-{{ section.id }}');
+    var track     = document.getElementById('mango-slides-{{ section.id }}');
+    var dots      = section.querySelectorAll('.mango-hero__dot');
+    var total     = {{ section.blocks.size }};
+    var current   = 0;
+    var timer;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function (d, i) {
+        d.classList.toggle('mango-hero__dot--active', i === current);
+      });
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAuto() {
+      timer = setInterval(next, {{ section.settings.autoplay_speed | times: 1000 }});
+    }
+
+    function stopAuto() { clearInterval(timer); }
+
+    section.querySelector('.mango-hero__arrow--next').addEventListener('click', function () {
+      stopAuto(); next(); startAuto();
+    });
+    section.querySelector('.mango-hero__arrow--prev').addEventListener('click', function () {
+      stopAuto(); prev(); startAuto();
+    });
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { stopAuto(); goTo(i); startAuto(); });
+    });
+
+    /* Pause on hover */
+    section.addEventListener('mouseenter', stopAuto);
+    section.addEventListener('mouseleave', startAuto);
+
+    /* Touch/swipe */
+    var startX = 0;
+    track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { stopAuto(); diff > 0 ? next() : prev(); startAuto(); }
+    });
+
+    if ({{ section.settings.autoplay }}) startAuto();
+  })();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Mango Hero Slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-play slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Slide interval",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Variety name",
+          "default": "Banganapalli"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Mango image"
+        },
+        {
+          "type": "select",
+          "id": "background_type",
+          "label": "Background style",
+          "options": [
+            { "value": "split", "label": "Split (dark + color)" },
+            { "value": "solid", "label": "Solid color" }
+          ],
+          "default": "split"
+        },
+        {
+          "type": "color",
+          "id": "bg_top",
+          "label": "Top color (split only)",
+          "default": "#1e1e1e"
+        },
+        {
+          "type": "color",
+          "id": "bg_bottom",
+          "label": "Bottom color (split only)",
+          "default": "#FF9308"
+        },
+        {
+          "type": "color",
+          "id": "bg_solid",
+          "label": "Background color (solid only)",
+          "default": "#22a355"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "Button text",
+          "default": "Order Now"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mango Hero Slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Banganapalli",
+            "background_type": "split",
+            "bg_top": "#1e1e1e",
+            "bg_bottom": "#FF9308",
+            "cta_text": "Order Now"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Alphonso",
+            "background_type": "solid",
+            "bg_solid": "#22a355",
+            "cta_text": "Order Now"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "Kesar",
+            "background_type": "solid",
+            "bg_solid": "#e8a000",
+            "cta_text": "Order Now"
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10
+}
+{% endschema %}

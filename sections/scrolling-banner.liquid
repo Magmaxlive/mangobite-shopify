@@ -1,0 +1,183 @@
+<style>
+  .scrolling-banner {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    overflow: hidden;
+    padding: {{ section.settings.padding_vertical }}px 0;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+  }
+
+  .scrolling-banner__track {
+    display: flex;
+    width: max-content;
+    animation: marquee {{ section.settings.speed }}s linear infinite;
+  }
+
+  .scrolling-banner__track:hover {
+    animation-play-state: paused;
+  }
+
+  .scrolling-banner__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .scrolling-banner__item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: {{ section.settings.font_size }}px;
+    font-weight: {{ section.settings.font_weight }};
+    letter-spacing: 0.05em;
+    padding: 0 1.2rem;
+  }
+
+  .scrolling-banner__item a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .scrolling-banner__item a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .scrolling-banner__separator {
+    margin: 0 0.8rem;
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<div class="scrolling-banner">
+  <div class="scrolling-banner__track">
+    {%- comment -%} Render twice for seamless loop {%- endcomment -%}
+    {%- for i in (1..2) -%}
+      <ul class="scrolling-banner__list" aria-hidden="{{ forloop.index | minus: 1 }}">
+        {%- for block in section.blocks -%}
+          <li class="scrolling-banner__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+            {%- else -%}
+              {{ block.settings.text }}
+            {%- endif -%}
+          </li>
+          <li class="scrolling-banner__separator" aria-hidden="true">
+            {{ section.settings.separator }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scrolling Banner",
+  "tag": "section",
+  "class": "scrolling-banner-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FF9308"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Separator between items",
+      "default": "🥭"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "Scroll speed (lower = faster)",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Banner item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Fresh Alphonso Mangoes — Order Now"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling Banner",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Fresh Alphonso Mangoes — Order Now" } },
+        { "type": "item", "settings": { "text": "Premium Kesar Mangoes — Shop Now" } },
+        { "type": "item", "settings": { "text": "Sweet Banganapalli Mangoes — Buy Now" } },
+        { "type": "item", "settings": { "text": "Free Delivery on Orders Over $99" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
