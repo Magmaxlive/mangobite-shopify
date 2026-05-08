@@ -3,16 +3,24 @@
 
 <style>
   .card-atc {
-    margin-top: 1rem;
-    padding: 0 0.4rem;
+    margin-top: -2.5rem;
+    padding: 0 0.4rem 1rem;
+    display: block !important;
+    visibility: visible !important;
+    position: relative;
+    z-index: 2;
+  }
+
+  .grid__item {
+    overflow: visible !important;
   }
 
   .card-atc__btn {
-    width: 100%;
-    background-color: #FF9308;
+    width: 50%;
+    background-color: #ff9308;
     color: #ffffff;
     border: none;
-    border-radius: 50px;
+    border-radius: 5px;
     padding: 1rem 1.5rem;
     font-size: 1.4rem;
     font-weight: 700;
@@ -169,7 +177,9 @@
                     <button
                       type="submit"
                       class="card-atc__btn"
-                      {% unless product.available %}disabled{% endunless %}
+                      {% unless product.available %}
+                        disabled
+                      {% endunless %}
                     >
                       {%- if product.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}
                     </button>
@@ -205,6 +215,9 @@
                 lazy_load: false,
                 placeholder_image: placeholder_image
               %}
+              <div class="card-atc">
+                <button type="button" class="card-atc__btn" disabled>Add to Cart</button>
+              </div>
             </li>
           {%- endfor -%}
         {%- endif -%}
@@ -282,11 +295,11 @@
       "step": 1,
       "default": 4,
       "label": "t:sections.featured-collection.settings.products_to_show.label"
-    },     
+    },
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_text.content"
-    },   
+    },
     {
       "type": "inline_richtext",
       "id": "title",
@@ -330,7 +343,7 @@
       "type": "checkbox",
       "id": "show_description",
       "label": "t:sections.featured-collection.settings.show_description.label",
-      "default": false   
+      "default": false
     },
     {
       "type": "select",
@@ -355,7 +368,7 @@
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_collection.content"
-    },    
+    },
     {
       "type": "range",
       "id": "columns_desktop",
@@ -365,7 +378,7 @@
       "default": 4,
       "label": "t:sections.featured-collection.settings.columns_desktop.label"
     },
-        {
+    {
       "type": "checkbox",
       "id": "enable_desktop_slider",
       "label": "t:sections.featured-collection.settings.enable_desktop_slider.label",
@@ -403,7 +416,7 @@
         }
       ],
       "default": "solid"
-    }, 
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -533,13 +546,13 @@
           "label": "t:sections.featured-collection.settings.columns_mobile.options__2.label"
         }
       ]
-    },    
+    },
     {
       "type": "checkbox",
       "id": "swipe_on_mobile",
       "default": false,
       "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
-    },          
+    },
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
