@@ -8,11 +8,11 @@
   .mango-showcase__inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 clamp(20px, 5vw, 80px);
+    padding: 0 clamp(20px, 5vw, 50px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: clamp(30px, 5vw, 60px);
+    gap: clamp(24px, 4vw, 60px);
   }
 
   /* ── Image column ── */
@@ -93,26 +93,29 @@
     color: {{ section.settings.tag_color }};
   }
 
-  /* ── Category circles ── */
+  /* ── Category circles carousel ── */
   .mango-showcase__circles-wrap {
-    position: relative;
+    overflow: hidden;
   }
 
   .mango-showcase__circles {
     display: flex;
-    gap: clamp(1.2rem, 2vw, 2.4rem);
-    overflow: hidden;
+    gap: 1.6rem;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
   }
 
+  /* Each item is exactly 1/3 of the track width */
   .mango-showcase__circle-item {
-    flex-shrink: 0;
+    flex: 0 0 calc((100% - 3.2rem) / 3);
     text-align: center;
+    text-decoration: none;
     cursor: pointer;
   }
 
   .mango-showcase__circle-img {
-    width: clamp(80px, 9vw, 120px);
-    height: clamp(80px, 9vw, 120px);
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: 50%;
     border: 2.5px solid {{ section.settings.tag_color }};
     overflow: hidden;
@@ -136,6 +139,7 @@
     font-size: 1.2rem;
     font-weight: 700;
     color: {{ section.settings.subtitle_color }};
+    display: block;
   }
 
   /* Dots */
@@ -176,16 +180,14 @@
     .mango-showcase__deco {
       margin-left: 0;
     }
-    .mango-showcase__circle-img {
-      width: clamp(70px, 20vw, 100px);
-      height: clamp(70px, 20vw, 100px);
+    .mango-showcase__content {
+      padding: 0 1rem;
     }
   }
 </style>
 
 <section class="mango-showcase" id="mango-showcase-{{ section.id }}">
   <div class="mango-showcase__inner">
-
     <!-- Image + deco -->
     <div class="mango-showcase__image-col">
       {%- if section.settings.image != blank -%}
@@ -199,7 +201,13 @@
       {%- endif -%}
 
       <!-- Decorative wavy-spiral SVG -->
-      <svg class="mango-showcase__deco" viewBox="0 0 420 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg
+        class="mango-showcase__deco"
+        viewBox="0 0 420 70"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
         <!-- Wavy line left -->
         <path d="M2 35 C14 18 26 18 38 35 C50 52 62 52 74 35 C86 18 98 18 110 35 C122 52 134 52 146 35 C158 18 170 18 182 35"
           stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
@@ -274,11 +282,11 @@
 
           {%- if section.blocks.size > 3 -%}
             <div class="mango-showcase__dots" id="showcase-dots-{{ section.id }}">
-              {%- assign dot_pages = section.blocks.size | minus: 3 | plus: 1 -%}
-              {%- for i in (1..dot_pages) -%}
+              {%- assign dot_count = section.blocks.size | minus: 2 -%}
+              {%- for i in (1..dot_count) -%}
                 <button
                   class="mango-showcase__dot{% if forloop.first %} mango-showcase__dot--active{% endif %}"
-                  aria-label="Page {{ forloop.index }}"
+                  aria-label="Slide {{ forloop.index }}"
                 ></button>
               {%- endfor -%}
             </div>
@@ -286,7 +294,6 @@
         </div>
       {%- endif -%}
     </div>
-
   </div>
 </section>
 
@@ -294,27 +301,32 @@
   (function () {
     var wrap   = document.getElementById('showcase-circles-{{ section.id }}');
     var dotsEl = document.getElementById('showcase-dots-{{ section.id }}');
-    if (!wrap || !dotsEl) return;
+    if (!wrap) return;
 
-    var dots    = dotsEl.querySelectorAll('.mango-showcase__dot');
     var items   = wrap.querySelectorAll('.mango-showcase__circle-item');
+    var total   = items.length;
     var visible = 3;
+    var maxStep = total - visible; /* last index we can start from */
     var current = 0;
+    var dots    = dotsEl ? dotsEl.querySelectorAll('.mango-showcase__dot') : [];
 
-    function goTo(page) {
-      current = page;
+    function goTo(index) {
+      /* clamp so last page always shows exactly 3 */
+      current = Math.max(0, Math.min(index, maxStep));
       var itemWidth = items[0].offsetWidth;
-      var gap = parseFloat(getComputedStyle(wrap).gap) || 24;
-      wrap.style.transform = 'translateX(-' + (page * (itemWidth + gap)) + 'px)';
-      wrap.style.transition = 'transform 0.4s ease';
+      var gap = parseFloat(getComputedStyle(wrap).columnGap || getComputedStyle(wrap).gap) || 16;
+      wrap.style.transform = 'translateX(-' + current * (itemWidth + gap) + 'px)';
       dots.forEach(function (d, i) {
-        d.classList.toggle('mango-showcase__dot--active', i === page);
+        d.classList.toggle('mango-showcase__dot--active', i === current);
       });
     }
 
     dots.forEach(function (dot, i) {
       dot.addEventListener('click', function () { goTo(i); });
     });
+
+    /* Recalculate on resize */
+    window.addEventListener('resize', function () { goTo(current); });
   })();
 </script>
 
