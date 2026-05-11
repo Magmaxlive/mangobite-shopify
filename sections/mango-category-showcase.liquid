@@ -96,21 +96,24 @@
   /* ── Category circles carousel ── */
   .mango-showcase__circles-wrap {
     overflow: hidden;
+    width: 100%;
   }
 
+  /* CSS Grid: 100% here = the grid container = wrap width. Always shows 3. */
   .mango-showcase__circles {
-    display: flex;
-    gap: 1.6rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 2 * 1.4rem) / 3);
+    gap: 1.4rem;
     transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
   }
 
-  /* Each item is exactly 1/3 of the track width */
   .mango-showcase__circle-item {
-    flex: 0 0 calc((100% - 3.2rem) / 3);
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    min-width: 0;
   }
 
   .mango-showcase__circle-img {
@@ -169,19 +172,33 @@
   @media screen and (max-width: 749px) {
     .mango-showcase__inner {
       grid-template-columns: 1fr;
+      padding: 0 16px;
     }
+
+    /* Big image — centered */
     .mango-showcase__image-col {
-      align-items: center;
       order: -1;
+      text-align: center;
     }
     .mango-showcase__image-col img {
-      max-width: 80vw;
+      display: block;
+      width: 80vw;
+      max-width: 300px;
+      margin: 0 auto;
     }
     .mango-showcase__deco {
-      margin-left: 0;
+      display: block;
+      width: clamp(150px, 55vw, 240px);
+      margin: 1rem auto 0;
     }
-    .mango-showcase__content {
-      padding: 0 1rem;
+
+    .mango-showcase__circles {
+      grid-auto-columns: calc((100% - 2 * 1rem) / 3);
+      gap: 1rem;
+    }
+
+    .mango-showcase__dots {
+      justify-content: center;
     }
   }
 </style>
@@ -305,16 +322,15 @@
 
     var items   = wrap.querySelectorAll('.mango-showcase__circle-item');
     var total   = items.length;
-    var visible = 3;
-    var maxStep = total - visible; /* last index we can start from */
     var current = 0;
-    var dots    = dotsEl ? dotsEl.querySelectorAll('.mango-showcase__dot') : [];
+    var dots  = dotsEl ? dotsEl.querySelectorAll('.mango-showcase__dot') : [];
 
     function goTo(index) {
-      /* clamp so last page always shows exactly 3 */
+      var maxStep = Math.max(0, total - 3);
       current = Math.max(0, Math.min(index, maxStep));
+      /* item width comes directly from CSS Grid — no JS sizing needed */
       var itemWidth = items[0].offsetWidth;
-      var gap = parseFloat(getComputedStyle(wrap).columnGap || getComputedStyle(wrap).gap) || 16;
+      var gap = parseFloat(getComputedStyle(wrap).gap) || 14;
       wrap.style.transform = 'translateX(-' + current * (itemWidth + gap) + 'px)';
       dots.forEach(function (d, i) {
         d.classList.toggle('mango-showcase__dot--active', i === current);
@@ -325,7 +341,6 @@
       dot.addEventListener('click', function () { goTo(i); });
     });
 
-    /* Recalculate on resize */
     window.addEventListener('resize', function () { goTo(current); });
   })();
 </script>

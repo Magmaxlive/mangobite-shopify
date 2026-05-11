@@ -73,6 +73,56 @@
     cursor: not-allowed;
     transform: none;
   }
+
+  @media screen and (max-width: 749px) {
+    /* 1 per row but constrained width — centered */
+    ul.product-grid,
+    .product-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 16px !important;
+    }
+
+    .grid__item {
+      width: 75% !important;
+      max-width: 300px !important;
+      border-radius: 12px;
+    }
+
+    /* Cap image height so card isn't too tall */
+    .grid__item .card__inner .media {
+      max-height: 200px !important;
+    }
+
+    .grid__item .card__inner .media img {
+      object-fit: contain !important;
+      height: 200px !important;
+    }
+
+    /* Compact card text */
+    .grid__item .card__content,
+    .grid__item .card__information {
+      padding: 0.6rem !important;
+    }
+
+    .grid__item .card__heading a {
+      font-size: 1.2rem !important;
+    }
+
+    .grid__item .price-item {
+      font-size: 1.2rem !important;
+    }
+
+    .card-atc {
+      padding: 0 0.7rem 0.7rem;
+    }
+
+    .card-atc__btn {
+      padding: 0.75rem 1rem;
+      font-size: 1.2rem;
+    }
+  }
 </style>
 
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
