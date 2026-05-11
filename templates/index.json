@@ -156,7 +156,7 @@
         "text_dQVA7T"
       ],
       "custom_css": [
-        ".rich-text__heading {color: #22c55e;}"
+        ".rich-text__heading {color: #22c55e !important;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
