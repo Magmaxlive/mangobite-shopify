@@ -335,7 +335,7 @@
         "text_qC43fY": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text": "Alphonso | Banganapalli | Kesar | Dasheri | Langra | Totapuri | Chaunsa | Neelam | Ratnagiri | Sindhura | Himayat | Mallika | Raspuri | Suvernarekha | Ambika | Vanraj | Mulgoa",
             "text_style": "body"
           }
         }
@@ -344,10 +344,14 @@
         "heading_k7DNY4",
         "text_qC43fY"
       ],
+      "custom_css": [
+        ".banner__box {background-color: transparent;}",
+        ".banner__heading , .banner__text {color: white;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/newsletter_bg.jpg",
-        "image_overlay_opacity": 20,
+        "image_overlay_opacity": 40,
         "image_height": "medium",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
