@@ -1,7 +1,5 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
-
 <style>
+  /* ── Layout ── */
   .mango-split {
     position: relative;
     background: {{ section.settings.background_color }};
@@ -9,132 +7,258 @@
     overflow: hidden;
   }
 
-  .mango-split__deco {
-    display: block;
-    width: clamp(180px, 26vw, 340px);
-    margin-bottom: 1.6rem;
+  /* Soft radial glow blobs in corners */
+  .mango-split::before,
+  .mango-split::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
     pointer-events: none;
+    z-index: 0;
+  }
+  .mango-split::before {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 70%);
+    top: -100px; right: -100px;
+  }
+  .mango-split::after {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,147,8,0.07) 0%, transparent 70%);
+    bottom: -80px; left: -80px;
   }
 
   .mango-split__inner {
+    position: relative;
+    z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 clamp(20px, 5vw, 80px);
+    padding: 0 clamp(24px, 5vw, 80px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: clamp(30px, 5vw, 80px);
+    gap: clamp(32px, 5vw, 72px);
   }
 
+  /* ── Content side ── */
   .mango-split__content {
     position: relative;
-    z-index: 1;
   }
 
-  .mango-split__subtitle {
+  /* Decorative swirl */
+  .mango-split__deco {
     display: block;
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: {{ section.settings.subtitle_color }};
-    margin-bottom: 1.4rem;
+    width: clamp(160px, 24vw, 320px);
+    margin-bottom: 1.8rem;
+    pointer-events: none;
   }
 
+  /* Subtitle pill badge */
+  .mango-split__subtitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 147, 8, 0.1);
+    color: #d97706;
+    border: 1px solid rgba(255, 147, 8, 0.25);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.4rem;
+    border-radius: 50px;
+    margin-bottom: 1.6rem;
+  }
+  .mango-split__subtitle::before {
+    content: '🥭';
+    font-style: normal;
+    letter-spacing: 0;
+  }
+
+  /* Heading */
   .mango-split__heading {
     font-family: 'Nunito', sans-serif;
     font-weight: 900;
-    font-size: clamp(2.6rem, 4.5vw, 5.2rem);
+    font-size: clamp(3rem, 4.8vw, 5.6rem);
     color: {{ section.settings.heading_color }};
-    line-height: 1.08;
+    line-height: 1.06;
     margin: 0 0 1.6rem;
+    position: relative;
   }
 
+  /* Wavy underline on heading */
+  .mango-split__heading span {
+    position: relative;
+    display: inline;
+  }
+  .mango-split__heading span::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8'%3E%3Cpath d='M0 5 Q12.5 0 25 5 Q37.5 10 50 5 Q62.5 0 75 5 Q87.5 10 100 5' fill='none' stroke='%2322c55e' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x center / auto 100%;
+    opacity: 0.7;
+  }
+
+  /* Body text */
   .mango-split__text {
-    font-size: clamp(1.8rem, 1.3vw, 1.1rem);
-    line-height: 1.85;
+    font-size: clamp(1.4rem, 1.2vw, 1.65rem);
+    line-height: 1.9;
     color: {{ section.settings.text_color }};
-    margin: 0 0 2.8rem;
-    max-width: 500px;
+    margin: 0 0 2.6rem;
+    max-width: 480px;
+  }
+
+  /* Button row */
+  .mango-split__actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
   }
 
   .mango-split__btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
     background: {{ section.settings.btn_bg }};
     color: {{ section.settings.btn_color }};
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 1.1rem 3rem;
+    padding: 1.15rem 2.8rem;
     border-radius: 50px;
     text-decoration: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
   }
-
+  .mango-split__btn svg { flex-shrink: 0; transition: transform 0.25s ease; }
   .mango-split__btn:hover {
-    opacity: 0.88;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.22);
+  }
+  .mango-split__btn:hover svg { transform: translateX(4px); }
+
+  /* Trust badges */
+  .mango-split__badges {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .mango-split__badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #555;
+  }
+  .mango-split__badge-icon {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(34,197,94,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
   }
 
+  /* ── Image side ── */
   .mango-split__image-wrap {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  /* Blob behind image */
+  .mango-split__image-wrap::before {
+    content: '';
+    position: absolute;
+    width: 82%;
+    height: 82%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 50%, rgba(34,197,94,0.13) 0%, rgba(255,147,8,0.08) 55%, transparent 75%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+
   .mango-split__image-wrap img {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 600px;
+    max-width: 580px;
     height: auto;
     object-fit: contain;
     display: block;
+    animation: splitImageFloat 5s ease-in-out infinite;
+    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.12));
   }
 
+  @keyframes splitImageFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-18px); }
+  }
+
+  /* ── Entry animations ── */
+  .mango-split__content,
+  .mango-split__image-wrap {
+    opacity: 0;
+    transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.34, 1.2, 0.64, 1);
+  }
+  .mango-split__content  { transform: translateX(-36px); }
+  .mango-split__image-wrap { transform: translateX(36px); }
+
+  .mango-split.is-visible .mango-split__content {
+    opacity: 1; transform: translateX(0);
+  }
+  .mango-split.is-visible .mango-split__image-wrap {
+    opacity: 1; transform: translateX(0);
+    transition-delay: 0.15s;
+  }
+
+  /* ── Mobile ── */
   @media screen and (max-width: 749px) {
     .mango-split__inner {
       grid-template-columns: 1fr;
     }
     .mango-split__image-wrap {
       order: 1;
+      transform: translateY(30px);
     }
-    .mango-split__image-wrap img {
-      max-width: 80vw;
+    .mango-split.is-visible .mango-split__image-wrap {
+      transform: translateY(0);
     }
-    .mango-split__deco {
-      width: clamp(140px, 50vw, 240px);
-    }
+    .mango-split__content { transform: translateY(-20px); }
+    .mango-split.is-visible .mango-split__content { transform: translateY(0); }
+    .mango-split__image-wrap img { max-width: 80vw; }
+    .mango-split__deco { width: clamp(130px, 48vw, 220px); }
+    .mango-split__badges { gap: 1.2rem; }
   }
 </style>
 
 <section class="mango-split" id="mango-split-{{ section.id }}">
-  <!-- Decorative swirl top-left -->
-
   <div class="mango-split__inner">
+
     <div class="mango-split__content">
-      <svg
-        class="mango-split__deco"
-        viewBox="0 0 420 120"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <!-- Spiral 1 -->
-        <path d="M38 75 C38 75 20 75 20 58 C20 41 38 41 38 58 C38 72 28 78 22 68 C16 58 28 48 35 55"
-          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <!-- Spiral 2 -->
-        <path d="M85 75 C85 75 67 75 67 58 C67 41 85 41 85 58 C85 72 75 78 69 68 C63 58 75 48 82 55"
-          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <!-- Spiral 3 -->
-        <path d="M132 75 C132 75 114 75 114 58 C114 41 132 41 132 58 C132 72 122 78 116 68 C110 58 122 48 129 55"
-          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <!-- Spiral 4 -->
-        <path d="M179 75 C179 75 161 75 161 58 C161 41 179 41 179 58 C179 72 169 78 163 68 C157 58 169 48 176 55"
-          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <!-- Wavy tail -->
-        <path d="M179 58 C200 58 205 45 220 45 C235 45 240 65 255 65 C270 65 275 50 290 50 C305 50 315 60 330 58 C355 55 380 52 410 52"
-          stroke="{{ section.settings.deco_color }}" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+      <!-- Decorative swirl -->
+      <svg class="mango-split__deco" viewBox="0 0 440 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M30 62 C30 62 10 62 10 44 C10 26 30 26 30 44 C30 60 18 67 11 55 C4 43 18 31 27 40 C36 49 30 62 30 62Z"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M78 62 C78 62 58 62 58 44 C58 26 78 26 78 44 C78 60 66 67 59 55 C52 43 66 31 75 40 C84 49 78 62 78 62Z"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M126 62 C126 62 106 62 106 44 C106 26 126 26 126 44 C126 60 114 67 107 55 C100 43 114 31 123 40 C132 49 126 62 126 62Z"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M174 62 C174 62 154 62 154 44 C154 26 174 26 174 44 C174 60 162 67 155 55 C148 43 162 31 171 40 C180 49 174 62 174 62Z"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <path d="M174 44 C198 44 202 28 220 28 C238 28 242 58 260 58 C278 58 282 38 300 38 C318 38 325 52 344 50 C368 47 400 44 436 44"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
       </svg>
 
       {%- if section.settings.subtitle != blank -%}
@@ -142,18 +266,43 @@
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="mango-split__heading">{{ section.settings.heading }}</h2>
+        <h2 class="mango-split__heading">
+          {%- assign words = section.settings.heading | split: ' ' -%}
+          {%- for word in words -%}
+            {%- if forloop.last -%}<span>{{ word }}</span>{%- else -%}{{ word }} {%- endif -%}
+          {%- endfor -%}
+        </h2>
       {%- endif -%}
 
       {%- if section.settings.text != blank -%}
         <p class="mango-split__text">{{ section.settings.text }}</p>
       {%- endif -%}
 
-      {%- if section.settings.btn_text != blank -%}
-        <a href="{{ section.settings.btn_link }}" class="mango-split__btn">
-          {{ section.settings.btn_text }}
-        </a>
-      {%- endif -%}
+      <div class="mango-split__actions">
+        {%- if section.settings.btn_text != blank -%}
+          <a href="{{ section.settings.btn_link }}" class="mango-split__btn">
+            {{ section.settings.btn_text }}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="mango-split__badges">
+        <div class="mango-split__badge">
+          <span class="mango-split__badge-icon">🌿</span>
+          100% Fresh
+        </div>
+        <div class="mango-split__badge">
+          <span class="mango-split__badge-icon">🚚</span>
+          Fast Delivery
+        </div>
+        <div class="mango-split__badge">
+          <span class="mango-split__badge-icon">⭐</span>
+          Premium Quality
+        </div>
+      </div>
     </div>
 
     <div class="mango-split__image-wrap">
@@ -167,8 +316,26 @@
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {%- endif -%}
     </div>
+
   </div>
 </section>
+
+<script>
+  (function () {
+    var el = document.getElementById('mango-split-{{ section.id }}');
+    if (!el) return;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) {
+          el.classList.add('is-visible');
+          obs.disconnect();
+        }
+      }, { threshold: 0.15 }).observe(el);
+    } else {
+      el.classList.add('is-visible');
+    }
+  })();
+</script>
 
 {% schema %}
 {
@@ -190,19 +357,19 @@
     {
       "type": "text",
       "id": "subtitle",
-      "label": "Subtitle (uppercase small text)",
-      "default": "Welcome to Mango Bite — Top Mango Exporter"
+      "label": "Subtitle badge text",
+      "default": "Top Mango Exporter"
     },
     {
       "type": "color",
       "id": "subtitle_color",
       "label": "Subtitle color",
-      "default": "#555555"
+      "default": "#d97706"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading",
+      "label": "Heading (last word gets wavy underline)",
       "default": "Buy Fresh Mangoes!"
     },
     {
@@ -215,18 +382,18 @@
       "type": "textarea",
       "id": "text",
       "label": "Body text",
-      "default": "Your ultimate destination for premium New Zealand mangoes available online! Explore our diverse range of fresh mangoes, including popular varieties like Banganapalli (Benishan), Alphonso (King of Mangoes), Kesar, Dasheri, Langra, Chaunsa, Rajapuri, Totapuri, and more."
+      "default": "Your ultimate destination for premium New Zealand mangoes available online! Explore our diverse range of fresh mangoes, including popular varieties like Banganapalli, Alphonso, Kesar, and more."
     },
     {
       "type": "color",
       "id": "text_color",
       "label": "Body text color",
-      "default": "#444444"
+      "default": "#555555"
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Hero image (mango with leaves)"
+      "label": "Hero image"
     },
     {
       "type": "text",
@@ -276,9 +443,9 @@
     {
       "name": "Mango Split Hero",
       "settings": {
-        "subtitle": "Welcome to Mango Bite — Top Mango Exporter",
+        "subtitle": "Top Mango Exporter",
         "heading": "Buy Fresh Mangoes!",
-        "text": "Your ultimate destination for premium New Zealand mangoes available online! Explore our diverse range of fresh mangoes, including popular varieties like Banganapalli (Benishan), Alphonso (King of Mangoes), Kesar, Dasheri, Langra, Chaunsa, Rajapuri, Totapuri, and more. With convenient mango delivery straight to your doorstep, you can enjoy the delicious taste and health benefits of mangoes from the comfort of your home.",
+        "text": "Your ultimate destination for premium New Zealand mangoes available online! Explore our diverse range of fresh mangoes, including popular varieties like Banganapalli, Alphonso, Kesar, Dasheri, Langra, Chaunsa, Rajapuri, Totapuri, and more.",
         "btn_text": "Shop Now",
         "btn_bg": "#1e1e1e",
         "heading_color": "#22c55e",
