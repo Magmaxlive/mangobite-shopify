@@ -2,25 +2,59 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 <style>
-  .card-atc {
-    margin-top: -2.5rem;
-    padding: 0 0.4rem 1rem;
-    display: block !important;
-    visibility: visible !important;
-    position: relative;
-    z-index: 2;
+  /* ── Unified product card ── */
+  .grid__item {
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
-  .grid__item {
-    overflow: visible !important;
+  .grid__item:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18), 0 6px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+
+  /* Card wrapper grows to fill space, pushing ATC to bottom */
+  .grid__item .card-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Strip Dawn's built-in card border / shadow / background */
+  .grid__item .card-wrapper,
+  .grid__item .card,
+  .grid__item .card__inner {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+
+  /* Remove Dawn's excess bottom padding */
+  .grid__item .card__content,
+  .grid__item .card__information {
+    padding: 1rem !important;
+  }
+
+  /* ATC button sits flush at the bottom */
+  .card-atc {
+    padding: 0 1rem 1rem;
+    margin-top: auto;
+    display: block !important;
+    visibility: visible !important;
   }
 
   .card-atc__btn {
-    width: 50%;
+    width: 100%;
     background-color: #ff9308;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 1rem 1.5rem;
     font-size: 1.4rem;
     font-weight: 700;

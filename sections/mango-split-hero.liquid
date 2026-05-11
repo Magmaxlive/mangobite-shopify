@@ -32,7 +32,7 @@
     z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 clamp(24px, 5vw, 80px);
+    padding: 0 clamp(24px, 5vw, 50px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -108,6 +108,7 @@
     color: {{ section.settings.text_color }};
     margin: 0 0 2.6rem;
     max-width: 480px;
+    padding-top : 30px;
   }
 
   /* Button row */
@@ -244,11 +245,15 @@
 
 <section class="mango-split" id="mango-split-{{ section.id }}">
   <div class="mango-split__inner">
-
     <div class="mango-split__content">
-
       <!-- Decorative swirl -->
-      <svg class="mango-split__deco" viewBox="0 0 440 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg
+        class="mango-split__deco"
+        viewBox="0 0 440 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
         <path d="M30 62 C30 62 10 62 10 44 C10 26 30 26 30 44 C30 60 18 67 11 55 C4 43 18 31 27 40 C36 49 30 62 30 62Z"
           stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
         <path d="M78 62 C78 62 58 62 58 44 C58 26 78 26 78 44 C78 60 66 67 59 55 C52 43 66 31 75 40 C84 49 78 62 78 62Z"
@@ -269,7 +274,11 @@
         <h2 class="mango-split__heading">
           {%- assign words = section.settings.heading | split: ' ' -%}
           {%- for word in words -%}
-            {%- if forloop.last -%}<span>{{ word }}</span>{%- else -%}{{ word }} {%- endif -%}
+            {%- if forloop.last -%}
+              <span>{{ word }}</span>
+            {%- else -%}
+              {{ word }}
+            {%- endif -%}
           {%- endfor -%}
         </h2>
       {%- endif -%}
@@ -282,7 +291,16 @@
         {%- if section.settings.btn_text != blank -%}
           <a href="{{ section.settings.btn_link }}" class="mango-split__btn">
             {{ section.settings.btn_text }}
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
@@ -316,7 +334,6 @@
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {%- endif -%}
     </div>
-
   </div>
 </section>
 
@@ -325,12 +342,15 @@
     var el = document.getElementById('mango-split-{{ section.id }}');
     if (!el) return;
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries, obs) {
-        if (entries[0].isIntersecting) {
-          el.classList.add('is-visible');
-          obs.disconnect();
-        }
-      }, { threshold: 0.15 }).observe(el);
+      new IntersectionObserver(
+        function (entries, obs) {
+          if (entries[0].isIntersecting) {
+            el.classList.add('is-visible');
+            obs.disconnect();
+          }
+        },
+        { threshold: 0.15 }
+      ).observe(el);
     } else {
       el.classList.add('is-visible');
     }
