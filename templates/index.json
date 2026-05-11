@@ -326,6 +326,7 @@
           "type": "testimonial",
           "settings": {
             "quote": "These mangoes were perfect for making homemade pickles and jam! Their freshness and vibrant flavour turned my kitchen into a fragrant culinary paradise. They always have a place in my heart.",
+            "avatar": "shopify://shop_images/t1.png",
             "name": "Sandeep"
           }
         },
@@ -333,6 +334,7 @@
           "type": "testimonial",
           "settings": {
             "quote": "I have been in NZ for 20 years never have I had a mango that's so delicious they are simply amazing & sweet thanks for bringing them here.",
+            "avatar": "shopify://shop_images/t2.png",
             "name": "Srinivas from Napier"
           }
         },
@@ -340,6 +342,7 @@
           "type": "testimonial",
           "settings": {
             "quote": "These mangoes took me straight back to my childhood days! The packaging preserved their nostalgic sweetness, evoking memories of carefree summers spent enjoying nature's candy. Thank you for bringing back those cherished moments!",
+            "avatar": "shopify://shop_images/t3.png",
             "name": "Tony & Astha"
           }
         }
