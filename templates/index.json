@@ -196,6 +196,71 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "mango_category_showcase_WXJRtt": {
+      "type": "mango-category-showcase",
+      "blocks": {
+        "category_Jm6Lkx": {
+          "type": "category",
+          "settings": {
+            "name": "Alphonso",
+            "link": ""
+          }
+        },
+        "category_p7Kg9J": {
+          "type": "category",
+          "settings": {
+            "name": "Banganapalli",
+            "link": ""
+          }
+        },
+        "category_B3RRHN": {
+          "type": "category",
+          "settings": {
+            "name": "Kesar",
+            "link": ""
+          }
+        },
+        "category_wkM8TR": {
+          "type": "category",
+          "settings": {
+            "name": "Dasheri",
+            "link": ""
+          }
+        },
+        "category_mjVUXY": {
+          "type": "category",
+          "settings": {
+            "name": "Langra",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_Jm6Lkx",
+        "category_p7Kg9J",
+        "category_B3RRHN",
+        "category_wkM8TR",
+        "category_mjVUXY"
+      ],
+      "name": "Mango Category Showcase",
+      "settings": {
+        "background_color": "#ffffff",
+        "image": "shopify://shop_images/mango_2.png",
+        "deco_color": "#CC9944",
+        "tag_text": "Gift Your Employees",
+        "tag_color": "#22c55e",
+        "subtitle": "100% Naturally Ripen",
+        "subtitle_color": "#1a1a1a",
+        "tagline": "Indian farm grown Mango",
+        "tagline_color": "#CC9944",
+        "text": "Buy fresh and healthy organic mangoes.",
+        "text_color": "#555555",
+        "category_link_text": "Category",
+        "category_link": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -204,6 +269,7 @@
     "featured_collection",
     "mango_split_hero",
     "rich_text_BypJVp",
-    "featured_collection_VRrDgJ"
+    "featured_collection_VRrDgJ",
+    "mango_category_showcase_WXJRtt"
   ]
 }
