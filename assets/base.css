@@ -9,12 +9,6 @@
 }
 
 
-.banner__heading.inline-richtext strong {
-  font-family: var(--font-heading-family);
-  font-weight: inherit;
-}
-
-
 
 .product-card-wrapper .card,
 .contains-card--product {
