@@ -1,0 +1,302 @@
+<style>
+  .mango-testimonials {
+    background: {{ section.settings.background_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+
+  .mango-testimonials__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 50px);
+  }
+
+  /* ── Heading row ── */
+  .mango-testimonials__heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 3rem;
+  }
+
+  .mango-testimonials__title {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 900;
+    color: {{ section.settings.title_color }};
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .mango-testimonials__deco {
+    width: clamp(60px, 8vw, 100px);
+    flex-shrink: 0;
+  }
+
+  /* ── Cards grid ── */
+  .mango-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+
+  .mango-testimonials__card {
+    background: {{ section.settings.card_bg }};
+    border-radius: 18px;
+    padding: 2.4rem 2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
+  }
+
+  .mango-testimonials__quote {
+    font-size: clamp(1.3rem, 1.1vw, 1.5rem);
+    color: {{ section.settings.text_color }};
+    line-height: 1.75;
+    text-align: center;
+    margin: 0 0 1.8rem;
+    flex: 1;
+  }
+
+  /* ── Author row ── */
+  .mango-testimonials__author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mango-testimonials__avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #ddd;
+  }
+
+  .mango-testimonials__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mango-testimonials__name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: {{ section.settings.name_color }};
+    margin: 0;
+  }
+
+  /* ── Mobile ── */
+  @media screen and (max-width: 749px) {
+    .mango-testimonials__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .mango-testimonials__card {
+      min-height: 0;
+      padding: 2rem 1.6rem 1.4rem;
+    }
+
+    .mango-testimonials__heading-row {
+      margin-bottom: 2rem;
+    }
+  }
+</style>
+
+<section class="mango-testimonials">
+  <div class="mango-testimonials__inner">
+
+    <!-- Heading with decorative swirls -->
+    <div class="mango-testimonials__heading-row">
+      <svg class="mango-testimonials__deco" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Wavy line -->
+        <path d="M2 15 C8 6 14 6 20 15 C26 24 32 24 38 15 C44 6 50 6 56 15"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <!-- Spiral 1 -->
+        <path d="M72 22 C72 22 62 22 62 14 C62 6 72 6 72 14 C72 21 67 23 63 18 C59 13 65 8 70 12"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <!-- Spiral 2 -->
+        <path d="M92 22 C92 22 82 22 82 14 C82 6 92 6 92 14 C92 21 87 23 83 18 C79 13 85 8 90 12"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <!-- Connect -->
+        <path d="M56 15 C60 15 60 14 62 14"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </svg>
+
+      <h2 class="mango-testimonials__title">{{ section.settings.title }}</h2>
+
+      <svg class="mango-testimonials__deco" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform: scaleX(-1);">
+        <path d="M2 15 C8 6 14 6 20 15 C26 24 32 24 38 15 C44 6 50 6 56 15"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M72 22 C72 22 62 22 62 14 C62 6 72 6 72 14 C72 21 67 23 63 18 C59 13 65 8 70 12"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M92 22 C92 22 82 22 82 14 C82 6 92 6 92 14 C92 21 87 23 83 18 C79 13 85 8 90 12"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M56 15 C60 15 60 14 62 14"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Cards -->
+    {%- if section.blocks.size > 0 -%}
+      <div class="mango-testimonials__grid">
+        {%- for block in section.blocks -%}
+          <div class="mango-testimonials__card" {{ block.shopify_attributes }}>
+            {%- if block.settings.quote != blank -%}
+              <p class="mango-testimonials__quote">{{ block.settings.quote }}</p>
+            {%- endif -%}
+
+            <div class="mango-testimonials__author">
+              <div class="mango-testimonials__avatar">
+                {%- if block.settings.avatar != blank -%}
+                  {{
+                    block.settings.avatar
+                    | image_url: width: 120
+                    | image_tag: loading: 'lazy', alt: block.settings.name
+                  }}
+                {%- else -%}
+                  {{ 'customer' | placeholder_svg_tag }}
+                {%- endif -%}
+              </div>
+              {%- if block.settings.name != blank -%}
+                <p class="mango-testimonials__name">{{ block.settings.name }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Testimonial"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "deco_color",
+      "label": "Decorative swirl color",
+      "default": "#CC9944"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#f2f2f2"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Quote text color",
+      "default": "#444444"
+    },
+    {
+      "type": "color",
+      "id": "name_color",
+      "label": "Name color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review text",
+          "default": "These mangoes were absolutely delicious! Fresh, sweet, and delivered perfectly."
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Reviewer photo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Reviewer name",
+          "default": "Happy Customer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "settings": {
+        "title": "Testimonial"
+      },
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "These mangoes were perfect for making homemade pickles and jam! Their freshness and vibrant flavour turned my kitchen into a fragrant culinary paradise. They always have a place in my heart.",
+            "name": "Sandeep"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I have been in NZ for 20 years never have I had a mango that's so delicious they are simply amazing & sweet thanks for bringing them here.",
+            "name": "Srinivas from Napier"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "These mangoes took me straight back to my childhood days! The packaging preserved their nostalgic sweetness, evoking memories of carefree summers spent enjoying nature's candy. Thank you for bringing back those cherished moments!",
+            "name": "Tony & Astha"
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 9
+}
+{% endschema %}

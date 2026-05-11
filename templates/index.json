@@ -197,6 +197,45 @@
         "padding_bottom": 36
       }
     },
+    "mango_testimonials": {
+      "type": "mango-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "These mangoes were perfect for making homemade pickles and jam! Their freshness and vibrant flavour turned my kitchen into a fragrant culinary paradise. They always have a place in my heart.",
+            "name": "Sandeep"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I have been in NZ for 20 years never have I had a mango that's so delicious they are simply amazing & sweet thanks for bringing them here.",
+            "name": "Srinivas from Napier"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "These mangoes took me straight back to my childhood days! The packaging preserved their nostalgic sweetness, evoking memories of carefree summers spent enjoying nature's candy. Thank you for bringing back those cherished moments!",
+            "name": "Tony & Astha"
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
+      "name": "Testimonials",
+      "settings": {
+        "title": "Testimonial",
+        "title_color": "#1a1a1a",
+        "deco_color": "#CC9944",
+        "background_color": "#ffffff",
+        "card_bg": "#f2f2f2",
+        "text_color": "#444444",
+        "name_color": "#1a1a1a",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "mango_category_showcase_WXJRtt": {
       "type": "mango-category-showcase",
       "blocks": {
@@ -271,7 +310,7 @@
         "text": "Buy fresh and healthy organic mangoes.",
         "text_color": "#555555",
         "category_link_text": "Category",
-        "category_link": "shopify://collections",
+        "category_link": "",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -284,6 +323,7 @@
     "mango_split_hero",
     "rich_text_BypJVp",
     "featured_collection_VRrDgJ",
+    "mango_testimonials",
     "mango_category_showcase_WXJRtt"
   ]
 }
