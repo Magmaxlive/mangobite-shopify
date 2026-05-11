@@ -347,8 +347,7 @@
       "custom_css": [
         ".banner__box {background-color: transparent;}",
         ".banner__heading,.banner__text {color: white;}",
-        ".banner__text {padding-top: 15px;}",
-        ".banner__heading{font-family: var(--font-heading-family)}"
+        ".banner__text {padding-top: 15px;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
