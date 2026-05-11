@@ -1,0 +1,468 @@
+<style>
+  .mango-showcase {
+    background: {{ section.settings.background_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    overflow: hidden;
+  }
+
+  .mango-showcase__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 80px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(30px, 5vw, 60px);
+  }
+
+  /* ── Image column ── */
+  .mango-showcase__image-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mango-showcase__image-col img {
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.10));
+  }
+
+  .mango-showcase__deco {
+    display: block;
+    width: clamp(200px, 45%, 360px);
+    margin-top: 1.4rem;
+    margin-left: 1rem;
+  }
+
+  /* ── Content column ── */
+  .mango-showcase__tag {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(2rem, 2.6vw, 3.2rem);
+    font-weight: 900;
+    color: {{ section.settings.tag_color }};
+    margin: 0 0 0.3rem;
+    line-height: 1.15;
+  }
+
+  .mango-showcase__subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(1.8rem, 2.2vw, 2.8rem);
+    font-weight: 900;
+    color: {{ section.settings.subtitle_color }};
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+
+  .mango-showcase__tagline {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(2rem, 2.6vw, 3.2rem);
+    font-weight: 700;
+    color: {{ section.settings.tagline_color }};
+    margin: 0 0 1.2rem;
+    line-height: 1.2;
+  }
+
+  .mango-showcase__text {
+    font-size: clamp(1.3rem, 1.1vw, 1.5rem);
+    color: {{ section.settings.text_color }};
+    line-height: 1.7;
+    margin: 0 0 1rem;
+    max-width: 440px;
+  }
+
+  .mango-showcase__category-link {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: {{ section.settings.subtitle_color }};
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+    margin-bottom: 2.4rem;
+    transition: color 0.2s;
+  }
+
+  .mango-showcase__category-link:hover {
+    color: {{ section.settings.tag_color }};
+  }
+
+  /* ── Category circles ── */
+  .mango-showcase__circles-wrap {
+    position: relative;
+  }
+
+  .mango-showcase__circles {
+    display: flex;
+    gap: clamp(1.2rem, 2vw, 2.4rem);
+    overflow: hidden;
+  }
+
+  .mango-showcase__circle-item {
+    flex-shrink: 0;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .mango-showcase__circle-img {
+    width: clamp(80px, 9vw, 120px);
+    height: clamp(80px, 9vw, 120px);
+    border-radius: 50%;
+    border: 2.5px solid {{ section.settings.tag_color }};
+    overflow: hidden;
+    margin: 0 auto 0.7rem;
+    transition: border-color 0.2s, transform 0.2s;
+    background: #f8f8f8;
+  }
+
+  .mango-showcase__circle-item:hover .mango-showcase__circle-img {
+    border-color: {{ section.settings.tagline_color }};
+    transform: scale(1.06);
+  }
+
+  .mango-showcase__circle-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mango-showcase__circle-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: {{ section.settings.subtitle_color }};
+  }
+
+  /* Dots */
+  .mango-showcase__dots {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1.4rem;
+  }
+
+  .mango-showcase__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .mango-showcase__dot--active {
+    background: {{ section.settings.subtitle_color }};
+    transform: scale(1.3);
+  }
+
+  /* ── Mobile ── */
+  @media screen and (max-width: 749px) {
+    .mango-showcase__inner {
+      grid-template-columns: 1fr;
+    }
+    .mango-showcase__image-col {
+      align-items: center;
+      order: -1;
+    }
+    .mango-showcase__image-col img {
+      max-width: 80vw;
+    }
+    .mango-showcase__deco {
+      margin-left: 0;
+    }
+    .mango-showcase__circle-img {
+      width: clamp(70px, 20vw, 100px);
+      height: clamp(70px, 20vw, 100px);
+    }
+  }
+</style>
+
+<section class="mango-showcase" id="mango-showcase-{{ section.id }}">
+  <div class="mango-showcase__inner">
+
+    <!-- Image + deco -->
+    <div class="mango-showcase__image-col">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1000
+          | image_tag: loading: 'lazy', alt: section.settings.tag_text
+        }}
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+
+      <!-- Decorative wavy-spiral SVG -->
+      <svg class="mango-showcase__deco" viewBox="0 0 420 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Wavy line left -->
+        <path d="M2 35 C14 18 26 18 38 35 C50 52 62 52 74 35 C86 18 98 18 110 35 C122 52 134 52 146 35 C158 18 170 18 182 35"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <!-- Spiral 1 -->
+        <path d="M210 50 C210 50 192 50 192 34 C192 18 210 18 210 34 C210 48 200 54 193 43 C186 32 198 22 207 30"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <!-- Spiral 2 -->
+        <path d="M258 50 C258 50 240 50 240 34 C240 18 258 18 258 34 C258 48 248 54 241 43 C234 32 246 22 255 30"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <!-- Spiral 3 -->
+        <path d="M306 50 C306 50 288 50 288 34 C288 18 306 18 306 34 C306 48 296 54 289 43 C282 32 294 22 303 30"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <!-- Spiral 4 -->
+        <path d="M354 50 C354 50 336 50 336 34 C336 18 354 18 354 34 C354 48 344 54 337 43 C330 32 342 22 351 30"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <!-- Connect wave to spirals -->
+        <path d="M182 35 C194 35 196 34 210 34"
+          stroke="{{ section.settings.deco_color }}" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Content -->
+    <div class="mango-showcase__content">
+      {%- if section.settings.tag_text != blank -%}
+        <p class="mango-showcase__tag">{{ section.settings.tag_text }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.subtitle != blank -%}
+        <p class="mango-showcase__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.tagline != blank -%}
+        <p class="mango-showcase__tagline">{{ section.settings.tagline }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <p class="mango-showcase__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.category_link_text != blank -%}
+        <a href="{{ section.settings.category_link }}" class="mango-showcase__category-link">
+          {{ section.settings.category_link_text }}
+        </a>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="mango-showcase__circles-wrap">
+          <div class="mango-showcase__circles" id="showcase-circles-{{ section.id }}">
+            {%- for block in section.blocks -%}
+              <a
+                class="mango-showcase__circle-item"
+                href="{{ block.settings.link }}"
+                {{ block.shopify_attributes }}
+              >
+                <div class="mango-showcase__circle-img">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 240
+                      | image_tag: loading: 'lazy', alt: block.settings.name
+                    }}
+                  {%- else -%}
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  {%- endif -%}
+                </div>
+                {%- if block.settings.name != blank -%}
+                  <span class="mango-showcase__circle-name">{{ block.settings.name }}</span>
+                {%- endif -%}
+              </a>
+            {%- endfor -%}
+          </div>
+
+          {%- if section.blocks.size > 3 -%}
+            <div class="mango-showcase__dots" id="showcase-dots-{{ section.id }}">
+              {%- assign dot_pages = section.blocks.size | minus: 3 | plus: 1 -%}
+              {%- for i in (1..dot_pages) -%}
+                <button
+                  class="mango-showcase__dot{% if forloop.first %} mango-showcase__dot--active{% endif %}"
+                  aria-label="Page {{ forloop.index }}"
+                ></button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    var wrap   = document.getElementById('showcase-circles-{{ section.id }}');
+    var dotsEl = document.getElementById('showcase-dots-{{ section.id }}');
+    if (!wrap || !dotsEl) return;
+
+    var dots    = dotsEl.querySelectorAll('.mango-showcase__dot');
+    var items   = wrap.querySelectorAll('.mango-showcase__circle-item');
+    var visible = 3;
+    var current = 0;
+
+    function goTo(page) {
+      current = page;
+      var itemWidth = items[0].offsetWidth;
+      var gap = parseFloat(getComputedStyle(wrap).gap) || 24;
+      wrap.style.transform = 'translateX(-' + (page * (itemWidth + gap)) + 'px)';
+      wrap.style.transition = 'transform 0.4s ease';
+      dots.forEach(function (d, i) {
+        d.classList.toggle('mango-showcase__dot--active', i === page);
+      });
+    }
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { goTo(i); });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Mango Category Showcase",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main mango image"
+    },
+    {
+      "type": "color",
+      "id": "deco_color",
+      "label": "Decorative swirl color",
+      "default": "#CC9944"
+    },
+    {
+      "type": "text",
+      "id": "tag_text",
+      "label": "Top heading (green)",
+      "default": "Gift Your Employees"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Top heading color",
+      "default": "#22c55e"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle (dark bold)",
+      "default": "100% Naturally Ripen"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline (golden)",
+      "default": "Indian farm grown Mango"
+    },
+    {
+      "type": "color",
+      "id": "tagline_color",
+      "label": "Tagline color",
+      "default": "#CC9944"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Body text",
+      "default": "Buy fresh and healthy organic mangoes."
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#555555"
+    },
+    {
+      "type": "text",
+      "id": "category_link_text",
+      "label": "Category link text",
+      "default": "Category"
+    },
+    {
+      "type": "url",
+      "id": "category_link",
+      "label": "Category link URL"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category circle",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Category name",
+          "default": "Alphonso"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mango Category Showcase",
+      "settings": {
+        "tag_text": "Gift Your Employees",
+        "subtitle": "100% Naturally Ripen",
+        "tagline": "Indian farm grown Mango",
+        "text": "Buy fresh and healthy organic mangoes.",
+        "category_link_text": "Category"
+      },
+      "blocks": [
+        { "type": "category", "settings": { "name": "Alphonso" } },
+        { "type": "category", "settings": { "name": "Banganapalli" } },
+        { "type": "category", "settings": { "name": "Kesar" } },
+        { "type": "category", "settings": { "name": "Dasheri" } },
+        { "type": "category", "settings": { "name": "Langra" } }
+      ]
+    }
+  ],
+  "max_blocks": 10
+}
+{% endschema %}
