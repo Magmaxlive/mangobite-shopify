@@ -313,13 +313,50 @@
       "settings": {
         "title": "Testimonials",
         "title_color": "#1a1a1a",
-        "deco_color": "#CC9944",
+        "deco_color": "#cc9944",
         "background_color": "#ffffff",
         "card_bg": "#f2f2f2",
         "text_color": "#444444",
         "name_color": "#1a1a1a",
         "padding_top": 24,
         "padding_bottom": 60
+      }
+    },
+    "image_banner_J9zq6q": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_k7DNY4": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Look</strong> <strong>no</strong> <strong>further!</strong> <strong>Here's</strong> <strong>your</strong> <strong>guide</strong> <strong>to</strong> <strong>locating</strong> <strong>the</strong> <strong>best</strong> <strong>mangoes</strong> <strong>near</strong> <strong>you</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_qC43fY": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_k7DNY4",
+        "text_qC43fY"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/newsletter_bg.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
       }
     }
   },
@@ -331,6 +368,7 @@
     "rich_text_BypJVp",
     "featured_collection_VRrDgJ",
     "mango_category_showcase_WXJRtt",
-    "mango_testimonials_8zCbdL"
+    "mango_testimonials_8zCbdL",
+    "image_banner_J9zq6q"
   ]
 }
