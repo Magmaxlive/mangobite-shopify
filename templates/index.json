@@ -203,6 +203,7 @@
         "category_Jm6Lkx": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/alphonso.png",
             "name": "Alphonso",
             "link": ""
           }
@@ -210,6 +211,7 @@
         "category_p7Kg9J": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/baganapalli.jpg",
             "name": "Banganapalli",
             "link": ""
           }
@@ -217,6 +219,7 @@
         "category_B3RRHN": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/kesar.png",
             "name": "Kesar",
             "link": ""
           }
@@ -224,14 +227,24 @@
         "category_wkM8TR": {
           "type": "category",
           "settings": {
-            "name": "Dasheri",
+            "image": "shopify://shop_images/langda.png",
+            "name": "Langda",
             "link": ""
           }
         },
         "category_mjVUXY": {
           "type": "category",
           "settings": {
-            "name": "Langra",
+            "image": "shopify://shop_images/Neelam.png",
+            "name": "Neelam",
+            "link": ""
+          }
+        },
+        "category_YrHLta": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/rajapuri.png",
+            "name": "Rajapuri",
             "link": ""
           }
         }
@@ -241,7 +254,8 @@
         "category_p7Kg9J",
         "category_B3RRHN",
         "category_wkM8TR",
-        "category_mjVUXY"
+        "category_mjVUXY",
+        "category_YrHLta"
       ],
       "name": "Mango Category Showcase",
       "settings": {
