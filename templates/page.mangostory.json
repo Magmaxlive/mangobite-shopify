@@ -19,9 +19,7 @@
     },
     "mango_story_banner": {
       "type": "mango-story-banner",
-      "custom_css": [
-        ".mango-story-banner__heading {max-width: 56rem; font-weight: bolder; font-size: 7.5rem;}"
-      ],
+      "custom_css": [],
       "settings": {
         "subtitle": "MY MANGO STORY",
         "heading": "Grab Your Snack Time Essential  \n- Mango Bite !",
