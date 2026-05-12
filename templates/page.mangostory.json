@@ -19,9 +19,12 @@
     },
     "mango_story_banner": {
       "type": "mango-story-banner",
+      "custom_css": [
+        ".mango-story-banner__heading {max-width: 56rem; font-weight: bolder; font-size: 7.5rem;}"
+      ],
       "settings": {
         "subtitle": "MY MANGO STORY",
-        "heading": "Grab Your Snack Time Essential",
+        "heading": "Grab Your Snack Time Essential  \n- Mango Bite !",
         "left_leaf": "shopify://shop_images/home-leaf-right.png",
         "right_leaf": "shopify://shop_images/home-leaf-right_-_Copy.png",
         "bg_color": "#000000",
