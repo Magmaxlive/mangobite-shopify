@@ -20,7 +20,7 @@
     "mango_story_banner": {
       "type": "mango-story-banner",
       "custom_css": [
-        ".mango-story-banner__heading { max-width: 56rem; font-weight: bolder; font-size: 7.5rem; }"
+        ".mango-story-banner__heading {max-width: 56rem; font-weight: bolder; font-size: 7.5rem;}"
       ],
       "settings": {
         "subtitle": "MY MANGO STORY",
@@ -37,7 +37,7 @@
     "mango_story_image": {
       "type": "mango-story-image",
       "settings": {
-        "image": "shopify://shop_images/image-mang.png",
+        "image": "shopify://shop_images/Screenshot_2026-05-12_152939_462f6548-96e8-4a44-84ff-d4295a0d6923.png",
         "image_max_width": 460,
         "bg_color": "#000000",
         "padding_top": 40,
