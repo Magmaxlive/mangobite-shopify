@@ -19,9 +19,7 @@
     },
     "mango_story_banner": {
       "type": "mango-story-banner",
-      "custom_css": [
-        ".mango-story-banner__heading { max-width: 56rem; font-weight: bolder; font-size: 7.5rem; }"
-      ],
+      "custom_css": [],
       "settings": {
         "subtitle": "MY MANGO STORY",
         "heading": "Grab Your Snack Time Essential  \n- Mango Bite !",
@@ -29,25 +27,12 @@
         "right_leaf": "shopify://shop_images/home-leaf-right_-_Copy.png",
         "bg_color": "#000000",
         "heading_color": "#cccccc",
-        "subtitle_color": "#888888",
-        "padding_top": 160,
-        "padding_bottom": 80
-      }
-    },
-    "mango_story_image": {
-      "type": "mango-story-image",
-      "settings": {
-        "image": "shopify://shop_images/image-mang.png",
-        "image_max_width": 460,
-        "bg_color": "#000000",
-        "padding_top": 40,
-        "padding_bottom": 60
+        "subtitle_color": "#888888"
       }
     }
   },
   "order": [
     "main",
-    "mango_story_banner",
-    "mango_story_image"
+    "mango_story_banner"
   ]
 }
