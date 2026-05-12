@@ -364,6 +364,63 @@
         "mobile_content_alignment": "center",
         "show_text_below": true
       }
+    },
+    "multicolumn_jgqip7": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_GxRRmK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon-1.jpg",
+            "title": "<strong>Fresh Mangoes</strong>",
+            "text": "<h5>100% Fresh Mangoes directly<br/>from farms of Mango Bite.</h5>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_L7naVy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon-2.jpg",
+            "title": "<strong>Quick Delivery</strong>",
+            "text": "<h5>Mangoes will be delivered<br/>within 4 days.</h5>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_UGet8T": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/icon-4.jpg",
+            "title": "<strong>Guarantee</strong>",
+            "text": "<h5>We offer a replacement guarantee<br/>on all our products.</h5>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_GxRRmK",
+        "column_L7naVy",
+        "column_UGet8T"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -375,6 +432,7 @@
     "featured_collection_VRrDgJ",
     "mango_category_showcase_WXJRtt",
     "mango_testimonials_8zCbdL",
-    "image_banner_J9zq6q"
+    "image_banner_J9zq6q",
+    "multicolumn_jgqip7"
   ]
 }
