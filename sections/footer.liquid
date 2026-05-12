@@ -15,7 +15,7 @@
 
 <footer class="footer mango-footer color-{{ section.settings.color_scheme }} gradient"
   {%- if section.settings.wave_image != blank -%}
-    style="background-image: url('{{ section.settings.wave_image | image_url: width: 2000 }}'); background-position: bottom center; background-repeat: no-repeat; background-size: 100% auto;"
+    style="background-image: url('{{ section.settings.wave_image | image_url: width: 2000 }}'); background-position: top center; background-repeat: no-repeat; background-fit: cover; background-size: cover;"
   {%- endif -%}
 >
 
