@@ -3092,6 +3092,13 @@ details-disclosure > details {
   }
 }
 
+.product-grid.grid {
+  --grid-desktop-horizontal-spacing: 3rem;
+  --grid-mobile-horizontal-spacing: 2rem;
+  --grid-desktop-vertical-spacing: 3rem;
+  --grid-mobile-vertical-spacing: 2rem;
+}
+
 .font-body-bold {
   font-weight: var(--font-body-weight-bold);
 }
