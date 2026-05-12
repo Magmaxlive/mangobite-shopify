@@ -66,7 +66,7 @@
         "text_m4LaPM"
       ],
       "custom_css": [
-        ".rich-text__heading h2 {color: #61ce70;}"
+        ".rich-text__heading {color: #22c55e !important;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -75,7 +75,46 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 52
+        "padding_bottom": 16
+      }
+    },
+    "image_with_text_jDdiYN": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_CrjPaF": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_8cR8H6": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>Let me introduce myself; my name is Nirmal, and when I was a kid, mangoes were not just a fruit but a gateway to a world of stories and cherished memories. The sweet and luscious taste of mangoes always reminds me of carefree days, filled with laughter and adventure.<br/><br/></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CrjPaF",
+        "text_8cR8H6"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/mangoboy.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
@@ -83,6 +122,7 @@
     "main",
     "mango_story_banner",
     "mango_story_image",
-    "rich_text_dDePYR"
+    "rich_text_dDePYR",
+    "image_with_text_jDdiYN"
   ]
 }
