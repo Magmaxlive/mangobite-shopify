@@ -1,6 +1,6 @@
 {{ 'section-mango-story-banner.css' | asset_url | stylesheet_tag }}
 
-<section class="mango-story-banner" style="background-color: {{ section.settings.bg_color }}; min-height: {{ section.settings.section_height }}px;">
+<section class="mango-story-banner" style="background-color: {{ section.settings.bg_color }};">
 
   {%- if section.settings.left_leaf != blank -%}
     <div class="mango-story-banner__leaf mango-story-banner__leaf--left">
