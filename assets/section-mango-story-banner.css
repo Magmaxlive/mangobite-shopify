@@ -6,9 +6,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   box-sizing: border-box;
-  padding: 4rem 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .mango-story-banner__inner {
@@ -113,8 +113,7 @@
 /* ── Mobile ── */
 @media screen and (max-width: 749px) {
   .mango-story-banner {
-    min-height: 100svh;
-    padding: 90px 1.5rem 4rem;
+    padding: 5rem 1.5rem 3rem;
   }
 
   .mango-story-banner__inner {
