@@ -2,6 +2,175 @@
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
+/* ── Mango custom footer ── */
+.mango-footer {
+  border-top: none;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.mango-footer__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 0 3rem;
+}
+
+.mango-footer__col {
+  flex: 1;
+  padding: 0 3rem;
+}
+
+.mango-footer__col--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mango-footer__logo {
+  max-width: 140px;
+  height: auto;
+}
+
+.mango-footer__shop-name {
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.mango-footer__divider {
+  width: 1px;
+  height: 220px;
+  background: rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.mango-footer__col--nav {
+  text-align: center;
+}
+
+.mango-footer__nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mango-footer__nav li {
+  margin: 0;
+}
+
+.mango-footer__nav-link {
+  display: block;
+  padding: 0.55rem 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.mango-footer__nav-link:hover,
+.mango-footer__nav-link--active {
+  color: #22c55e;
+}
+
+.mango-footer__col--contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mango-footer__social {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mango-footer__copyright {
+  font-size: 1.3rem;
+  color: #555555;
+  line-height: 1.7;
+}
+
+.mango-footer__copyright p {
+  margin: 0;
+}
+
+.mango-footer__phone {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-top: 0.5rem;
+}
+
+.mango-footer__wave {
+  position: relative;
+  line-height: 0;
+  margin-top: 1rem;
+}
+
+.mango-footer__wave-img {
+  width: 100%;
+  display: block;
+}
+
+.mango-footer__leaf {
+  position: absolute;
+  top: -50px;
+  z-index: 1;
+  max-width: 220px;
+}
+
+.mango-footer__leaf--left { left: 0; }
+.mango-footer__leaf--right { right: 0; }
+
+.mango-footer__leaf img {
+  width: 100%;
+  height: auto;
+}
+
+.mango-footer__payment {
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 749px) {
+  .mango-footer__content {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    gap: 2.5rem;
+  }
+
+  .mango-footer__col {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mango-footer__col--contact {
+    align-items: center;
+  }
+
+  .mango-footer__divider {
+    width: 60%;
+    height: 1px;
+  }
+
+  .mango-footer__leaf {
+    max-width: 130px;
+    top: -20px;
+  }
+}
+
 .footer:not(.color-scheme-1) {
   border-top: none;
 }
