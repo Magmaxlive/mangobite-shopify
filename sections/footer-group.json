@@ -28,7 +28,8 @@
       "settings": {
         "color_scheme": "scheme-1",
         "phone": "02772-24561",
-        "payment_enable": false,
+        "wave_image": "shopify://shop_images/footer_w.png",
+        "payment_enable": true,
         "margin_top": 0
       }
     }
