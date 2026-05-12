@@ -51,7 +51,7 @@
           "type": "heading",
           "settings": {
             "heading": "My Mango Story",
-            "heading_size": "h1"
+            "heading_size": "h0"
           }
         },
         "text_m4LaPM": {
@@ -64,6 +64,9 @@
       "block_order": [
         "heading_hjJxDb",
         "text_m4LaPM"
+      ],
+      "custom_css": [
+        ".rich-text__heading h2 {color: #61ce70;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
