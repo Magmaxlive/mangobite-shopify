@@ -43,11 +43,43 @@
         "padding_top": 40,
         "padding_bottom": 60
       }
+    },
+    "rich_text_dDePYR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_hjJxDb": {
+          "type": "heading",
+          "settings": {
+            "heading": "My Mango Story",
+            "heading_size": "h1"
+          }
+        },
+        "text_m4LaPM": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_hjJxDb",
+        "text_m4LaPM"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
     "mango_story_banner",
-    "mango_story_image"
+    "mango_story_image",
+    "rich_text_dDePYR"
   ]
 }
