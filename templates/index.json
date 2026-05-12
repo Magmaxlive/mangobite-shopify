@@ -29,7 +29,7 @@
           "type": "slide",
           "settings": {
             "title": "Alphonso",
-            "image": "shopify://shop_images/Alphonso-mango-1_440bfd7e-53cb-4b5f-b422-d4ca2b9499b3.png",
+            "image": "shopify://shop_images/Alphonso-mango-1.png",
             "background_type": "split",
             "bg_top": "#1e1e1e",
             "bg_bottom": "#22a355",
@@ -125,7 +125,6 @@
         "heading_color": "#22c55e",
         "text": "Your ultimate destination for premium New Zealand mangoes available online! Explore our diverse range of fresh mangoes, including popular varieties like Banganapalli (Benishan), Alphonso (King of Mangoes), Kesar, Dasheri, Langra, Chaunsa, Rajapuri, Totapuri, and more. With convenient mango delivery straight to your doorstep, you can enjoy the delicious taste and health benefits of mangoes from the comfort of your home.",
         "text_color": "#444444",
-        "image": "shopify://shop_images/Adobe_Express_-_file.png",
         "btn_text": "Shop Now",
         "btn_link": "/collections/all",
         "btn_bg": "#1e1e1e",
@@ -203,7 +202,6 @@
         "category_Jm6Lkx": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/alphonso.png",
             "name": "Alphonso",
             "link": ""
           }
@@ -211,7 +209,6 @@
         "category_p7Kg9J": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/baganapalli.jpg",
             "name": "Banganapalli",
             "link": ""
           }
@@ -219,7 +216,6 @@
         "category_B3RRHN": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/kesar.png",
             "name": "Kesar",
             "link": ""
           }
@@ -227,7 +223,6 @@
         "category_wkM8TR": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/langda.png",
             "name": "Langda",
             "link": ""
           }
@@ -235,7 +230,6 @@
         "category_mjVUXY": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Neelam.png",
             "name": "Neelam",
             "link": ""
           }
@@ -243,7 +237,6 @@
         "category_YrHLta": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/rajapuri.png",
             "name": "Rajapuri",
             "link": ""
           }
@@ -260,7 +253,6 @@
       "name": "Mango Category Showcase",
       "settings": {
         "background_color": "#ffffff",
-        "image": "shopify://shop_images/mango_2.png",
         "deco_color": "#cc9944",
         "tag_text": "Gift Your Employees",
         "tag_color": "#22c55e",
@@ -283,7 +275,6 @@
           "type": "testimonial",
           "settings": {
             "quote": "These mangoes were perfect for making homemade pickles and jam! Their freshness and vibrant flavour turned my kitchen into a fragrant culinary paradise. They always have a place in my heart.",
-            "avatar": "shopify://shop_images/t1.png",
             "name": "Sandeep"
           }
         },
@@ -291,7 +282,6 @@
           "type": "testimonial",
           "settings": {
             "quote": "I have been in NZ for 20 years never have I had a mango that's so delicious they are simply amazing & sweet thanks for bringing them here.",
-            "avatar": "shopify://shop_images/t2.png",
             "name": "Srinivas from Napier"
           }
         },
@@ -299,7 +289,6 @@
           "type": "testimonial",
           "settings": {
             "quote": "These mangoes took me straight back to my childhood days! The packaging preserved their nostalgic sweetness, evoking memories of carefree summers spent enjoying nature's candy. Thank you for bringing back those cherished moments!",
-            "avatar": "shopify://shop_images/t3.png",
             "name": "Tony & Astha"
           }
         }
@@ -348,11 +337,10 @@
         ".banner__box {background-color: transparent;}",
         ".banner__heading,.banner__text {color: white;}",
         ".banner__text {padding-top: 15px;}",
-        ".banner__heading{font-family: 'Nunito', sans-serif !important;}"
+        ".banner__heading {font-family: \"Nunito\", sans-serif !important;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/newsletter_bg.jpg",
         "image_overlay_opacity": 40,
         "image_height": "medium",
         "image_behavior": "none",
