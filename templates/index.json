@@ -404,6 +404,9 @@
         "column_L7naVy",
         "column_UGet8T"
       ],
+      "custom_css": [
+        ".multicolumn{padding-left: 15px; padding-right: 15px;}"
+      ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
