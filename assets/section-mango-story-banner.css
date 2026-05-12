@@ -2,10 +2,15 @@
   position: relative;
   background-color: #000000;
   overflow: hidden;
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (min-width: 750px) {
+  .mango-story-banner {
+    min-height: 100vh;
+  }
 }
 
 .mango-story-banner__inner {
