@@ -3,14 +3,12 @@
   background-color: #000000;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-@media screen and (min-width: 750px) {
-  .mango-story-banner {
-    min-height: 100vh;
-  }
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 4rem 2rem;
 }
 
 .mango-story-banner__inner {
@@ -18,6 +16,9 @@
   z-index: 2;
   text-align: center;
   width: 100%;
+  max-width: 80rem;
+  padding: 0 2rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,12 +38,13 @@
   font-weight: 900;
   line-height: 1.1;
   margin: 0;
-  max-width: 900px;
+  text-align: center;
 }
 
 .mango-story-banner__image {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .mango-story-banner__image img {
@@ -75,20 +77,66 @@
   display: block;
 }
 
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mango-story-banner__subtitle {
+  animation: fadeSlideUp 0.7s ease forwards;
+}
+
+.mango-story-banner__heading {
+  animation: fadeSlideUp 0.7s ease 0.2s both;
+}
+
+.mango-story-banner__image {
+  animation: fadeSlideUp 0.7s ease 0.4s both;
+}
+
+.mango-story-banner__image img {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ── Mobile ── */
 @media screen and (max-width: 749px) {
   .mango-story-banner {
-    min-height: 500px;
+    min-height: 100svh;
+    padding: 90px 1.5rem 4rem;
+  }
+
+  .mango-story-banner__inner {
+    gap: 1.4rem;
+    padding: 0;
+  }
+
+  .mango-story-banner__subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
   }
 
   .mango-story-banner__heading {
-    font-size: 3.5rem;
+    font-size: 2.6rem !important;
+    line-height: 1.25;
   }
 
   .mango-story-banner__leaf {
-    max-width: 150px;
+    max-width: 100px;
   }
 
   .mango-story-banner__image img {
-    max-width: 280px;
+    max-width: 220px;
   }
 }
