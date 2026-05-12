@@ -232,9 +232,9 @@
   }
 }
 
-.multicolumn {
+/* .multicolumn {
   background: #f2f4f5;
-}
+} */
 
 .multicolumn-list.grid {
   --grid-desktop-horizontal-spacing: 3rem;
