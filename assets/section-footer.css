@@ -6,6 +6,7 @@
 .mango-footer {
   border-top: none;
   background: #ffffff;
+  position: relative;
   overflow: hidden;
 }
 
@@ -13,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5rem 0 3rem;
+  padding: 5rem 0 18rem;
 }
 
 .mango-footer__col {
@@ -111,22 +112,12 @@
   margin-top: 0.5rem;
 }
 
-.mango-footer__wave {
-  position: relative;
-  line-height: 0;
-  margin-top: 1rem;
-}
-
-.mango-footer__wave-img {
-  width: 100%;
-  display: block;
-}
-
 .mango-footer__leaf {
   position: absolute;
-  top: -50px;
+  bottom: 0;
   z-index: 1;
   max-width: 220px;
+  pointer-events: none;
 }
 
 .mango-footer__leaf--left { left: 0; }
@@ -135,6 +126,7 @@
 .mango-footer__leaf img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .mango-footer__payment {

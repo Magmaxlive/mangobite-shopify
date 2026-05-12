@@ -13,7 +13,11 @@
   }
 {%- endstyle -%}
 
-<footer class="footer mango-footer color-{{ section.settings.color_scheme }} gradient">
+<footer class="footer mango-footer color-{{ section.settings.color_scheme }} gradient"
+  {%- if section.settings.wave_image != blank -%}
+    style="background-image: url('{{ section.settings.wave_image | image_url: width: 2000 }}'); background-position: bottom center; background-repeat: no-repeat; background-size: 100% auto;"
+  {%- endif -%}
+>
 
   <div class="mango-footer__content page-width">
 
@@ -72,34 +76,25 @@
 
   </div>
 
-  <!-- Wave + Leaf decorations -->
-  <div class="mango-footer__wave">
-    {%- if section.settings.left_leaf != blank -%}
-      <div class="mango-footer__leaf mango-footer__leaf--left">
-        {{
-          section.settings.left_leaf
-          | image_url: width: 400
-          | image_tag: loading: 'lazy', alt: ''
-        }}
-      </div>
-    {%- endif -%}
-    {%- if section.settings.wave_image != blank -%}
+  <!-- Leaf decorations -->
+  {%- if section.settings.left_leaf != blank -%}
+    <div class="mango-footer__leaf mango-footer__leaf--left">
       {{
-        section.settings.wave_image
-        | image_url: width: 2000
-        | image_tag: loading: 'lazy', class: 'mango-footer__wave-img', alt: ''
+        section.settings.left_leaf
+        | image_url: width: 400
+        | image_tag: loading: 'lazy', alt: ''
       }}
-    {%- endif -%}
-    {%- if section.settings.right_leaf != blank -%}
-      <div class="mango-footer__leaf mango-footer__leaf--right">
-        {{
-          section.settings.right_leaf
-          | image_url: width: 400
-          | image_tag: loading: 'lazy', alt: ''
-        }}
-      </div>
-    {%- endif -%}
-  </div>
+    </div>
+  {%- endif -%}
+  {%- if section.settings.right_leaf != blank -%}
+    <div class="mango-footer__leaf mango-footer__leaf--right">
+      {{
+        section.settings.right_leaf
+        | image_url: width: 400
+        | image_tag: loading: 'lazy', alt: ''
+      }}
+    </div>
+  {%- endif -%}
 
   {%- if section.settings.payment_enable -%}
     <div class="mango-footer__payment page-width">
