@@ -103,7 +103,7 @@
         "benefit_J9KRQR"
       ],
       "custom_css": [
-        ".mango-benefits__desc{font-weight: 500;}"
+        ".mango-benefits__desc {font-weight: 500; padding-top:15px;}"
       ],
       "name": "Mango Benefits",
       "settings": {
