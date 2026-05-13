@@ -102,6 +102,9 @@
         "benefit_WU9hxk",
         "benefit_J9KRQR"
       ],
+      "custom_css": [
+        ".mango-benefits__desc{font-weight: 500;}"
+      ],
       "name": "Mango Benefits",
       "settings": {
         "image": "shopify://shop_images/mango-tree.png",
