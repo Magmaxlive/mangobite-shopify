@@ -1,0 +1,152 @@
+/* ── Mobile default: stacked cards ── */
+.mango-benefits__arch-wrap {
+  display: none;
+}
+
+.mango-benefits__mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mango-benefits__mobile-card {
+  border: 1.5px solid #e0e0f0;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+}
+
+.mango-benefits__mobile-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 0.4rem;
+}
+
+.mango-benefits__mobile-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #555;
+  margin: 0;
+}
+
+.mango-benefits__img--mobile {
+  display: block;
+  max-width: 280px;
+  height: auto;
+  margin: 2rem auto 0;
+}
+
+/* ── Desktop: arch layout ── */
+@media screen and (min-width: 750px) {
+  .mango-benefits__mobile {
+    display: none;
+  }
+
+  .mango-benefits__arch-wrap {
+    display: block;
+    position: relative;
+    width: 100%;
+    /* height set by JS */
+  }
+
+  .mango-benefits__arch-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  /* ── Bubbles ── */
+  .mango-benefits__bubble {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    border: 1.5px solid #c8c8e0;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.55rem;
+    line-height: 1.35;
+    transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.22s, box-shadow 0.22s;
+    z-index: 1;
+  }
+
+  .mango-benefits__bubble.is-active {
+    background: var(--bubble-active, #4caf50);
+    color: #fff;
+    border-color: var(--bubble-active, #4caf50);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .mango-benefits__bubble:hover:not(.is-active) {
+    border-color: #aab;
+    background: #f6f6ff;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  /* ── Description: inside arch between bubbles ── */
+  .mango-benefits__desc-wrap {
+    position: absolute;
+    /* left / width / top set by JS */
+    text-align: center;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 6rem;
+  }
+
+  .mango-benefits__desc {
+    display: none;
+    font-size: 1.45rem;
+    line-height: 1.75;
+    color: var(--desc-color, #2c5f8a);
+    font-style: italic;
+    margin: 0;
+    animation: mbFadeIn 0.3s ease;
+  }
+
+  .mango-benefits__desc.is-active {
+    display: block;
+  }
+
+  @keyframes mbFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Image: below arch endpoints ── */
+  .mango-benefits__img-wrap {
+    position: absolute;
+    transform: translateX(-50%);
+    /* left / top set by JS */
+    text-align: center;
+    z-index: 0;
+  }
+
+  .mango-benefits__img {
+    display: block;
+    max-width: 460px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+/* ── Ornament ── */
+.mango-benefits__ornament {
+  text-align: center;
+  margin-top: 1rem;
+}

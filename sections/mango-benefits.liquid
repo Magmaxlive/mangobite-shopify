@@ -26,22 +26,23 @@
         </button>
       {%- endfor -%}
 
-      <div class="mango-benefits__center">
-        <div class="mango-benefits__desc-wrap">
-          {%- for block in section.blocks -%}
-            <p class="mango-benefits__desc{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}">
-              {{ block.settings.description }}
-            </p>
-          {%- endfor -%}
-        </div>
-        {%- if section.settings.image != blank -%}
+      <div class="mango-benefits__desc-wrap">
+        {%- for block in section.blocks -%}
+          <p class="mango-benefits__desc{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}">
+            {{ block.settings.description }}
+          </p>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.image != blank -%}
+        <div class="mango-benefits__img-wrap">
           {{
             section.settings.image
             | image_url: width: 600
             | image_tag: loading: 'lazy', alt: '', class: 'mango-benefits__img'
           }}
-        {%- endif -%}
-      </div>
+        </div>
+      {%- endif -%}
     </div>
 
     <!-- Mobile stacked layout -->
@@ -82,53 +83,73 @@
   var wrap = document.getElementById('mango-benefits-{{ section.id }}');
   if (!wrap) return;
 
-  var bubbles = Array.from(wrap.querySelectorAll('.mango-benefits__bubble'));
-  var descs   = Array.from(wrap.querySelectorAll('.mango-benefits__desc'));
+  var bubbles  = Array.from(wrap.querySelectorAll('.mango-benefits__bubble'));
+  var descs    = Array.from(wrap.querySelectorAll('.mango-benefits__desc'));
   var archSvg  = wrap.querySelector('.mango-benefits__arch-svg');
   var archPath = wrap.querySelector('.mango-benefits__arch-path');
-  var center   = wrap.querySelector('.mango-benefits__center');
+  var descWrap = wrap.querySelector('.mango-benefits__desc-wrap');
+  var imgWrap  = wrap.querySelector('.mango-benefits__img-wrap');
   var n = bubbles.length;
   if (!n) return;
 
-  function bezier(t, P0, P1, P2) {
-    var m = 1 - t;
-    return {
-      x: m*m*P0.x + 2*m*t*P1.x + t*t*P2.x,
-      y: m*m*P0.y + 2*m*t*P1.y + t*t*P2.y
-    };
-  }
-
   function layout() {
-    var W = wrap.offsetWidth;
-    var H = Math.max(Math.round(W * 0.70), 520);
-    wrap.style.height = H + 'px';
+    var W   = wrap.offsetWidth;
+    var cx  = W / 2;
+    var R   = W * 0.36;
+    var P0y = R + 60; /* 60px top margin so topmost bubble stays visible */
 
-    var pad = W * 0.06;
-    var P0 = { x: pad,       y: H * 0.72 };
-    var P1 = { x: W / 2,     y: H * 0.04 };
-    var P2 = { x: W - pad,   y: H * 0.72 };
-
-    archSvg.setAttribute('width', W);
-    archSvg.setAttribute('height', H);
-    archSvg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    /* draw semicircle arc */
+    archSvg.setAttribute('width',   W);
+    archSvg.setAttribute('height',  P0y + 500);
+    archSvg.setAttribute('viewBox', '0 0 ' + W + ' ' + (P0y + 500));
     archPath.setAttribute('d',
-      'M ' + P0.x + ' ' + P0.y +
-      ' Q ' + P1.x + ' ' + P1.y +
-      ' ' + P2.x + ' ' + P2.y
+      'M ' + (cx - R) + ' ' + P0y +
+      ' A ' + R + ' ' + R + ' 0 0 1 ' + (cx + R) + ' ' + P0y
     );
 
+    /* place bubbles; track lowest inner bubble to avoid text overlap */
+    var innerBottom = 0;
     bubbles.forEach(function(bubble, i) {
-      var t   = n === 1 ? 0.5 : i / (n - 1);
-      var pos = bezier(t, P0, P1, P2);
-      bubble.style.left = pos.x + 'px';
-      bubble.style.top  = pos.y + 'px';
+      var t     = n === 1 ? 0.5 : i / (n - 1);
+      var theta = Math.PI * (1 - t);
+      var bx    = cx + R * Math.cos(theta);
+      var by    = P0y - R * Math.sin(theta);
+      bubble.style.left = bx + 'px';
+      bubble.style.top  = by + 'px';
+      if (t > 0.15 && t < 0.85) {
+        innerBottom = Math.max(innerBottom, by + 56);
+      }
     });
 
-    /* center content: x centered, y roughly middle of arch interior */
-    var cw = Math.min(W * 0.38, 460);
-    center.style.width  = cw + 'px';
-    center.style.left   = ((W - cw) / 2) + 'px';
-    center.style.top    = (H * 0.36) + 'px';
+    /* description: just below the lowest inner bubble, inside the arch */
+    var descTop = Math.max(innerBottom + 8, P0y * 0.50);
+    var dw = Math.min(W * 0.42, 500);
+    if (descWrap) {
+      descWrap.style.width = dw + 'px';
+      descWrap.style.left  = ((W - dw) / 2) + 'px';
+      descWrap.style.top   = descTop + 'px';
+    }
+
+    /* image: starts just inside the arch, extends below endpoints */
+    var imgTop = descTop + 160;
+    if (imgWrap) {
+      imgWrap.style.left = '50%';
+      imgWrap.style.top  = imgTop + 'px';
+    }
+
+    /* wrap height tight to image bottom */
+    var imgH = imgWrap ? (imgWrap.offsetHeight || 280) : 0;
+    var finalH = imgTop + imgH + 40;
+    wrap.style.height = finalH + 'px';
+    archSvg.setAttribute('height',  finalH);
+    archSvg.setAttribute('viewBox', '0 0 ' + W + ' ' + finalH);
+
+    /* re-run once image loads to get real height */
+    if (imgWrap && !imgWrap._loadBound) {
+      var img = imgWrap.querySelector('img');
+      if (img) { img.addEventListener('load', layout); }
+      imgWrap._loadBound = true;
+    }
   }
 
   /* click / activate */
