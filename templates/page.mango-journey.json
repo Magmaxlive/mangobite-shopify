@@ -62,36 +62,20 @@
     "image_with_text_ckF97j": {
       "type": "image-with-text",
       "blocks": {
-        "heading_UmHFDj": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
         "text_KGWXyH": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>We source our mangoes exclusively from the highest-quality farms in India that also adhere to organic growing standards. The selection process is centered on finding farms that use only organic techniques of farming.</p>",
             "text_style": "body"
-          }
-        },
-        "button_n4dXRU": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
           }
         }
       },
       "block_order": [
-        "heading_UmHFDj",
-        "text_KGWXyH",
-        "button_n4dXRU"
+        "text_KGWXyH"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/images.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
