@@ -49,10 +49,16 @@
               (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
             {%- endcapture -%}
               {%- endif -%}
+              {%- if section.settings.mask_image != blank -%}
+                {%- assign mask_src = section.settings.mask_image | image_url: width: 1000 -%}
+                {%- assign img_style = '-webkit-mask: url(' | append: mask_src | append: ') center/contain no-repeat; mask: url(' | append: mask_src | append: ') center/contain no-repeat;' -%}
+              {%- else -%}
+                {%- assign img_style = '' -%}
+              {%- endif -%}
               {{
                 section.settings.image
                 | image_url: width: 1500
-                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority, style: img_style
               }}
             {%- else -%}
               {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -119,6 +125,11 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:sections.image-with-text.settings.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "mask_image",
+      "label": "Image mask (optional)"
     },
     {
       "type": "select",

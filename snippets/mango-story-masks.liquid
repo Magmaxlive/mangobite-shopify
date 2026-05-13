@@ -1,0 +1,8 @@
+{%- assign tree_mask = 'tree.png' | asset_url -%}
+<style>
+  #shopify-section-image_with_text_jXP4Yk .image-with-text__media img,
+  #shopify-section-image_with_text_NPrbeE .image-with-text__media img {
+    -webkit-mask: url({{ tree_mask }}) center / contain no-repeat;
+    mask: url({{ tree_mask }}) center / contain no-repeat;
+  }
+</style>
