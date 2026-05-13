@@ -329,40 +329,35 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/Poster-kesar-copy-scaled.jpg",
-            "alt": "",
-            "link": ""
+            "alt": ""
           }
         },
         "image_E7jbyh": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/poster_1.jpg",
-            "alt": "",
-            "link": ""
+            "alt": ""
           }
         },
         "image_fPpij9": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/mango-2.jpg",
-            "alt": "",
-            "link": ""
+            "alt": ""
           }
         },
         "image_QyXGTE": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/mango-1-e1685684183151.jpg",
-            "alt": "",
-            "link": ""
+            "alt": ""
           }
         },
         "image_QbDHwn": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/shutterstock_701286733-scaled.jpg",
-            "alt": "",
-            "link": ""
+            "alt": ""
           }
         }
       },
@@ -377,7 +372,6 @@
       "settings": {
         "subtitle": "",
         "heading": "",
-        "columns": "4",
         "bg_color": "#ffffff",
         "subtitle_color": "#888888",
         "heading_color": "#111111",

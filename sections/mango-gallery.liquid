@@ -4,53 +4,129 @@
   class="mango-gallery"
   style="background-color: {{ section.settings.bg_color }}; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
 >
+  <div class="mango-gallery__inner page-width">
 
-  {%- if section.settings.subtitle != blank or section.settings.heading != blank -%}
-    <div class="mango-gallery__header page-width">
-      {%- if section.settings.subtitle != blank -%}
-        <p class="mango-gallery__subtitle" style="color: {{ section.settings.subtitle_color }};">{{ section.settings.subtitle }}</p>
-      {%- endif -%}
-      {%- if section.settings.heading != blank -%}
-        <h2 class="mango-gallery__heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
-      {%- endif -%}
-    </div>
-  {%- endif -%}
-
-  <div class="mango-gallery__track-wrap">
-    <ul class="mango-gallery__track">
-      {%- for block in section.blocks -%}
-        {%- if block.settings.image != blank -%}
-          <li class="mango-gallery__item" {{ block.shopify_attributes }}>
-            {%- if block.settings.link != blank -%}
-              <a href="{{ block.settings.link }}" class="mango-gallery__link">
-            {%- else -%}
-              <div class="mango-gallery__link">
-            {%- endif -%}
-
-              {{
-                block.settings.image
-                | image_url: width: 800
-                | image_tag: loading: 'lazy', alt: block.settings.alt, class: 'mango-gallery__img'
-              }}
-
-            {%- if block.settings.link != blank -%}
-              </a>
-            {%- else -%}
-              </div>
-            {%- endif -%}
-          </li>
+    {%- if section.settings.subtitle != blank or section.settings.heading != blank -%}
+      <div class="mango-gallery__header">
+        {%- if section.settings.subtitle != blank -%}
+          <p class="mango-gallery__subtitle" style="color: {{ section.settings.subtitle_color }};">{{ section.settings.subtitle }}</p>
         {%- endif -%}
-      {%- endfor -%}
-    </ul>
-  </div>
+        {%- if section.settings.heading != blank -%}
+          <h2 class="mango-gallery__heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
 
+    <div class="mango-gallery__carousel">
+      <button class="mango-gallery__arrow mango-gallery__arrow--prev" id="gallery-prev-{{ section.id }}" aria-label="Previous">&#8249;</button>
+      <div class="mango-gallery__track-wrap">
+        <ul class="mango-gallery__track" id="gallery-track-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.image != blank -%}
+              <li
+                class="mango-gallery__item"
+                data-index="{{ forloop.index0 }}"
+                data-src="{{ block.settings.image | image_url: width: 2000 }}"
+                {{ block.shopify_attributes }}
+              >
+                {{
+                  block.settings.image
+                  | image_url: width: 600
+                  | image_tag: loading: 'lazy', alt: block.settings.alt, class: 'mango-gallery__img'
+                }}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+      <button class="mango-gallery__arrow mango-gallery__arrow--next" id="gallery-next-{{ section.id }}" aria-label="Next">&#8250;</button>
+    </div>
+
+  </div>
 </section>
+
+<!-- Lightbox -->
+<div class="mango-lightbox" id="mango-lightbox-{{ section.id }}" aria-hidden="true">
+  <div class="mango-lightbox__overlay"></div>
+  <button class="mango-lightbox__close" aria-label="Close">&#x2715;</button>
+  <button class="mango-lightbox__prev" aria-label="Previous">&#8249;</button>
+  <button class="mango-lightbox__next" aria-label="Next">&#8250;</button>
+  <a class="mango-lightbox__download" aria-label="Download" download>&#8595; Download</a>
+  <div class="mango-lightbox__content">
+    <img class="mango-lightbox__img" src="" alt="" width="1200" height="1200">
+  </div>
+</div>
+
+<script>
+(function() {
+  const sectionId = '{{ section.id }}';
+  const track = document.getElementById('gallery-track-' + sectionId);
+  const lightbox = document.getElementById('mango-lightbox-' + sectionId);
+  const btnPrev = document.getElementById('gallery-prev-' + sectionId);
+  const btnNext = document.getElementById('gallery-next-' + sectionId);
+  if (!track || !lightbox) return;
+
+  const trackWrap = track.closest('.mango-gallery__track-wrap');
+  const items = Array.from(track.querySelectorAll('.mango-gallery__item'));
+  const lightboxImg = lightbox.querySelector('.mango-lightbox__img');
+  const downloadBtn = lightbox.querySelector('.mango-lightbox__download');
+  let current = 0;
+
+  /* ── Carousel arrows ── */
+  function scrollCarousel(dir) {
+    const itemWidth = items[0].offsetWidth + 12;
+    track.scrollBy({ left: dir * itemWidth, behavior: 'smooth' });
+  }
+  if (btnPrev) btnPrev.addEventListener('click', function() { scrollCarousel(-1); });
+  if (btnNext) btnNext.addEventListener('click', function() { scrollCarousel(1); });
+
+  /* ── Lightbox ── */
+  function open(index) {
+    current = index;
+    const src = items[current].dataset.src;
+    lightboxImg.src = src;
+    if (downloadBtn) { downloadBtn.href = src; downloadBtn.download = 'mango-image-' + (current + 1) + '.jpg'; }
+    lightbox.setAttribute('aria-hidden', 'false');
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function navigate(dir) {
+    current = (current + dir + items.length) % items.length;
+    const src = items[current].dataset.src;
+    lightboxImg.src = src;
+    if (downloadBtn) { downloadBtn.href = src; downloadBtn.download = 'mango-image-' + (current + 1) + '.jpg'; }
+  }
+
+  items.forEach(function(item, i) {
+    item.addEventListener('click', function() { open(i); });
+  });
+
+  lightbox.querySelector('.mango-lightbox__close').addEventListener('click', close);
+  lightbox.querySelector('.mango-lightbox__overlay').addEventListener('click', close);
+  lightbox.querySelector('.mango-lightbox__prev').addEventListener('click', function() { navigate(-1); });
+  lightbox.querySelector('.mango-lightbox__next').addEventListener('click', function() { navigate(1); });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+})();
+</script>
 
 {% schema %}
 {
   "name": "Image Gallery",
   "tag": "section",
-  "max_blocks": 12,
+  "max_blocks": 20,
   "settings": [
     {
       "type": "text",
@@ -61,17 +137,6 @@
       "type": "text",
       "id": "heading",
       "label": "Heading"
-    },
-    {
-      "type": "select",
-      "id": "columns",
-      "label": "Columns on desktop",
-      "options": [
-        { "value": "3", "label": "3" },
-        { "value": "4", "label": "4" },
-        { "value": "5", "label": "5" }
-      ],
-      "default": "4"
     },
     {
       "type": "color",
@@ -130,11 +195,6 @@
           "type": "text",
           "id": "alt",
           "label": "Alt text"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link (optional)"
         }
       ]
     }

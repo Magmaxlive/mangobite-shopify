@@ -25,9 +25,9 @@
           {%- endif -%}
         </span>
 
-        <h2 class="mango-follow-heading__heading rich-text__heading" style="color: {{ section.settings.heading_color }};">
+        <{{ section.settings.heading_size }} class="mango-follow-heading__heading rich-text__heading" style="color: {{ section.settings.heading_color }};">
           {{ section.settings.heading }}
-        </h2>
+        </{{ section.settings.heading_size }}>
 
         <span class="mango-follow-heading__ornament mango-follow-heading__ornament--right">
           {%- if section.settings.ornament != blank -%}
@@ -66,6 +66,18 @@
       "type": "image_picker",
       "id": "ornament",
       "label": "Custom ornament image (optional)"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h1", "label": "Extra large (h1)" },
+        { "value": "h2", "label": "Large (h2)" },
+        { "value": "h3", "label": "Medium (h3)" },
+        { "value": "h4", "label": "Small (h4)" }
+      ],
+      "default": "h2"
     },
     {
       "type": "color",

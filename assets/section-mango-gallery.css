@@ -1,0 +1,220 @@
+.mango-gallery__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mango-gallery__subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  font-weight: 400;
+}
+
+.mango-gallery__heading {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Carousel wrapper */
+.mango-gallery__carousel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mango-gallery__arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  color: #333;
+}
+
+.mango-gallery__arrow:hover {
+  background: #f5f5f5;
+  border-color: #aaa;
+}
+
+/* Carousel track */
+.mango-gallery__track-wrap {
+  overflow: hidden;
+  flex: 1;
+}
+
+.mango-gallery__track {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mango-gallery__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Exactly 4 items visible at a time */
+.mango-gallery__item {
+  flex: 0 0 calc((100% - 3 * 12px) / 4);
+  scroll-snap-align: start;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+}
+
+.mango-gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.mango-gallery__item:hover .mango-gallery__img {
+  transform: scale(1.06);
+}
+
+/* ── Lightbox ── */
+.mango-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.mango-lightbox.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mango-lightbox__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+}
+
+.mango-lightbox__content {
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mango-lightbox__img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+}
+
+.mango-lightbox__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.mango-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.mango-lightbox__prev,
+.mango-lightbox__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  line-height: 1;
+}
+
+.mango-lightbox__prev { left: 1.5rem; }
+.mango-lightbox__next { right: 1.5rem; }
+
+.mango-lightbox__download {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.mango-lightbox__download:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.mango-lightbox__prev:hover,
+.mango-lightbox__next:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile */
+@media screen and (max-width: 749px) {
+  .mango-gallery__item {
+    flex: 0 0 72vw;
+  }
+
+  .mango-lightbox__prev { left: 0.5rem; }
+  .mango-lightbox__next { right: 0.5rem; }
+}
