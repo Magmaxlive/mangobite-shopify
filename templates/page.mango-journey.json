@@ -77,6 +77,205 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/images.jpg",
+        "mask_image": "shopify://shop_images/tree.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_QwpBgm": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_QRRCa8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The second harvest is when these mangoes are picked, so you know they're fully ripe and flavourful. Hook bags are used to drain milk by turning the cut ends upside down. With careful layering and butter sheets to soak up any excess milk, each fruit is carefully packaged.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_QRRCa8"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/mango1112.jpg",
+        "mask_image": "shopify://shop_images/tree.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_9Bim3p": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_MfBMXQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>APEDA then inspects and grades the packaged fruits to ensure they are up to par before they are shipped abroad. Mangoes that are graded an A+ are the only ones that make it to New Zealand.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_MfBMXQ"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/mango-oaxaca-3.webp",
+        "mask_image": "shopify://shop_images/tree.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_Pg8jTL": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_ErVYJ9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>To ensure a safe insecticide alternative for sterilization, protection, and import, we use the Vapor Heat Treatment technique.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_ErVYJ9"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/vapor.jpg",
+        "mask_image": "shopify://shop_images/tree.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_fQdmDE": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_p3VQXN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>After the mangoes have been treated and pre-cooled, they are carefully inspected by Quarantine Administrators to make sure they are of the required quality. Only the best fruits are chosen to be packed and shipped. Mangoes are transported to the airport in chilled and closed containers before being shipped to New Zealand.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_p3VQXN"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/mangopack.webp",
+        "mask_image": "shopify://shop_images/tree.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_W4UxYm": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_VPyQqb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>After arriving in New Zealand, the Ministry for Primary Industries (MPI) inspects mangoes in New Zealand for safety and quality. After MPI inspection, mangoes are delivered to the Mangobite warehouses.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_VPyQqb"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Airport-handles-483460-kg-mango-exports-from-March-to-June.jpg",
+        "mask_image": "shopify://shop_images/tree.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_LwWaB7": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_GkWCaj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mangoes can be ordered or purchased according to your order as soon as they arrive at the cold storage facility.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_GkWCaj"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/mango-store.webp",
+        "mask_image": "shopify://shop_images/tree.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -96,6 +295,12 @@
     "main",
     "mango_story_banner_z9YxYf",
     "rich_text_KrP9jJ",
-    "image_with_text_ckF97j"
+    "image_with_text_ckF97j",
+    "image_with_text_QwpBgm",
+    "image_with_text_9Bim3p",
+    "image_with_text_Pg8jTL",
+    "image_with_text_fQdmDE",
+    "image_with_text_W4UxYm",
+    "image_with_text_LwWaB7"
   ]
 }
