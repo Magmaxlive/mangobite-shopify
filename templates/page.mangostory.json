@@ -283,7 +283,7 @@
         "heading_color": "#ffffff",
         "text_color": "#dddddd",
         "button_label": "SHOP NOW",
-        "button_link": "",
+        "button_link": "shopify://collections",
         "btn_color": "#ffffff",
         "btn_underline_color": "#c8922a",
         "top_right_leaf": "shopify://shop_images/image-from-rawpixel-id-2343322-png.png",

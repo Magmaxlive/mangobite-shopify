@@ -30,7 +30,7 @@
         "phone": "02772-24561",
         "wave_image": "shopify://shop_images/footer_w.png",
         "payment_enable": true,
-        "margin_top": 0
+        "margin_top": 32
       }
     }
   },
