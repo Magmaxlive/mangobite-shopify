@@ -207,6 +207,63 @@
         "padding_top": 16,
         "padding_bottom": 52
       }
+    },
+    "mango_features_yBcn6J": {
+      "type": "mango-features",
+      "blocks": {
+        "feature_Naj94d": {
+          "type": "feature",
+          "settings": {
+            "title": "100% Organic Mangoes"
+          }
+        },
+        "feature_j6TMFX": {
+          "type": "feature",
+          "settings": {
+            "title": "Delicious & Pulpy"
+          }
+        },
+        "feature_iHYVfx": {
+          "type": "feature",
+          "settings": {
+            "title": "All Over NZ Delivery"
+          }
+        },
+        "feature_ffULDh": {
+          "type": "feature",
+          "settings": {
+            "title": "Varieties of Mangoes"
+          }
+        },
+        "feature_tYGrBq": {
+          "type": "feature",
+          "settings": {
+            "title": "Directly From Farmers"
+          }
+        },
+        "feature_tpEiDa": {
+          "type": "feature",
+          "settings": {
+            "title": "Carbide & Chemical Free"
+          }
+        }
+      },
+      "block_order": [
+        "feature_Naj94d",
+        "feature_j6TMFX",
+        "feature_iHYVfx",
+        "feature_ffULDh",
+        "feature_tYGrBq",
+        "feature_tpEiDa"
+      ],
+      "name": "Mango Features",
+      "settings": {
+        "heading": "",
+        "bg_color": "#ffffff",
+        "icon_bg_color": "#E8C89A",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -217,6 +274,7 @@
     "image_with_text_jXP4Yk",
     "rich_text_DyND3n",
     "image_with_text_NPrbeE",
-    "rich_text_fBGXTy"
+    "rich_text_fBGXTy",
+    "mango_features_yBcn6J"
   ]
 }
