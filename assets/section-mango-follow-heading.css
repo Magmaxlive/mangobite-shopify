@@ -3,7 +3,7 @@
 }
 
 .mango-follow-heading__subtitle {
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   margin: 0 0 1.2rem;
@@ -18,7 +18,7 @@
 }
 
 .mango-follow-heading__heading {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 800;
   margin: 0;
   white-space: nowrap;
@@ -43,7 +43,7 @@
 
 @media screen and (max-width: 749px) {
   .mango-follow-heading__heading {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     white-space: normal;
   }
 
