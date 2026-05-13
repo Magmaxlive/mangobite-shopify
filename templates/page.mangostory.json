@@ -321,6 +321,69 @@
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
+    },
+    "mango_gallery_t7Vf9e": {
+      "type": "mango-gallery",
+      "blocks": {
+        "image_FWEGec": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Poster-kesar-copy-scaled.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
+        "image_E7jbyh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/poster_1.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
+        "image_fPpij9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mango-2.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
+        "image_QyXGTE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mango-1-e1685684183151.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
+        "image_QbDHwn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_701286733-scaled.jpg",
+            "alt": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_FWEGec",
+        "image_E7jbyh",
+        "image_fPpij9",
+        "image_QyXGTE",
+        "image_QbDHwn"
+      ],
+      "name": "Image Gallery",
+      "settings": {
+        "subtitle": "",
+        "heading": "",
+        "columns": "4",
+        "bg_color": "#ffffff",
+        "subtitle_color": "#888888",
+        "heading_color": "#111111",
+        "padding_top": 20,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -335,6 +398,7 @@
     "mango_features_yBcn6J",
     "mango_hero_banner_hAKrBJ",
     "mango_follow_heading_aqeEH4",
-    "slideshow_6zAJxV"
+    "slideshow_6zAJxV",
+    "mango_gallery_t7Vf9e"
   ]
 }
