@@ -21,8 +21,10 @@
       "type": "mango-story-banner",
       "name": "Mango Story Banner",
       "settings": {
-        "subtitle": "MY MANGO STORY",
-        "heading": "Grab Your Snack Time Essential - Mango Bite!",
+        "subtitle": "mango bites",
+        "heading": "Health Bites",
+        "left_leaf": "shopify://shop_images/home-leaf-right.png",
+        "right_leaf": "shopify://shop_images/home-leaf-right_-_Copy.png",
         "bg_color": "#000000",
         "heading_color": "#cccccc",
         "subtitle_color": "#888888",
