@@ -1,0 +1,53 @@
+.mango-follow-heading__inner {
+  text-align: center;
+}
+
+.mango-follow-heading__subtitle {
+  font-size: 1rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 0 1.2rem;
+  font-weight: 400;
+}
+
+.mango-follow-heading__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+}
+
+.mango-follow-heading__heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.mango-follow-heading__ornament {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.mango-follow-heading__ornament img {
+  width: 90px;
+  height: auto;
+  display: block;
+}
+
+.mango-follow-heading__ornament--right svg,
+.mango-follow-heading__ornament--right img {
+  transform: scaleX(-1);
+}
+
+@media screen and (max-width: 749px) {
+  .mango-follow-heading__heading {
+    font-size: 1.8rem;
+    white-space: normal;
+  }
+
+  .mango-follow-heading__ornament img {
+    width: 60px;
+  }
+}
