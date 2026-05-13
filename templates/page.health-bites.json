@@ -31,10 +31,94 @@
         "padding_top": 160,
         "padding_bottom": 80
       }
+    },
+    "mango_benefits_aqbeJK": {
+      "type": "mango-benefits",
+      "blocks": {
+        "benefit_qhPEkn": {
+          "type": "benefit",
+          "settings": {
+            "title": "Rich in Nutrients",
+            "description": "Mangoes are a rich source of essential nutrients, including vitamin C, vitamin A, vitamin E, vitamin K, vitamin B6, potassium, copper, and magnesium. These nutrients play vital roles in various bodily functions and contribute to overall health."
+          }
+        },
+        "benefit_tHHdMb": {
+          "type": "benefit",
+          "settings": {
+            "title": "Boosts Immune System",
+            "description": "Mangoes are packed with vitamin C and vitamin A, which are essential for a healthy immune system. Regular consumption helps protect the body against infections and boosts overall immunity."
+          }
+        },
+        "benefit_fRy4pJ": {
+          "type": "benefit",
+          "settings": {
+            "title": "Supports Digestive Health",
+            "description": "Mangoes contain digestive enzymes such as amylases that help break down complex carbohydrates. Their fibre content promotes healthy gut function and prevents constipation."
+          }
+        },
+        "benefit_zJc9DL": {
+          "type": "benefit",
+          "settings": {
+            "title": "Maintains Eye Health",
+            "description": "Rich in vitamin A and beta-carotene, mangoes support healthy vision and help prevent night blindness, dry eyes, and age-related macular degeneration."
+          }
+        },
+        "benefit_bW9X6K": {
+          "type": "benefit",
+          "settings": {
+            "title": "Regulates Blood Pressure",
+            "description": "Mangoes contain potassium and magnesium, minerals that help regulate blood pressure levels and support healthy cardiovascular function."
+          }
+        },
+        "benefit_qyqaXc": {
+          "type": "benefit",
+          "settings": {
+            "title": "Enhances Heart Health",
+            "description": "The fibre, potassium, and vitamins in mangoes all help protect against heart disease. Mangiferin, a compound in mangoes, has been shown to reduce inflammation and oxidative stress in the heart."
+          }
+        },
+        "benefit_WU9hxk": {
+          "type": "benefit",
+          "settings": {
+            "title": "Aids Weight Management",
+            "description": "Mangoes are high in dietary fibre, which keeps you feeling full longer and reduces overeating. Their natural sugars provide energy without excessive calories."
+          }
+        },
+        "benefit_J9KRQR": {
+          "type": "benefit",
+          "settings": {
+            "title": "Fights Inflammation",
+            "description": "Mangoes contain mangiferin, quercetin, and other polyphenols with potent anti-inflammatory properties, helping to reduce chronic inflammation linked to many diseases."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_qhPEkn",
+        "benefit_tHHdMb",
+        "benefit_fRy4pJ",
+        "benefit_zJc9DL",
+        "benefit_bW9X6K",
+        "benefit_qyqaXc",
+        "benefit_WU9hxk",
+        "benefit_J9KRQR"
+      ],
+      "name": "Mango Benefits",
+      "settings": {
+        "image": "shopify://shop_images/mango-tree.png",
+        "show_ornament": true,
+        "arch_color": "#e8b4b8",
+        "active_color": "#4CAF50",
+        "text_color": "#2c5f8a",
+        "ornament_color": "#c8922a",
+        "bg_color": "#ffffff",
+        "padding_top": 20,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "main",
-    "mango_story_banner_Q6QbVd"
+    "mango_story_banner_Q6QbVd",
+    "mango_benefits_aqbeJK"
   ]
 }
