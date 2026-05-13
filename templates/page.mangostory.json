@@ -19,7 +19,9 @@
     },
     "mango_story_banner": {
       "type": "mango-story-banner",
-      "custom_css": [],
+      "custom_css": [
+        ".mango-story-banner__heading { max-width: 56rem; font-weight: bolder; font-size: 7.5rem; }"
+      ],
       "settings": {
         "subtitle": "MY MANGO STORY",
         "heading": "Grab Your Snack Time Essential  \n- Mango Bite !",
@@ -35,196 +37,17 @@
     "mango_story_image": {
       "type": "mango-story-image",
       "settings": {
-        "image": "shopify://shop_images/Screenshot_2026-05-12_152939_462f6548-96e8-4a44-84ff-d4295a0d6923.png",
+        "image": "shopify://shop_images/image-mang.png",
         "image_max_width": 460,
         "bg_color": "#000000",
         "padding_top": 40,
         "padding_bottom": 60
-      }
-    },
-    "rich_text_dDePYR": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_hjJxDb": {
-          "type": "heading",
-          "settings": {
-            "heading": "My Mango Story",
-            "heading_size": "h1"
-          }
-        },
-        "text_m4LaPM": {
-          "type": "text",
-          "settings": {
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_hjJxDb",
-        "text_m4LaPM"
-      ],
-      "custom_css": [
-        ".rich-text__heading {color: #22c55e !important;}"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 16
-      }
-    },
-    "image_with_text_jDdiYN": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_CrjPaF": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_8cR8H6": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Let me introduce myself; my name is Nirmal, and when I was a kid, mangoes were not just a fruit but a gateway to a world of stories and cherished memories. The sweet and luscious taste of mangoes always reminds me of carefree days, filled with laughter and adventure.<br/></p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_CrjPaF",
-        "text_8cR8H6"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/mangoboy.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "rich_text_HCFXGp": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_xmCUAi": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_fpVQ8y": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Driven by nostalgia and a desire to share love and taste with the rest of the world, I set out on a journey to create Mangobite. In 2016, the idea was just a fantasy, but its ultimate goal was to become a hub for fresh produce and services from all over the world. I’ll never forget that first Sunday, when my family and I set up a cute mango stall at the Avondale Farmers Market. Although we did not have high hopes, the overwhelming demand from customers ultimately reinforced our faith. Thus, Mangobite was born.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_xmCUAi",
-        "text_fpVQ8y"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 32
-      }
-    },
-    "image_with_text_txHaJ6": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_7TmKef": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_qnPjft": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our commitment to quality at Mangobite has helped us quickly build a strong reputation in local market of New Zealand. We knew that the key to our success was providing first-rate service and goods to our customer.  Specializing in food and agricultural products, we carefully selected a wide range of offerings to satisfy the diverse tastes and preferences of our customers.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_7TmKef",
-        "text_qnPjft"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/mangoshop.webp",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 16
-      }
-    },
-    "rich_text_pbXBVa": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_PhanVk": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_TdEAMr": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Mangobite as a brand always made a conscious decision to promote organic farming practices. By supporting organic farms, we ensured mangoes were grown without the use of harmful chemicals or pesticides. This not only preserved the purity and quality of the fruit but also contributed to the health and well-being of our customers.</p><p>The truth is that without my wonderful wife Bharani’s support and encouragement, I never would have put in the time or effort necessary to establish our business. We’re pleased that Mangobite has become a venue for fostering nostalgia for childhood tastes while also advocating for environmentally responsible solutions to a more wholesome global community.</p><p>And so, the Mangobite narrative rolls on, with my family and I at the forefront of the effort to introduce the world to the joy, nostalgia, and great flavour of mangoes.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_PhanVk",
-        "text_TdEAMr"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 20
       }
     }
   },
   "order": [
     "main",
     "mango_story_banner",
-    "mango_story_image",
-    "rich_text_dDePYR",
-    "image_with_text_jDdiYN",
-    "rich_text_HCFXGp",
-    "image_with_text_txHaJ6",
-    "rich_text_pbXBVa"
+    "mango_story_image"
   ]
 }
