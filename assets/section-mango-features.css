@@ -1,0 +1,61 @@
+.mango-features__heading {
+  text-align: center;
+  margin: 0 0 3rem;
+  font-size: 2rem;
+}
+
+.mango-features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem 2rem;
+}
+
+.mango-features__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+}
+
+.mango-features__icon {
+  width: 150px;
+  height: 150px;
+  border-radius: 44% 56% 58% 42% / 52% 44% 56% 48%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mango-features__icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.mango-features__title {
+  font-size: 1.6rem;
+  padding-top: 10px;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 749px) {
+  .mango-features__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+
+  .mango-features__icon {
+    width: 110px;
+    height: 110px;
+  }
+
+  .mango-features__title {
+    font-size: 1.2rem;
+  }
+}
