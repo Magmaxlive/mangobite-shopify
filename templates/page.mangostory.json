@@ -214,36 +214,42 @@
         "feature_Naj94d": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/icon-1-11.png",
             "title": "100% Organic Mangoes"
           }
         },
         "feature_j6TMFX": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/icon-4png.png",
             "title": "Delicious & Pulpy"
           }
         },
         "feature_iHYVfx": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/icon-2png.png",
             "title": "All Over NZ Delivery"
           }
         },
         "feature_ffULDh": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/icon-6.png",
             "title": "Varieties of Mangoes"
           }
         },
         "feature_tYGrBq": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/icon-5png.png",
             "title": "Directly From Farmers"
           }
         },
         "feature_tpEiDa": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/icon-3png.png",
             "title": "Carbide & Chemical Free"
           }
         }
@@ -260,7 +266,7 @@
       "settings": {
         "heading": "",
         "bg_color": "#ffffff",
-        "icon_bg_color": "#E8C89A",
+        "icon_bg_color": "#e8c89a",
         "padding_top": 60,
         "padding_bottom": 60
       }
