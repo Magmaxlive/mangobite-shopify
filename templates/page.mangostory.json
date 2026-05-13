@@ -112,7 +112,38 @@
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 4
+      }
+    },
+    "rich_text_HCFXGp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xmCUAi": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_fpVQ8y": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Driven by nostalgia and a desire to share love and taste with the rest of the world, I set out on a journey to create Mangobite. In 2016, the idea was just a fantasy, but its ultimate goal was to become a hub for fresh produce and services from all over the world. I’ll never forget that first Sunday, when my family and I set up a cute mango stall at the Avondale Farmers Market. Although we did not have high hopes, the overwhelming demand from customers ultimately reinforced our faith. Thus, Mangobite was born.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xmCUAi",
+        "text_fpVQ8y"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 20
       }
     }
   },
@@ -121,6 +152,7 @@
     "mango_story_banner",
     "mango_story_image",
     "rich_text_dDePYR",
-    "image_with_text_jDdiYN"
+    "image_with_text_jDdiYN",
+    "rich_text_HCFXGp"
   ]
 }
