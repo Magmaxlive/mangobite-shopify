@@ -1,0 +1,257 @@
+{{ 'section-mango-benefits.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="mango-benefits"
+  style="background-color: {{ section.settings.bg_color }}; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="mango-benefits__inner page-width">
+
+    <!-- Desktop arch layout -->
+    <div
+      class="mango-benefits__arch-wrap"
+      id="mango-benefits-{{ section.id }}"
+      style="--bubble-active: {{ section.settings.active_color }}; --desc-color: {{ section.settings.text_color }};"
+    >
+      <svg class="mango-benefits__arch-svg" aria-hidden="true" focusable="false">
+        <path class="mango-benefits__arch-path" fill="none" stroke="{{ section.settings.arch_color }}" stroke-width="1.5"/>
+      </svg>
+
+      {%- for block in section.blocks -%}
+        <button
+          class="mango-benefits__bubble{% if forloop.first %} is-active{% endif %}"
+          data-index="{{ forloop.index0 }}"
+          {{ block.shopify_attributes }}
+        >
+          <span>{{ block.settings.title }}</span>
+        </button>
+      {%- endfor -%}
+
+      <div class="mango-benefits__center">
+        <div class="mango-benefits__desc-wrap">
+          {%- for block in section.blocks -%}
+            <p class="mango-benefits__desc{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}">
+              {{ block.settings.description }}
+            </p>
+          {%- endfor -%}
+        </div>
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 600
+            | image_tag: loading: 'lazy', alt: '', class: 'mango-benefits__img'
+          }}
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Mobile stacked layout -->
+    <div class="mango-benefits__mobile">
+      {%- for block in section.blocks -%}
+        <div class="mango-benefits__mobile-card" {{ block.shopify_attributes }}>
+          <p class="mango-benefits__mobile-title">{{ block.settings.title }}</p>
+          <p class="mango-benefits__mobile-desc">{{ block.settings.description }}</p>
+        </div>
+      {%- endfor -%}
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 400
+          | image_tag: loading: 'lazy', alt: '', class: 'mango-benefits__img mango-benefits__img--mobile'
+        }}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_ornament -%}
+      <div class="mango-benefits__ornament">
+        <svg width="240" height="48" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 24 Q14 8 24 24 Q34 40 44 24 Q54 8 64 24" stroke="{{ section.settings.ornament_color }}" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M68 24 Q80 14 90 24" stroke="{{ section.settings.ornament_color }}" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <circle cx="120" cy="24" r="9" fill="none" stroke="{{ section.settings.ornament_color }}" stroke-width="1.5"/>
+          <path d="M111 24 Q115 16 120 24 Q125 32 129 24" stroke="{{ section.settings.ornament_color }}" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <path d="M150 24 Q160 14 172 24" stroke="{{ section.settings.ornament_color }}" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M176 24 Q186 8 196 24 Q206 40 216 24 Q226 8 236 24" stroke="{{ section.settings.ornament_color }}" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script>
+(function() {
+  var wrap = document.getElementById('mango-benefits-{{ section.id }}');
+  if (!wrap) return;
+
+  var bubbles = Array.from(wrap.querySelectorAll('.mango-benefits__bubble'));
+  var descs   = Array.from(wrap.querySelectorAll('.mango-benefits__desc'));
+  var archSvg  = wrap.querySelector('.mango-benefits__arch-svg');
+  var archPath = wrap.querySelector('.mango-benefits__arch-path');
+  var center   = wrap.querySelector('.mango-benefits__center');
+  var n = bubbles.length;
+  if (!n) return;
+
+  function bezier(t, P0, P1, P2) {
+    var m = 1 - t;
+    return {
+      x: m*m*P0.x + 2*m*t*P1.x + t*t*P2.x,
+      y: m*m*P0.y + 2*m*t*P1.y + t*t*P2.y
+    };
+  }
+
+  function layout() {
+    var W = wrap.offsetWidth;
+    var H = Math.max(Math.round(W * 0.70), 520);
+    wrap.style.height = H + 'px';
+
+    var pad = W * 0.06;
+    var P0 = { x: pad,       y: H * 0.72 };
+    var P1 = { x: W / 2,     y: H * 0.04 };
+    var P2 = { x: W - pad,   y: H * 0.72 };
+
+    archSvg.setAttribute('width', W);
+    archSvg.setAttribute('height', H);
+    archSvg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    archPath.setAttribute('d',
+      'M ' + P0.x + ' ' + P0.y +
+      ' Q ' + P1.x + ' ' + P1.y +
+      ' ' + P2.x + ' ' + P2.y
+    );
+
+    bubbles.forEach(function(bubble, i) {
+      var t   = n === 1 ? 0.5 : i / (n - 1);
+      var pos = bezier(t, P0, P1, P2);
+      bubble.style.left = pos.x + 'px';
+      bubble.style.top  = pos.y + 'px';
+    });
+
+    /* center content: x centered, y roughly middle of arch interior */
+    var cw = Math.min(W * 0.38, 460);
+    center.style.width  = cw + 'px';
+    center.style.left   = ((W - cw) / 2) + 'px';
+    center.style.top    = (H * 0.36) + 'px';
+  }
+
+  /* click / activate */
+  bubbles.forEach(function(bubble, i) {
+    bubble.addEventListener('click', function() {
+      bubbles.forEach(function(b) { b.classList.remove('is-active'); });
+      descs.forEach(function(d)   { d.classList.remove('is-active'); });
+      bubble.classList.add('is-active');
+      if (descs[i]) descs[i].classList.add('is-active');
+    });
+  });
+
+  layout();
+  window.addEventListener('resize', layout);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Mango Benefits",
+  "tag": "section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Center image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ornament",
+      "label": "Show bottom ornament",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "arch_color",
+      "label": "Arch color",
+      "default": "#e8b4b8"
+    },
+    {
+      "type": "color",
+      "id": "active_color",
+      "label": "Active bubble color",
+      "default": "#4CAF50"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Description text color",
+      "default": "#2c5f8a"
+    },
+    {
+      "type": "color",
+      "id": "ornament_color",
+      "label": "Ornament color",
+      "default": "#c8922a"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Describe this benefit here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mango Benefits",
+      "blocks": [
+        { "type": "benefit", "settings": { "title": "Rich in Nutrients", "description": "Mangoes are a rich source of essential nutrients, including vitamin C, vitamin A, vitamin E, vitamin K, vitamin B6, potassium, copper, and magnesium. These nutrients play vital roles in various bodily functions and contribute to overall health." } },
+        { "type": "benefit", "settings": { "title": "Boosts Immune System", "description": "Mangoes are packed with vitamin C and vitamin A, which are essential for a healthy immune system. Regular consumption helps protect the body against infections and boosts overall immunity." } },
+        { "type": "benefit", "settings": { "title": "Supports Digestive Health", "description": "Mangoes contain digestive enzymes such as amylases that help break down complex carbohydrates. Their fibre content promotes healthy gut function and prevents constipation." } },
+        { "type": "benefit", "settings": { "title": "Maintains Eye Health", "description": "Rich in vitamin A and beta-carotene, mangoes support healthy vision and help prevent night blindness, dry eyes, and age-related macular degeneration." } },
+        { "type": "benefit", "settings": { "title": "Regulates Blood Pressure", "description": "Mangoes contain potassium and magnesium, minerals that help regulate blood pressure levels and support healthy cardiovascular function." } },
+        { "type": "benefit", "settings": { "title": "Enhances Heart Health", "description": "The fibre, potassium, and vitamins in mangoes all help protect against heart disease. Mangiferin, a compound in mangoes, has been shown to reduce inflammation and oxidative stress in the heart." } },
+        { "type": "benefit", "settings": { "title": "Aids Weight Management", "description": "Mangoes are high in dietary fibre, which keeps you feeling full longer and reduces overeating. Their natural sugars provide energy without excessive calories." } },
+        { "type": "benefit", "settings": { "title": "Fights Inflammation", "description": "Mangoes contain mangiferin, quercetin, and other polyphenols with potent anti-inflammatory properties, helping to reduce chronic inflammation linked to many diseases." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
