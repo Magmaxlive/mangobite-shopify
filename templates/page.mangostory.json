@@ -89,7 +89,7 @@
         "text_8cR8H6": {
           "type": "text",
           "settings": {
-            "text": "<p><br/>Let me introduce myself; my name is Nirmal, and when I was a kid, mangoes were not just a fruit but a gateway to a world of stories and cherished memories. The sweet and luscious taste of mangoes always reminds me of carefree days, filled with laughter and adventure.<br/><br/></p>",
+            "text": "<p>Let me introduce myself; my name is Nirmal, and when I was a kid, mangoes were not just a fruit but a gateway to a world of stories and cherished memories. The sweet and luscious taste of mangoes always reminds me of carefree days, filled with laughter and adventure.<br/></p>",
             "text_style": "body"
           }
         }
@@ -112,7 +112,7 @@
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 0,
-        "padding_bottom": 8
+        "padding_bottom": 0
       }
     },
     "rich_text_HCFXGp": {
