@@ -16,9 +16,23 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "mango_story_banner_Q6QbVd": {
+      "type": "mango-story-banner",
+      "name": "Mango Story Banner",
+      "settings": {
+        "subtitle": "MY MANGO STORY",
+        "heading": "Grab Your Snack Time Essential - Mango Bite!",
+        "bg_color": "#000000",
+        "heading_color": "#cccccc",
+        "subtitle_color": "#888888",
+        "padding_top": 160,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "mango_story_banner_Q6QbVd"
   ]
 }
