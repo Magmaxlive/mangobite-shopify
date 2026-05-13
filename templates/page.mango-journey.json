@@ -55,7 +55,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 60,
         "padding_bottom": 4
       }
     },
@@ -73,6 +73,7 @@
       "block_order": [
         "text_KGWXyH"
       ],
+      "custom_css": [],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/images.jpg",
