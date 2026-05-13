@@ -293,6 +293,20 @@
         "padding_top": 32,
         "padding_bottom": 32
       }
+    },
+    "mango_follow_heading_tY4qr3": {
+      "type": "mango-follow-heading",
+      "name": "Follow Heading",
+      "settings": {
+        "subtitle": "FOLLOW ALONG",
+        "heading": "@Mango Bite",
+        "ornament_color": "#C8922A",
+        "bg_color": "#ffffff",
+        "subtitle_color": "#888888",
+        "heading_color": "#111111",
+        "padding_top": 60,
+        "padding_bottom": 20
+      }
     }
   },
   "order": [
@@ -305,6 +319,7 @@
     "image_with_text_NPrbeE",
     "rich_text_fBGXTy",
     "mango_features_yBcn6J",
-    "mango_hero_banner_hAKrBJ"
+    "mango_hero_banner_hAKrBJ",
+    "mango_follow_heading_tY4qr3"
   ]
 }
