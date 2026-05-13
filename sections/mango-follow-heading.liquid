@@ -1,0 +1,125 @@
+{{ 'section-mango-follow-heading.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="mango-follow-heading"
+  style="background-color: {{ section.settings.bg_color }}; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="mango-follow-heading__inner page-width">
+
+    {%- if section.settings.subtitle != blank -%}
+      <p class="mango-follow-heading__subtitle" style="color: {{ section.settings.subtitle_color }};">
+        {{ section.settings.subtitle }}
+      </p>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <div class="mango-follow-heading__row">
+
+        <span class="mango-follow-heading__ornament mango-follow-heading__ornament--left">
+          {%- if section.settings.ornament != blank -%}
+            {{ section.settings.ornament | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}
+          {%- else -%}
+            <svg width="90" height="22" viewBox="0 0 90 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 11 Q8 2 14 11 Q20 20 26 11 Q32 2 38 11 Q44 20 50 11 Q56 2 62 11 Q68 20 74 11 Q80 2 86 11" stroke="{{ section.settings.ornament_color }}" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            </svg>
+          {%- endif -%}
+        </span>
+
+        <h2 class="mango-follow-heading__heading" style="color: {{ section.settings.heading_color }};">
+          {{ section.settings.heading }}
+        </h2>
+
+        <span class="mango-follow-heading__ornament mango-follow-heading__ornament--right">
+          {%- if section.settings.ornament != blank -%}
+            {{ section.settings.ornament | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}
+          {%- else -%}
+            <svg width="90" height="22" viewBox="0 0 90 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 11 Q8 2 14 11 Q20 20 26 11 Q32 2 38 11 Q44 20 50 11 Q56 2 62 11 Q68 20 74 11 Q80 2 86 11" stroke="{{ section.settings.ornament_color }}" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            </svg>
+          {%- endif -%}
+        </span>
+
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Follow Heading",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "FOLLOW ALONG"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "@Mango Bite"
+    },
+    {
+      "type": "image_picker",
+      "id": "ornament",
+      "label": "Custom ornament image (optional)"
+    },
+    {
+      "type": "color",
+      "id": "ornament_color",
+      "label": "Ornament color",
+      "default": "#C8922A"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#888888"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#111111"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Follow Heading"
+    }
+  ]
+}
+{% endschema %}
