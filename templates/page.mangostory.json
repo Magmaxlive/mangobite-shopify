@@ -270,6 +270,25 @@
         "padding_top": 32,
         "padding_bottom": 32
       }
+    },
+    "mango_hero_banner_hAKrBJ": {
+      "type": "mango-hero-banner",
+      "name": "Mango Hero Banner",
+      "settings": {
+        "subtitle": "MANGO BITE",
+        "heading": "Savor the Juicy Goodness of Mango Bite!",
+        "description": "One of the finest mangoes of South India is the hugely popular banganapalli mango grown extensively in Andhra Pradesh and Telangana.",
+        "subtitle_color": "#ffffff",
+        "heading_color": "#ffffff",
+        "text_color": "#dddddd",
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "btn_color": "#ffffff",
+        "btn_underline_color": "#C8922A",
+        "min_height": 600,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -281,6 +300,7 @@
     "rich_text_DyND3n",
     "image_with_text_NPrbeE",
     "rich_text_fBGXTy",
-    "mango_features_yBcn6J"
+    "mango_features_yBcn6J",
+    "mango_hero_banner_hAKrBJ"
   ]
 }
