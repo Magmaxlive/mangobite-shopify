@@ -1,5 +1,6 @@
 {{ 'section-mango-hero-banner.css' | asset_url | stylesheet_tag }}
 
+<div class="mango-hero-banner-wrap">
 <section
   class="mango-hero-banner"
   style="min-height: {{ section.settings.min_height }}px; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
@@ -74,6 +75,7 @@
   </div>
 
 </section>
+</div>
 
 {% schema %}
 {

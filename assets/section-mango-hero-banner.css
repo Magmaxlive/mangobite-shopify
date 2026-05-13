@@ -1,0 +1,160 @@
+/* Wrapper clips horizontal overflow without blocking vertical */
+.mango-hero-banner-wrap {
+  overflow-x: clip;
+}
+
+.mango-hero-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Background image — clipped to section */
+.mango-hero-banner__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.mango-hero-banner__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Uniform dark overlay */
+.mango-hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.48);
+}
+
+/* Decorative corner images — pushed outward via transform */
+.mango-hero-banner__deco {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.mango-hero-banner__deco img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mango-hero-banner__deco--top-left {
+  top: 0;
+  left: 0;
+  max-width: 300px;
+  transform: translate(-30%, -30%);
+}
+
+.mango-hero-banner__deco--top-right {
+  top: 0;
+  right: 0;
+  max-width: 300px;
+  transform: translate(30%, -30%);
+}
+
+.mango-hero-banner__deco--bottom-left {
+  bottom: 0;
+  left: 0;
+  max-width: 300px;
+  transform: translate(-30%, 30%);
+}
+
+.mango-hero-banner__deco--bottom-right {
+  bottom: 0;
+  right: 0;
+  max-width: 300px;
+  transform: translate(30%, 30%);
+}
+
+/* Content */
+.mango-hero-banner__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.mango-hero-banner__text {
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.4rem;
+}
+
+.mango-hero-banner__subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.mango-hero-banner__heading {
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.mango-hero-banner__description {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: center;
+}
+
+.mango-hero-banner__btn {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding-bottom: 6px;
+  border-bottom: 2px solid;
+  width: fit-content;
+  transition: opacity 0.25s;
+}
+
+.mango-hero-banner__btn:hover {
+  opacity: 0.7;
+}
+
+/* Mobile */
+@media screen and (max-width: 749px) {
+  .mango-hero-banner {
+    align-items: center;
+  }
+
+  .mango-hero-banner::after {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .mango-hero-banner__text {
+    max-width: 90%;
+    gap: 1rem;
+  }
+
+  .mango-hero-banner__heading {
+    font-size: 2rem;
+  }
+
+  .mango-hero-banner__deco--top-left,
+  .mango-hero-banner__deco--top-right,
+  .mango-hero-banner__deco--bottom-left,
+  .mango-hero-banner__deco--bottom-right {
+    max-width: 160px;
+  }
+}
