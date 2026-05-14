@@ -374,7 +374,89 @@
         "icon_bg_color": "#c5976a",
         "panel_bg": "#f5f0e8",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 0
+      }
+    },
+    "mango_variety_info_pcjawn": {
+      "type": "mango-variety-info",
+      "blocks": {
+        "info_tab_7dWd4E": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-41.png",
+            "label": "Also known as",
+            "content": "<p>King of Mangoes, Ratnagiri Alphonso mango known as Ratnagiri Hapus.</p>"
+          }
+        },
+        "info_tab_UEdYfb": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-2png.png",
+            "label": "Origin",
+            "content": "<p>(Western India) It is mainly grown in the Ratnagiri area of Maharashtra and to a small extent in parts of South Gujarat and Karnataka.</p>"
+          }
+        },
+        "info_tab_PyEbHj": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-5.png",
+            "label": "Season",
+            "content": "<p>June to Early July.</p>"
+          }
+        },
+        "info_tab_yTH3H3": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-4png3.png",
+            "label": "Shape",
+            "content": "<p>Alphonso mangoes are small and oval in shape.</p>"
+          }
+        },
+        "info_tab_PYyFDd": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-1png.png",
+            "label": "Taste & Texture",
+            "content": "<p>Adorable fruit Cherish the delicate sweet taste with very little fiber and soft, Aromatic Golden saffron-hued color flesh and texture.</p>"
+          }
+        },
+        "info_tab_6d49MF": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-6_1.png",
+            "label": "Other Characteristics",
+            "content": "<ul><li>Fruits have higher content of pulp.</li><li>In appearance: attractive blush towards the basal end.</li><li>Pulp is firm, fibreless with excellent orange colour.</li><li>It has good sugar/acid blend.</li><li>Fruits having long shelf life and is most exported variety.</li><li>The flesh of the fruit is golden saffron colour.</li><li>They have a rich, creamy, tender texture and are low in fibre content, with a delicate, creamy pulp.</li></ul>"
+          }
+        },
+        "info_tab_F9P3eE": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-6.png",
+            "label": "Weight",
+            "content": "<p>These mangoes are large sized, weighing on an average 350-400 grams.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_tab_7dWd4E",
+        "info_tab_UEdYfb",
+        "info_tab_PyEbHj",
+        "info_tab_yTH3H3",
+        "info_tab_PYyFDd",
+        "info_tab_6d49MF",
+        "info_tab_F9P3eE"
+      ],
+      "name": "Mango Variety Info",
+      "settings": {
+        "section_bg": "#ffffff",
+        "heading": "About Alphonso Mango",
+        "heading_color": "#1a1a1a",
+        "tab_color": "#ffbe00",
+        "active_tab_color": "#22c55e",
+        "icon_bg_color": "#c5976a",
+        "panel_bg": "#f5f0e8",
+        "padding_top": 60,
+        "padding_bottom": 0
       }
     }
   },
@@ -385,6 +467,7 @@
     "mango_follow_heading_VPGRby",
     "mango_types_grid_CPpDNr",
     "mango_variety_info_jQXfBg",
-    "mango_variety_info_Hbg7mD"
+    "mango_variety_info_Hbg7mD",
+    "mango_variety_info_pcjawn"
   ]
 }
