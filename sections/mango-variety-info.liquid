@@ -1,0 +1,229 @@
+{{ 'section-mango-variety-info.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="mango-variety-info"
+  id="mango-variety-info-{{ section.id }}"
+  style="
+    background: {{ section.settings.section_bg }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="mango-variety-info__container">
+
+    {%- if section.settings.heading != blank -%}
+      <h2
+        class="mango-variety-info__heading"
+        style="color: {{ section.settings.heading_color }};"
+      >
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+
+      <div class="mango-variety-info__tabs-wrap">
+        <div class="mango-variety-info__tabs" id="mvi-tabs-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            <button
+              class="mango-variety-info__tab{% if forloop.first %} mango-variety-info__tab--active{% endif %}"
+              type="button"
+              data-mvi-index="{{ forloop.index0 }}"
+              data-mvi-section="{{ section.id }}"
+              {{ block.shopify_attributes }}
+              style="
+                --tab-bg: {{ section.settings.tab_color }};
+                --tab-active-bg: {{ section.settings.active_tab_color }};
+              "
+            >
+              <div
+                class="mango-variety-info__tab-icon"
+                style="background: {{ section.settings.icon_bg_color }};"
+              >
+                {%- if block.settings.icon != blank -%}
+                  {{
+                    block.settings.icon
+                    | image_url: width: 120
+                    | image_tag: loading: 'lazy', alt: block.settings.label
+                  }}
+                {%- else -%}
+                  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="20" cy="20" r="13" stroke="#5c3d1e" stroke-width="2"/>
+                    <polyline points="20,10 20,21 27,26" stroke="#5c3d1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {%- endif -%}
+              </div>
+              {%- if block.settings.label != blank -%}
+                <span class="mango-variety-info__tab-label">{{ block.settings.label }}</span>
+              {%- endif -%}
+            </button>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div
+        class="mango-variety-info__panel-wrap"
+        id="mvi-panels-{{ section.id }}"
+        style="background: {{ section.settings.panel_bg }};"
+      >
+        {%- for block in section.blocks -%}
+          <div
+            class="mango-variety-info__panel{% if forloop.first %} mango-variety-info__panel--active{% endif %}"
+            data-mvi-panel="{{ forloop.index0 }}"
+          >
+            {{ block.settings.content }}
+          </div>
+        {%- endfor -%}
+      </div>
+
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var sid    = '{{ section.id }}';
+  var tabsEl = document.getElementById('mvi-tabs-' + sid);
+  var panelEl = document.getElementById('mvi-panels-' + sid);
+  if (!tabsEl || !panelEl) return;
+
+  var tabs   = tabsEl.querySelectorAll('.mango-variety-info__tab');
+  var panels = panelEl.querySelectorAll('.mango-variety-info__panel');
+
+  function activate(idx) {
+    tabs.forEach(function (t) { t.classList.remove('mango-variety-info__tab--active'); });
+    panels.forEach(function (p) { p.classList.remove('mango-variety-info__panel--active'); });
+    tabs[idx].classList.add('mango-variety-info__tab--active');
+    if (panels[idx]) panels[idx].classList.add('mango-variety-info__panel--active');
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      activate(parseInt(tab.dataset.mviIndex, 10));
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Mango Variety Info",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "About Banganapalli Mango"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "tab_color",
+      "label": "Tab background color",
+      "default": "#FFBE00"
+    },
+    {
+      "type": "color",
+      "id": "active_tab_color",
+      "label": "Active tab color",
+      "default": "#22c55e"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon circle background",
+      "default": "#c5976a"
+    },
+    {
+      "type": "color",
+      "id": "panel_bg",
+      "label": "Content panel background",
+      "default": "#f5f0e8"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info_tab",
+      "name": "Info Tab",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab label",
+          "default": "Also known as"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Tab content",
+          "default": "<p>Enter details here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mango Variety Info",
+      "settings": {
+        "heading": "About Banganapalli Mango",
+        "tab_color": "#FFBE00",
+        "active_tab_color": "#22c55e",
+        "icon_bg_color": "#c5976a",
+        "panel_bg": "#f5f0e8"
+      },
+      "blocks": [
+        { "type": "info_tab", "settings": { "label": "Also known as", "content": "<p>Safedi, Badami.</p>" } },
+        { "type": "info_tab", "settings": { "label": "Origin", "content": "<p>Andhra Pradesh, India.</p>" } },
+        { "type": "info_tab", "settings": { "label": "Season", "content": "<p>April to July.</p>" } },
+        { "type": "info_tab", "settings": { "label": "Shape", "content": "<p>Oblong to ovate with a rounded base.</p>" } },
+        { "type": "info_tab", "settings": { "label": "Taste & Texture", "content": "<p>Sweet, mild flavour with a fibrous, firm texture.</p>" } },
+        { "type": "info_tab", "settings": { "label": "Other Characteristics", "content": "<p>Thin skin, light yellow flesh, low fibre content.</p>" } },
+        { "type": "info_tab", "settings": { "label": "Weight", "content": "<p>250–400 grams per fruit.</p>" } }
+      ]
+    }
+  ],
+  "max_blocks": 12
+}
+{% endschema %}
