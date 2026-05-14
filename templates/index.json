@@ -406,7 +406,8 @@
       ],
       "custom_css": [
         ".multicolumn {padding-left: 15px; padding-right: 15px;}",
-        ".multicolumn-card__image-wrapper{background: transparent;}"
+        ".multicolumn-card__image-wrapper {background: transparent;}",
+        ".multicolumn-card {box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3); border-radius: 25px;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
