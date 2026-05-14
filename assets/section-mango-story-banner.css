@@ -41,6 +41,15 @@
   text-align: center;
 }
 
+.mango-story-banner__description {
+  font-size: clamp(1.3rem, 1.6vw, 1.8rem);
+  line-height: 1.7;
+  margin: 0;
+  text-align: center;
+  max-width: 65ch;
+  opacity: 0.85;
+}
+
 .mango-story-banner__image {
   display: flex;
   justify-content: center;
@@ -100,6 +109,10 @@
 
 .mango-story-banner__heading {
   animation: fadeSlideUp 0.7s ease 0.2s both;
+}
+
+.mango-story-banner__description {
+  animation: fadeSlideUp 0.7s ease 0.35s both;
 }
 
 .mango-story-banner__image {

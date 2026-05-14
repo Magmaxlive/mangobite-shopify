@@ -32,6 +32,10 @@
       <h1 class="mango-story-banner__heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h1>
     {%- endif -%}
 
+    {%- if section.settings.description != blank -%}
+      <p class="mango-story-banner__description" style="color: {{ section.settings.description_color }};">{{ section.settings.description }}</p>
+    {%- endif -%}
+
   </div>
 
 </section>
@@ -52,6 +56,17 @@
       "id": "heading",
       "label": "Heading",
       "default": "Grab Your Snack Time Essential - Mango Bite!"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description (optional)"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#aaaaaa"
     },
     {
       "type": "header",
