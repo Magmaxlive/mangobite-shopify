@@ -99,6 +99,11 @@
         "column_ixkViB",
         "column_nQGWN9"
       ],
+      "custom_css": [
+        ".multicolumn-card {background-color: #ffbe00; border-radius: 200px;}",
+        ".multicolumn-card__image-wrapper {background: transparent;}",
+        ".multicolumn-card__info ,.inline-richtext {color: white;}"
+      ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
