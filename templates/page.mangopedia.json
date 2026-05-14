@@ -108,6 +108,7 @@
         "mango_met3Cz": {
           "type": "mango",
           "settings": {
+            "image": "shopify://shop_images/mango_5.png",
             "name": "Himsagar",
             "origin": "West Bengal",
             "card_color": "",
@@ -117,6 +118,7 @@
         "mango_Jnz4G7": {
           "type": "mango",
           "settings": {
+            "image": "shopify://shop_images/mango_6.png",
             "name": "Kesar",
             "origin": "Gujarat",
             "card_color": "",
@@ -126,6 +128,7 @@
         "mango_6p8eYM": {
           "type": "mango",
           "settings": {
+            "image": "shopify://shop_images/mango_7.png",
             "name": "Langda",
             "origin": "Uttar Pradesh",
             "card_color": "",
@@ -135,6 +138,7 @@
         "mango_x9tGNH": {
           "type": "mango",
           "settings": {
+            "image": "shopify://shop_images/mango_8.png",
             "name": "Ambika",
             "origin": "Uttar Pradesh",
             "card_color": "",
