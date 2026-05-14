@@ -1,0 +1,209 @@
+{{ 'section-mango-types-grid.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="mango-types-grid"
+  id="mango-types-grid-{{ section.id }}"
+  style="
+    background: {{ section.settings.section_bg }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mtg-cols: {{ section.settings.columns_desktop }};
+  "
+>
+  <div class="mango-types-grid__container">
+
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="mango-types-grid__header">
+        {%- if section.settings.heading != blank -%}
+          <h2
+            class="mango-types-grid__heading"
+            style="color: {{ section.settings.heading_color }};"
+          >
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p
+            class="mango-types-grid__subheading"
+            style="color: {{ section.settings.subheading_color }};"
+          >
+            {{ section.settings.subheading }}
+          </p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="mango-types-grid__grid">
+        {%- for block in section.blocks -%}
+          {%- assign card_bg = block.settings.card_color -%}
+          {%- if card_bg == blank or card_bg == 'rgba(0,0,0,0)' -%}
+            {%- assign card_bg = section.settings.card_color -%}
+          {%- endif -%}
+
+          <a
+            class="mango-types-grid__card"
+            href="{{ block.settings.link | default: '#' }}"
+            aria-label="{{ block.settings.name }}"
+            {{ block.shopify_attributes }}
+            style="--card-bg: {{ card_bg }};"
+          >
+            <div class="mango-types-grid__card-inner">
+
+              <div class="mango-types-grid__img-wrap">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 400
+                    | image_tag: loading: 'lazy', alt: block.settings.name
+                  }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'mango-types-grid__placeholder' }}
+                {%- endif -%}
+              </div>
+
+              <div class="mango-types-grid__card-text">
+                {%- if block.settings.name != blank -%}
+                  <span class="mango-types-grid__name">{{ block.settings.name }}</span>
+                {%- endif -%}
+                {%- if block.settings.origin != blank -%}
+                  <span class="mango-types-grid__origin">{{ block.settings.origin }}</span>
+                {%- endif -%}
+              </div>
+
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mango Types Grid",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Types of Mangoes"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "Default card color",
+      "default": "#F5A623"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Columns (desktop)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mango",
+      "name": "Mango Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Mango image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Mango name",
+          "default": "Alphonso"
+        },
+        {
+          "type": "text",
+          "id": "origin",
+          "label": "Origin / State",
+          "default": "Maharashtra"
+        },
+        {
+          "type": "color",
+          "id": "card_color",
+          "label": "Card color (leave blank to use default)"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Card link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mango Types Grid",
+      "settings": {
+        "heading": "Types of Mangoes",
+        "card_color": "#F5A623"
+      },
+      "blocks": [
+        { "type": "mango", "settings": { "name": "Alphonso", "origin": "Maharashtra" } },
+        { "type": "mango", "settings": { "name": "Totapuri", "origin": "Karnataka" } },
+        { "type": "mango", "settings": { "name": "Banganpalli", "origin": "Andhra Pradesh" } },
+        { "type": "mango", "settings": { "name": "Dasheri", "origin": "Uttar Pradesh" } },
+        { "type": "mango", "settings": { "name": "Himsagar", "origin": "West Bengal" } },
+        { "type": "mango", "settings": { "name": "Kesar", "origin": "Gujarat" } },
+        { "type": "mango", "settings": { "name": "Langda", "origin": "Uttar Pradesh" } },
+        { "type": "mango", "settings": { "name": "Ambika", "origin": "Uttar Pradesh" } }
+      ]
+    }
+  ],
+  "max_blocks": 20
+}
+{% endschema %}
