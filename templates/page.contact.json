@@ -11,9 +11,25 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "mango_story_banner_dUQDet": {
+      "type": "mango-story-banner",
+      "name": "Mango Story Banner",
+      "settings": {
+        "subtitle": "find us",
+        "heading": "Contact Us",
+        "left_leaf": "shopify://shop_images/home-leaf-right.png",
+        "right_leaf": "shopify://shop_images/image-from-rawpixel-id-2343322-png.png",
+        "bg_color": "#000000",
+        "heading_color": "#cccccc",
+        "subtitle_color": "#888888",
+        "padding_top": 160,
+        "padding_bottom": 80
       }
     },
     "form": {
@@ -29,6 +45,7 @@
   },
   "order": [
     "main",
+    "mango_story_banner_dUQDet",
     "form"
   ]
 }
