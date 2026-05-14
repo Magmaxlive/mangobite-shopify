@@ -622,6 +622,88 @@
         "padding_top": 60,
         "padding_bottom": 0
       }
+    },
+    "mango_variety_info_mxFTYx": {
+      "type": "mango-variety-info",
+      "blocks": {
+        "info_tab_XDA3mR": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-41.png",
+            "label": "Also known as",
+            "content": "<p>The name ”Chaunsa” is derived from Urdu and means “sucker”. It reflects the irresistible taste of the chaunsa mango.</p>"
+          }
+        },
+        "info_tab_yK39cj": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-2png.png",
+            "label": "Origin",
+            "content": "<p>Chaunsa mangoes are cultivated in the Northern regions of India, particularly in the states of Uttar Pradesh and Bihar.</p>"
+          }
+        },
+        "info_tab_jJgrrR": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-5.png",
+            "label": "Season",
+            "content": "<p>The harvesting season typically spans from June to August.</p>"
+          }
+        },
+        "info_tab_G4EPNp": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-4png3.png",
+            "label": "Shape",
+            "content": "<p>Their medium-sized, oblong shape fits perfectly in your hand, making them easy to eat.</p>"
+          }
+        },
+        "info_tab_gbDXpP": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-1png.png",
+            "label": "Taste & Texture",
+            "content": "<p>One bite reveals the velvety smooth texture and abundant juice that characterizes this exquisite fruit. With its intoxicating aroma and tantalizingly sweet taste, Chaunsa mangoes are often described as a blend of honey and tropical paradise.</p>"
+          }
+        },
+        "info_tab_ywF9tm": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-6_1.png",
+            "label": "Other Characteristics",
+            "content": "<ul><li>Chaunsa mango is a medium-sized fruit with a thin, yellowish-green skin that turns to golden yellow as it ripens.</li><li>The flesh is soft, juicy, and fiber less, with a sweet and aromatic flavor.</li><li>The seed is small and oblong, and the fruit has relatively high pulp content.</li></ul>"
+          }
+        },
+        "info_tab_7kPEy9": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-6.png",
+            "label": "Weight",
+            "content": "<p>Around 300-350 grams.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_tab_XDA3mR",
+        "info_tab_yK39cj",
+        "info_tab_jJgrrR",
+        "info_tab_G4EPNp",
+        "info_tab_gbDXpP",
+        "info_tab_ywF9tm",
+        "info_tab_7kPEy9"
+      ],
+      "name": "Mango Variety Info",
+      "settings": {
+        "section_bg": "#ffffff",
+        "heading": "About Chaunsa Mango",
+        "heading_color": "#1a1a1a",
+        "tab_color": "#ffbe00",
+        "active_tab_color": "#22c55e",
+        "icon_bg_color": "#c5976a",
+        "panel_bg": "#f5f0e8",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -634,6 +716,7 @@
     "mango_variety_info_Hbg7mD",
     "mango_variety_info_pcjawn",
     "mango_variety_info_JjtjcP",
-    "mango_variety_info_mKJ3AH"
+    "mango_variety_info_mKJ3AH",
+    "mango_variety_info_mxFTYx"
   ]
 }
