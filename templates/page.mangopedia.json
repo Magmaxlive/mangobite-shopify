@@ -948,7 +948,7 @@
         "icon_bg_color": "#c5976a",
         "panel_bg": "#f5f0e8",
         "padding_top": 60,
-        "padding_bottom": 0
+        "padding_bottom": 40
       }
     }
   },
