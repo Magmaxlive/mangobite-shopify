@@ -34,6 +34,25 @@
         "padding_bottom": 80
       }
     },
+    "mango_contact_info_tf6y8c": {
+      "type": "mango-contact-info",
+      "name": "Mango Contact Info",
+      "settings": {
+        "bg_color": "#ffffff",
+        "contact_heading": "Contact",
+        "address": "102 White Swan Road, Mount Roskill,\nNew Zealand",
+        "reach_heading": "Reach us",
+        "phone": "02 772 24561",
+        "email": "info@mangobite.co.nz",
+        "social_heading": "Follow Us",
+        "facebook_url": "https://www.facebook.com/mangobitenz/",
+        "instagram_url": "https://www.instagram.com/mangobitenz/",
+        "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3189.8511781907328!2d174.7218403!3d-36.9178225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d46835833cd31%3A0x7e5fda2fc7e9a1e2!2s102%20White%20Swan%20Road%2C%20Mount%20Roskill%2C%20Auckland%201041%2C%20New%20Zealand!5e0!3m2!1sen!2sin!4v1778746707054!5m2!1sen!2sin",
+        "map_height": 480,
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
     "form": {
       "type": "contact-form",
       "settings": {
@@ -55,6 +74,9 @@
         "phone": "02 772 24561",
         "email": "info@mangobite.co.nz",
         "social_heading": "Follow Us",
+        "facebook_url": "",
+        "instagram_url": "",
+        "map_embed_url": "",
         "map_height": 480,
         "padding_top": 60,
         "padding_bottom": 0
@@ -64,6 +86,7 @@
   "order": [
     "main",
     "mango_story_banner_dUQDet",
+    "mango_contact_info_tf6y8c",
     "form",
     "mango_contact_info"
   ]
