@@ -540,6 +540,88 @@
         "padding_top": 60,
         "padding_bottom": 0
       }
+    },
+    "mango_variety_info_mKJ3AH": {
+      "type": "mango-variety-info",
+      "blocks": {
+        "info_tab_8DmNgD": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-41.png",
+            "label": "Also known as",
+            "content": "<p>Bangalore, Collector, Kallamai, Kili Mooku Gilli, Mukku, “Ottu” Sandersha & Interestingly Totapuri also known as Ginimoothi Mavinakayi in Kannada literally translates to parrot’s beak (face).</p>"
+          }
+        },
+        "info_tab_tzEyKC": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-2png.png",
+            "label": "Origin",
+            "content": "<p>Found largely in Andhra Pradesh, Karnataka and Tamil Nadu and is partially cultivated in Sri Lanka.</p>"
+          }
+        },
+        "info_tab_pfDyUP": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-5.png",
+            "label": "Season",
+            "content": "<p>May – July.</p>"
+          }
+        },
+        "info_tab_33grpg": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-4png3.png",
+            "label": "Shape",
+            "content": "<p>Oblong in shape with an attractive green (raw) to golden yellow (fully ripe) colour. The inner flesh when fully ripe and ready to be processed is fibreless and looks a lot like Cadmium Yellow colour.</p>"
+          }
+        },
+        "info_tab_TPi7m6": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-1png.png",
+            "label": "Taste & Texture",
+            "content": "<p>Totapuri is generally mild to tangy in taste and often cut into pieces and partaken with salt and chilli powder sprinkled over it.<br/>The skin of a Totapuri mango is usually eaten alongside the fruit’s flesh due to its lack of or mild bitterness compared to other mango varieties’ skins.</p>"
+          }
+        },
+        "info_tab_dKAeaz": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-6_1.png",
+            "label": "Other Characteristics",
+            "content": "<ul><li>Their unique tangy and slightly sour taste can provide an intresting twist to mango based desserts and chutneys.</li><li>Their unique flavour and firm texture makes them popular among pickle enthusiasts.</li><li>It is most popularly used in processed mango products.</li><li>Fruits have good keeping quality.</li><li>This mango has a piquant flavour, something different from the other sweet varieties of mangoes available.</li></ul>"
+          }
+        },
+        "info_tab_TKhBTB": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-6.png",
+            "label": "Weight",
+            "content": "<p>These mangoes are large sized, weighing on an average 350-400 grams.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_tab_8DmNgD",
+        "info_tab_tzEyKC",
+        "info_tab_pfDyUP",
+        "info_tab_33grpg",
+        "info_tab_TPi7m6",
+        "info_tab_dKAeaz",
+        "info_tab_TKhBTB"
+      ],
+      "name": "Mango Variety Info",
+      "settings": {
+        "section_bg": "#ffffff",
+        "heading": "About Totapuri Mango",
+        "heading_color": "#1a1a1a",
+        "tab_color": "#ffbe00",
+        "active_tab_color": "#22c55e",
+        "icon_bg_color": "#c5976a",
+        "panel_bg": "#f5f0e8",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -551,6 +633,7 @@
     "mango_variety_info_jQXfBg",
     "mango_variety_info_Hbg7mD",
     "mango_variety_info_pcjawn",
-    "mango_variety_info_JjtjcP"
+    "mango_variety_info_JjtjcP",
+    "mango_variety_info_mKJ3AH"
   ]
 }
