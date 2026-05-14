@@ -46,6 +46,9 @@
     },
     "mango_follow_heading_VPGRby": {
       "type": "mango-follow-heading",
+      "custom_css": [
+        ".mango-follow-heading__heading {font-family: Poppins, sans-serif !important;}"
+      ],
       "name": "Follow Heading",
       "settings": {
         "subtitle": "types",
@@ -65,8 +68,9 @@
         "column_pTepTK": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/Picture-1-PhotoRoom.png-PhotoRoom.png",
+            "title": "Alphonso",
+            "text": "<p>Maharashtra</p>",
             "link_label": "",
             "link": ""
           }
@@ -103,7 +107,7 @@
         "image_ratio": "adapt",
         "button_label": "",
         "button_link": "",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "primary",
         "color_scheme": "",
