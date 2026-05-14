@@ -786,6 +786,88 @@
         "padding_top": 60,
         "padding_bottom": 0
       }
+    },
+    "mango_variety_info_bPhPRT": {
+      "type": "mango-variety-info",
+      "blocks": {
+        "info_tab_GTphm4": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-41.png",
+            "label": "Also known as",
+            "content": "<p>Neelam mangoes are also commonly referred to as “Neelum” mangoes.</p>"
+          }
+        },
+        "info_tab_7TqT9d": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-2png.png",
+            "label": "Origin",
+            "content": "<p>This is a commercial variety indigenous to Tamil Nadu. Neelam mangoes are primarily cultivated in Karnataka, Tamil Nadu, and Andhra Pradesh.</p>"
+          }
+        },
+        "info_tab_cgX83x": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-5.png",
+            "label": "Season",
+            "content": "<p>Neelam Mangos are a late to very late season mango and are usually ripe and ready to pick between July – September.</p>"
+          }
+        },
+        "info_tab_PqVM4t": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-4png3.png",
+            "label": "Shape",
+            "content": "<p>They have a shape of a fat cashew nut (Ovate Oblique). They are smooth-skinned and bright yellow upon ripening and have no blush. The flesh is deep yellow or orange.</p>"
+          }
+        },
+        "info_tab_Jpbmtm": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-1png.png",
+            "label": "Taste & Texture",
+            "content": "<p>Neelam Mangos have pale to deep yellow fiberless flesh (depending on ripeness) with a compact and firm texture, Neelam Mangos have a very sweet Indian flavor (Combination of sweet and sour). Furthermore, there is a strong sub-acid component, notes of resin as well as a VERY intense spice flavor.</p>"
+          }
+        },
+        "info_tab_rWkx33": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-6_1.png",
+            "label": "Other Characteristics",
+            "content": "<ul><li> The orange flesh is tender, succulent, and almost entirely fibreless, encasing a moderately-sized stone.</li><li>Fruit quality is good and keeping quality is very Small & Compact.</li><li>Neelum Mango is considered a “condo” mango or a mango that does well in containers.</li><li>The trees have a low spreading growth habit, and the leaves are long, thin and distinctive with a prominent floral aroma.</li></ul>"
+          }
+        },
+        "info_tab_Wk8daq": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-6.png",
+            "label": "Weight",
+            "content": "<p>Each mango weighs approximately 150 to 300 grams.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_tab_GTphm4",
+        "info_tab_7TqT9d",
+        "info_tab_cgX83x",
+        "info_tab_PqVM4t",
+        "info_tab_Jpbmtm",
+        "info_tab_rWkx33",
+        "info_tab_Wk8daq"
+      ],
+      "name": "Mango Variety Info",
+      "settings": {
+        "section_bg": "#ffffff",
+        "heading": "About Neelam Mango",
+        "heading_color": "#1a1a1a",
+        "tab_color": "#ffbe00",
+        "active_tab_color": "#22c55e",
+        "icon_bg_color": "#c5976a",
+        "panel_bg": "#f5f0e8",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -800,6 +882,7 @@
     "mango_variety_info_JjtjcP",
     "mango_variety_info_mKJ3AH",
     "mango_variety_info_mxFTYx",
-    "mango_variety_info_L7HWGi"
+    "mango_variety_info_L7HWGi",
+    "mango_variety_info_bPhPRT"
   ]
 }
