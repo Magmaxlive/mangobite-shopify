@@ -458,6 +458,88 @@
         "padding_top": 60,
         "padding_bottom": 0
       }
+    },
+    "mango_variety_info_JjtjcP": {
+      "type": "mango-variety-info",
+      "blocks": {
+        "info_tab_DqUMCY": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-41.png",
+            "label": "Also known as",
+            "content": "<p>Langra, Langra means lame. It got its name from a 300 years old tale which depicts a lame or “langra” farmer who ate these mangoes and sowed its seeds in his farm.</p>"
+          }
+        },
+        "info_tab_e6YY6e": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-2png.png",
+            "label": "Origin",
+            "content": "<p>Langra mango is said to originate from Varanasi, current Banaras North India.</p>"
+          }
+        },
+        "info_tab_tXAt6g": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-5.png",
+            "label": "Season",
+            "content": "<p>Langra Aam is available from May to August.</p>"
+          }
+        },
+        "info_tab_GnyV9h": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-4png3.png",
+            "label": "Shape",
+            "content": "<p>Oval in shape. The stones or the seeds of Langras are small and oval.</p>"
+          }
+        },
+        "info_tab_GTD3t4": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-1png.png",
+            "label": "Taste & Texture",
+            "content": "<p>Its taste is outstandingly sweet. Its sweet taste can be easily determined by its strong and sweet aroma. The bright yellow flesh has less fibre and is super juicy.</p>"
+          }
+        },
+        "info_tab_MPNdmJ": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-6_1.png",
+            "label": "Other Characteristics",
+            "content": "<p>• All Langra mangoes have a skin of green or greenish-yellow colour unlike other varieties of mangoes which turn yellow when ripe.<br/>• The peel is thick and smooth.<br/>• Its size ranges from medium to large.<br/>• The flesh of these mangoes does not have any fibres.<br/>• Mango is yellowish-brown in colour.</p>"
+          }
+        },
+        "info_tab_kXc8xE": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-6.png",
+            "label": "Weight",
+            "content": "<p>These mangoes are large sized, weighing on an average 350-400 grams.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_tab_DqUMCY",
+        "info_tab_e6YY6e",
+        "info_tab_tXAt6g",
+        "info_tab_GnyV9h",
+        "info_tab_GTD3t4",
+        "info_tab_MPNdmJ",
+        "info_tab_kXc8xE"
+      ],
+      "name": "Mango Variety Info",
+      "settings": {
+        "section_bg": "#ffffff",
+        "heading": "About Langda Mango",
+        "heading_color": "#1a1a1a",
+        "tab_color": "#ffbe00",
+        "active_tab_color": "#22c55e",
+        "icon_bg_color": "#c5976a",
+        "panel_bg": "#f5f0e8",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -468,6 +550,7 @@
     "mango_types_grid_CPpDNr",
     "mango_variety_info_jQXfBg",
     "mango_variety_info_Hbg7mD",
-    "mango_variety_info_pcjawn"
+    "mango_variety_info_pcjawn",
+    "mango_variety_info_JjtjcP"
   ]
 }
