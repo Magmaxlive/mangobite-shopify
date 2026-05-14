@@ -158,7 +158,7 @@
         "subheading_color": "#555555",
         "card_color": "#ffbe00",
         "columns_desktop": 4,
-        "padding_top": 24,
+        "padding_top": 40,
         "padding_bottom": 60
       }
     }
