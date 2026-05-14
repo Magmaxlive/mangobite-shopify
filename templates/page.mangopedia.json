@@ -78,6 +78,7 @@
         "mango_3HK7fz": {
           "type": "mango",
           "settings": {
+            "image": "shopify://shop_images/mango_2_2.png",
             "name": "Totapuri",
             "origin": "Karnataka",
             "card_color": "",
@@ -87,6 +88,7 @@
         "mango_eNrWd4": {
           "type": "mango",
           "settings": {
+            "image": "shopify://shop_images/mango_3.png",
             "name": "Banganpalli",
             "origin": "Andhra Pradesh",
             "card_color": "",
@@ -96,6 +98,7 @@
         "mango_JBgjgE": {
           "type": "mango",
           "settings": {
+            "image": "shopify://shop_images/mango_4.png",
             "name": "Dasheri",
             "origin": "Uttar Pradesh",
             "card_color": "",
@@ -156,7 +159,7 @@
         "heading_color": "#1a1a1a",
         "subheading": "",
         "subheading_color": "#555555",
-        "card_color": "#ffbe00",
+        "card_color": "#c9a230",
         "columns_desktop": 4,
         "padding_top": 68,
         "padding_bottom": 60
