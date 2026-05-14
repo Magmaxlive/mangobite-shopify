@@ -405,7 +405,8 @@
         "column_UGet8T"
       ],
       "custom_css": [
-        ".multicolumn{padding-left: 15px; padding-right: 15px;}"
+        ".multicolumn {padding-left: 15px; padding-right: 15px;}",
+        ".multicolumn-card__image-wrapper{background: transparent;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
