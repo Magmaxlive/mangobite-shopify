@@ -148,49 +148,55 @@
         "padding_bottom": 12
       }
     },
-    "multicolumn_nw8zLD": {
+    "multicolumn_7CyALX": {
       "type": "multicolumn",
       "blocks": {
-        "column_JffGBU": {
+        "column_FPA3nb": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/icon-1.jpg",
+            "title": "<strong>Fresh Mangoes</strong>",
+            "text": "<h5>100% Fresh Mangoes directly<br/>from farms of Mango Bite.</h5>",
             "link_label": "",
             "link": ""
           }
         },
-        "column_kpgTQt": {
+        "column_bpXnRE": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/icon-2.jpg",
+            "title": "<strong>Quick Delivery</strong>",
+            "text": "<h5>Mangoes will be delivered<br/>within 4 days.</h5>",
             "link_label": "",
             "link": ""
           }
         },
-        "column_MqFxwQ": {
+        "column_ra9KTp": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/icon-4.jpg",
+            "title": "<strong>Guarantee</strong>",
+            "text": "<h5>We offer a replacement guarantee<br/>on all our products.</h5>",
             "link_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column_JffGBU",
-        "column_kpgTQt",
-        "column_MqFxwQ"
+        "column_FPA3nb",
+        "column_bpXnRE",
+        "column_ra9KTp"
+      ],
+      "custom_css": [
+        ".multicolumn {padding-left: 15px; padding-right: 15px;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Multicolumn",
+        "title": "",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
-        "button_label": "Button label",
+        "button_label": "",
         "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "left",
@@ -198,12 +204,13 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -220,7 +227,7 @@
         "padding_bottom": 28
       }
     },
-    "featured_collection_etEwQE": {
+    "featured_collection_e6hp8E": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
@@ -232,7 +239,7 @@
         "show_description": false,
         "description_style": "body",
         "columns_desktop": 4,
-        "enable_desktop_slider": true,
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
@@ -253,8 +260,8 @@
   "order": [
     "mango_story_banner_jhhUDm",
     "main",
-    "multicolumn_nw8zLD",
+    "multicolumn_7CyALX",
     "related-products",
-    "featured_collection_etEwQE"
+    "featured_collection_e6hp8E"
   ]
 }
