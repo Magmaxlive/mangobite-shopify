@@ -80,11 +80,18 @@
   .section-header {
     position: absolute !important;
     width: 100%;
-    z-index: 4;
+    z-index: 200;
   }
 
   .section-header.shopify-section-header-sticky {
     position: sticky !important;
+    z-index: 200;
+  }
+
+  /* header wrapper sits on top inside the header stacking context */
+  .header-wrapper {
+    position: relative;
+    z-index: 1;
   }
 
   .header-wrapper,
@@ -92,6 +99,16 @@
   .section-header [class*="color-"] {
     background: transparent !important;
     background-color: transparent !important;
+    background-image: none !important;
+    transition: background-color 0.35s ease, background 0.35s ease;
+  }
+
+  /* Black background once user has scrolled past the header */
+  .section-header.scrolled-past-header .header-wrapper,
+  .section-header.scrolled-past-header .header-wrapper.gradient,
+  .section-header.scrolled-past-header [class*="color-"] {
+    background: #1e1e1e !important;
+    background-color: #1e1e1e !important;
     background-image: none !important;
   }
 
@@ -138,6 +155,54 @@
     background-color: #22c55e;
     color: #ffffff;
     font-weight: 700;
+  }
+
+  /* ── Mobile drawer ── */
+  #menu-drawer,
+  #menu-drawer .menu-drawer__submenu {
+    background: #1e1e1e !important;
+    background-color: #1e1e1e !important;
+    background-image: none !important;
+    z-index: 300;
+  }
+
+  #menu-drawer .menu-drawer__utility-links {
+    background: rgba(255, 255, 255, 0.04) !important;
+    background-color: rgba(255, 255, 255, 0.04) !important;
+  }
+
+  /* drawer overlay backdrop */
+  .menu-drawer-container > details > summary::before,
+  menu-drawer > details > summary::before {
+    z-index: 299;
+  }
+
+  .menu-drawer__menu-item {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FF9308;
+    transition: color var(--duration-short) ease;
+  }
+
+  .menu-drawer__menu-item--active {
+    color: #22c55e !important;
+    background-color: transparent !important;
+  }
+
+  .menu-drawer__menu-item:hover,
+  .menu-drawer__menu-item:focus {
+    color: #22c55e !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .menu-drawer__close-button {
+    color: #ffffff;
+  }
+
+  .menu-drawer__account {
+    color: #ffffff !important;
   }
 
   /* centered nav, space-between layout */

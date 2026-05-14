@@ -36,6 +36,7 @@
 .mango-story-banner__heading {
   font-size: clamp(3.5rem, 7vw, 7rem);
   font-weight: 900;
+  -webkit-text-stroke: 1.5px currentColor;
   line-height: 1.1;
   margin: 0;
   text-align: center;
@@ -140,8 +141,8 @@
   }
 
   .mango-story-banner__heading {
-    font-size: 2.6rem !important;
-    line-height: 1.25;
+    font-size: 3.4rem !important;
+    line-height: 1.2;
   }
 
   .mango-story-banner__leaf {
