@@ -103,13 +103,13 @@
         "benefit_J9KRQR"
       ],
       "custom_css": [
-        ".mango-benefits__desc {font-weight: 500; padding-top:15px;}"
+        ".mango-benefits__desc {font-weight: 500; padding-top: 15px;}"
       ],
       "name": "Mango Benefits",
       "settings": {
         "image": "shopify://shop_images/mango-tree.png",
         "show_ornament": true,
-        "arch_color": "#e8b4b8",
+        "arch_color": "#ff7e00",
         "active_color": "#4caf50",
         "text_color": "#2c5f8a",
         "ornament_color": "#c8922a",
