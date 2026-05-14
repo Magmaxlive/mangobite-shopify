@@ -44,7 +44,7 @@
 /* Oval card */
 .mango-types-grid__card-inner {
   background: var(--card-bg, #FFBE00);
-  border-radius: 50%;
+  border-radius: 46%;
   aspect-ratio: 4 / 5;
   display: flex;
   flex-direction: column;
