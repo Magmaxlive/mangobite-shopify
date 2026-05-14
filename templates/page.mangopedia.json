@@ -212,6 +212,88 @@
         "padding_top": 44,
         "padding_bottom": 60
       }
+    },
+    "mango_variety_info_jQXfBg": {
+      "type": "mango-variety-info",
+      "blocks": {
+        "info_tab_47dND4": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-41.png",
+            "label": "Also known as",
+            "content": "<p>Safedi, Badami.</p>"
+          }
+        },
+        "info_tab_aQjBRw": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-2png.png",
+            "label": "Origin",
+            "content": "<p>Originally from the Andhra Pradesh town of banganapalli South India.</p>"
+          }
+        },
+        "info_tab_itHmh6": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-5.png",
+            "label": "Season",
+            "content": "<p>April – June.</p>"
+          }
+        },
+        "info_tab_ixg4JP": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-4png3.png",
+            "label": "Shape",
+            "content": "<p>These mangoes are large in size, oblique to obliquely oval in shape with a thin skin dotted with light spots and a vibrant golden yellow colour.</p>"
+          }
+        },
+        "info_tab_g3MWG4": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-1png.png",
+            "label": "Taste & Texture",
+            "content": "<p>The pulpy fibreless texture, sweetness, moderate juice content.</p>"
+          }
+        },
+        "info_tab_8NPn84": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-6_1.png",
+            "label": "Other Characteristics",
+            "content": "<p>• Skin is edible.</p><p>• Weighs heavy than other mango varieties.</p><p>• The skin has a lovely bright yellow hue, and the taste is slightly sour.</p><p>• Fruits have good keeping quality.</p><p>• An unspoilt obliquely oval specimen presents an unblemished golden yellow thin edible skin.</p>"
+          }
+        },
+        "info_tab_8LgAyg": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-6.png",
+            "label": "Weight",
+            "content": "<p>These mangoes are large sized, weighing on an average 350-400 grams.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_tab_47dND4",
+        "info_tab_aQjBRw",
+        "info_tab_itHmh6",
+        "info_tab_ixg4JP",
+        "info_tab_g3MWG4",
+        "info_tab_8NPn84",
+        "info_tab_8LgAyg"
+      ],
+      "name": "Mango Variety Info",
+      "settings": {
+        "section_bg": "#ffffff",
+        "heading": "About Banganapalli Mango",
+        "heading_color": "#1a1a1a",
+        "tab_color": "#ffbe00",
+        "active_tab_color": "#22c55e",
+        "icon_bg_color": "#c5976a",
+        "panel_bg": "#f5f0e8",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -219,6 +301,7 @@
     "mango_story_banner_nMXFjR",
     "rich_text_9HaFhK",
     "mango_follow_heading_VPGRby",
-    "mango_types_grid_CPpDNr"
+    "mango_types_grid_CPpDNr",
+    "mango_variety_info_jQXfBg"
   ]
 }
