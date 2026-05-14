@@ -29,7 +29,13 @@
     {%- endif -%}
 
     {%- if section.settings.heading != blank -%}
-      <h1 class="mango-story-banner__heading" style="color: {{ section.settings.heading_color }};">{{ section.settings.heading }}</h1>
+     <h1 class="mango-story-banner__heading" style="color: {{ section.settings.heading_color }};">
+      {%- if section.settings.heading_type == 'product' -%}
+        {{ product.title }}
+      {%- else -%}
+        {{ section.settings.heading }}
+      {%- endif -%}
+    </h1>
     {%- endif -%}
 
     {%- if section.settings.description != blank -%}
