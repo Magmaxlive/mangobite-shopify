@@ -868,6 +868,88 @@
         "padding_top": 60,
         "padding_bottom": 0
       }
+    },
+    "mango_variety_info_z4KNaW": {
+      "type": "mango-variety-info",
+      "blocks": {
+        "info_tab_bBDCre": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-41.png",
+            "label": "Also known as",
+            "content": "<p>It is named after the town of Rajapur, which is located in the Ratnagiri district of Maharashtra.</p>"
+          }
+        },
+        "info_tab_YKpWHX": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-2png.png",
+            "label": "Origin",
+            "content": "<p>Rajapuri mangoes are primarily grown in Northern India, particularly in the regions of Maharashtra and Gujarat.</p>"
+          }
+        },
+        "info_tab_pT9YJW": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-5.png",
+            "label": "Season",
+            "content": "<p>The Rajapuri mango is available from March to July.</p>"
+          }
+        },
+        "info_tab_g9XPHV": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-4png3.png",
+            "label": "Shape",
+            "content": "<p>Rajapuri mangoes are Large sized fruits, averaging 12 to 18 centimetres in length, and have an elongated, straight oval shape with blunt, curved ends.</p>"
+          }
+        },
+        "info_tab_V6Cjcr": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-1png.png",
+            "label": "Taste & Texture",
+            "content": "<p>Rajapuri Mango is exceptionally sweet. This fruit is incredibly juicy and has a delicate, velvety texture that melts in your mouth. Its flavor is a perfect balance of sweetness and acidity, with a subtle undertone of tropical fruit.</p>"
+          }
+        },
+        "info_tab_3wMYe7": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-6_1.png",
+            "label": "Other Characteristics",
+            "content": "<p>• Rajapuri mango is an oversized juicy mango.<br/>• Rajapuri mangoes are highly aromatic and bear a tropical, nectar-like scent.<br/>• This mango has a soft and light-coloured pulp.<br/>• Rajapuri Mango is low in calories and high in antioxidants.</p>"
+          }
+        },
+        "info_tab_nJPMax": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-6.png",
+            "label": "Weight",
+            "content": "<p>Rajapuri Mango is a large fruit that typically weighs between 350-400 grams.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_tab_bBDCre",
+        "info_tab_YKpWHX",
+        "info_tab_pT9YJW",
+        "info_tab_g9XPHV",
+        "info_tab_V6Cjcr",
+        "info_tab_3wMYe7",
+        "info_tab_nJPMax"
+      ],
+      "name": "Mango Variety Info",
+      "settings": {
+        "section_bg": "#ffffff",
+        "heading": "About Rajapuri Mango",
+        "heading_color": "#1a1a1a",
+        "tab_color": "#ffbe00",
+        "active_tab_color": "#22c55e",
+        "icon_bg_color": "#c5976a",
+        "panel_bg": "#f5f0e8",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -883,6 +965,7 @@
     "mango_variety_info_mKJ3AH",
     "mango_variety_info_mxFTYx",
     "mango_variety_info_L7HWGi",
-    "mango_variety_info_bPhPRT"
+    "mango_variety_info_bPhPRT",
+    "mango_variety_info_z4KNaW"
   ]
 }
