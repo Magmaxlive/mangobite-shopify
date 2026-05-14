@@ -21,8 +21,10 @@
       "type": "mango-story-banner",
       "name": "Mango Story Banner",
       "settings": {
-        "subtitle": "Our Mango Journey",
-        "heading": "From Seed to Savor: Our Incredible Mango Journey",
+        "subtitle": "mango bite",
+        "heading": "OUR MANGO JOURNEY",
+        "description": "From Seed to Savor: Our Incredible Mango Journey",
+        "description_color": "#aaaaaa",
         "left_leaf": "shopify://shop_images/home-leaf-right.png",
         "right_leaf": "shopify://shop_images/image-from-rawpixel-id-2343322-png.png",
         "bg_color": "#1e1e1e",
