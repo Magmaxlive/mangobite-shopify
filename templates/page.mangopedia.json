@@ -144,6 +144,46 @@
             "card_color": "",
             "link": ""
           }
+        },
+        "mango_dPNrJm": {
+          "type": "mango",
+          "settings": {
+            "image": "shopify://shop_images/mango_9.png",
+            "name": "Malgova",
+            "origin": "Tamil Nadu, Karnataka",
+            "card_color": "",
+            "link": ""
+          }
+        },
+        "mango_yp8bpJ": {
+          "type": "mango",
+          "settings": {
+            "image": "shopify://shop_images/mango_all-copy.png",
+            "name": "Vanraj",
+            "origin": "Gujarat",
+            "card_color": "",
+            "link": ""
+          }
+        },
+        "mango_7aQAi3": {
+          "type": "mango",
+          "settings": {
+            "image": "shopify://shop_images/mango_all-copy-2.png",
+            "name": "Suvarnarekha",
+            "origin": "Andhra, Odisha",
+            "card_color": "",
+            "link": ""
+          }
+        },
+        "mango_cFfFT6": {
+          "type": "mango",
+          "settings": {
+            "image": "shopify://shop_images/mango_all-copy-3.png",
+            "name": "Chaunsa",
+            "origin": "Himacha, Bihar",
+            "card_color": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -154,7 +194,11 @@
         "mango_met3Cz",
         "mango_Jnz4G7",
         "mango_6p8eYM",
-        "mango_x9tGNH"
+        "mango_x9tGNH",
+        "mango_dPNrJm",
+        "mango_yp8bpJ",
+        "mango_7aQAi3",
+        "mango_cFfFT6"
       ],
       "name": "Mango Types Grid",
       "settings": {
