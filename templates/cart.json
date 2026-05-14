@@ -9,10 +9,28 @@
  */
 {
   "sections": {
+    "mango_story_banner_tTnCye": {
+      "type": "mango-story-banner",
+      "name": "Mango Story Banner",
+      "settings": {
+        "subtitle": "cart",
+        "heading": "MY CART",
+        "description": "",
+        "description_color": "#aaaaaa",
+        "left_leaf": "shopify://shop_images/home-leaf-right.png",
+        "right_leaf": "shopify://shop_images/image-from-rawpixel-id-2343322-png.png",
+        "bg_color": "#1e1e1e",
+        "heading_color": "#cccccc",
+        "subtitle_color": "#888888",
+        "padding_top": 160,
+        "padding_bottom": 80
+      }
+    },
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
-        "padding_top": 36,
+        "color_scheme": "",
+        "padding_top": 40,
         "padding_bottom": 36
       }
     },
@@ -32,7 +50,11 @@
         "subtotal",
         "buttons"
       ],
-      "settings": {}
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     },
     "featured-collection": {
       "type": "featured-collection",
@@ -41,13 +63,21 @@
         "products_to_show": 4,
         "title": "Featured collection",
         "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
         "show_view_all": true,
+        "view_all_style": "solid",
         "color_scheme": "scheme-1",
         "image_ratio": "square",
+        "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -56,6 +86,7 @@
     }
   },
   "order": [
+    "mango_story_banner_tTnCye",
     "cart-items",
     "cart-footer",
     "featured-collection"
