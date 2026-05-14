@@ -22,7 +22,9 @@
       "name": "Mango Story Banner",
       "settings": {
         "subtitle": "mango bites",
-        "heading": "Health Bites",
+        "heading": "HEALTH BITES",
+        "description": "Go tropical. Fuel your day with the sweet power of mango.",
+        "description_color": "#aaaaaa",
         "left_leaf": "shopify://shop_images/home-leaf-right.png",
         "right_leaf": "shopify://shop_images/image-from-rawpixel-id-2343322-png.png",
         "bg_color": "#1e1e1e",
