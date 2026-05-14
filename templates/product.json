@@ -14,6 +14,7 @@
       "name": "Mango Story Banner",
       "settings": {
         "subtitle": "Mango bite",
+        "heading_type": "product",
         "heading": "Grab Your Snack Time Essential - Mango Bite!",
         "description": "",
         "description_color": "#aaaaaa",
