@@ -36,6 +36,9 @@
     },
     "mango_contact_info_tf6y8c": {
       "type": "mango-contact-info",
+      "custom_css": [
+        "iframe {padding-top: 15px; padding-bottom: 15px;}"
+      ],
       "name": "Mango Contact Info",
       "settings": {
         "bg_color": "#ffffff",
@@ -53,33 +56,45 @@
         "padding_bottom": 0
       }
     },
+    "rich_text_qwHGTi": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JGXaEJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Get in touch",
+            "heading_size": "h1"
+          }
+        },
+        "text_9AJV7z": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Thank you for your interest in our services! If you have any questions, inquiries, or would like to discuss a potential collaboration, please feel free to get in touch with us. We are here to assist you and provide the information you need.</p><p>You can reach out to us using the contact details provided below, or by filling out the contact form. We aim to respond to all enquiries promptly.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JGXaEJ",
+        "text_9AJV7z"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "form": {
       "type": "contact-form",
       "settings": {
         "heading": "",
         "heading_size": "h1",
         "color_scheme": "scheme-1",
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 36
-      }
-    },
-    "mango_contact_info": {
-      "type": "mango-contact-info",
-      "name": "Mango Contact Info",
-      "settings": {
-        "bg_color": "#ffffff",
-        "contact_heading": "Contact",
-        "address": "102 White Swan Road, Mount Roskill,\nNew Zealand",
-        "reach_heading": "Reach us",
-        "phone": "02 772 24561",
-        "email": "info@mangobite.co.nz",
-        "social_heading": "Follow Us",
-        "facebook_url": "",
-        "instagram_url": "",
-        "map_embed_url": "",
-        "map_height": 480,
-        "padding_top": 60,
-        "padding_bottom": 0
       }
     }
   },
@@ -87,7 +102,7 @@
     "main",
     "mango_story_banner_dUQDet",
     "mango_contact_info_tf6y8c",
-    "form",
-    "mango_contact_info"
+    "rich_text_qwHGTi",
+    "form"
   ]
 }
