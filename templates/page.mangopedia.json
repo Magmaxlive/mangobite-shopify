@@ -704,6 +704,88 @@
         "padding_top": 60,
         "padding_bottom": 0
       }
+    },
+    "mango_variety_info_L7HWGi": {
+      "type": "mango-variety-info",
+      "blocks": {
+        "info_tab_CBttjU": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-41.png",
+            "label": "Also known as",
+            "content": "<p>There are several regional names for Dasheri mangoes are also well-known throughout India for their role in breeding new mango varieties.</p>"
+          }
+        },
+        "info_tab_QVNjqd": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-2png.png",
+            "label": "Origin",
+            "content": "<p>Dasheri mangoes are native to a village near Malihabad within Lucknow, a district just south of the Nepal border in the state of Uttar Pradesh in Northern India. Dasheri mangoes eventually spread in cultivation and are grown throughout Northern India and Southern India in Andhra Pradesh.</p>"
+          }
+        },
+        "info_tab_iXEY6V": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-5.png",
+            "label": "Season",
+            "content": "<p>The harvesting season typically spans from June to August.</p>"
+          }
+        },
+        "info_tab_aparhW": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-4png3.png",
+            "label": "Shape",
+            "content": "<p>Dasheri mangoes are small to medium-sized fruits, averaging 9 to 15 centimetres in length, and have an elongated, straight oval shape with blunt, curved ends.</p>"
+          }
+        },
+        "info_tab_hpmwrf": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-1png.png",
+            "label": "Taste & Texture",
+            "content": "<p>Dasheri mangos are favoured for their sweet flavour and juicy, smooth flesh and are a prized seasonal summer fruit utilized in raw and cooked preparations. The skin is semi-thick, smooth, leathery, and subtly waxy.</p>"
+          }
+        },
+        "info_tab_Fp9gYp": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/icon-6_1.png",
+            "label": "Other Characteristics",
+            "content": "<p>• The orange flesh is tender, succulent, and almost entirely fibreless, encasing a moderately-sized stone.<br/>• Ranging in colour from light green to yellow-green, transforming into a golden yellow hue when ripe.<br/>• The fruit’s flesh is very sweet and contains tropical, fruity, and mildly tangy nuances.<br/>• Dasheri mangoes contain phytochemicals in the skin that may have antioxidant-like properties to reduce inflammation.</p>"
+          }
+        },
+        "info_tab_jMaXte": {
+          "type": "info_tab",
+          "settings": {
+            "icon": "shopify://shop_images/p-icon-6.png",
+            "label": "Weight",
+            "content": "<p>Around 300-350 grams.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "info_tab_CBttjU",
+        "info_tab_QVNjqd",
+        "info_tab_iXEY6V",
+        "info_tab_aparhW",
+        "info_tab_hpmwrf",
+        "info_tab_Fp9gYp",
+        "info_tab_jMaXte"
+      ],
+      "name": "Mango Variety Info",
+      "settings": {
+        "section_bg": "#ffffff",
+        "heading": "About Dasheri Mango",
+        "heading_color": "#1a1a1a",
+        "tab_color": "#ffbe00",
+        "active_tab_color": "#22c55e",
+        "icon_bg_color": "#c5976a",
+        "panel_bg": "#f5f0e8",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -717,6 +799,7 @@
     "mango_variety_info_pcjawn",
     "mango_variety_info_JjtjcP",
     "mango_variety_info_mKJ3AH",
-    "mango_variety_info_mxFTYx"
+    "mango_variety_info_mxFTYx",
+    "mango_variety_info_L7HWGi"
   ]
 }
