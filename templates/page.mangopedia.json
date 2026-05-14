@@ -54,7 +54,7 @@
         "subtitle": "types",
         "heading": "TYPES OF MANGOES",
         "heading_size": "h2",
-        "ornament_color": "#C8922A",
+        "ornament_color": "#c8922a",
         "bg_color": "#ffffff",
         "subtitle_color": "#888888",
         "heading_color": "#111111",
@@ -62,64 +62,104 @@
         "padding_bottom": 0
       }
     },
-    "multicolumn_PNeJXf": {
-      "type": "multicolumn",
+    "mango_types_grid_CPpDNr": {
+      "type": "mango-types-grid",
       "blocks": {
-        "column_pTepTK": {
-          "type": "column",
+        "mango_WrHCFB": {
+          "type": "mango",
           "settings": {
             "image": "shopify://shop_images/Picture-1-PhotoRoom.png-PhotoRoom.png",
-            "title": "Alphonso",
-            "text": "<p>Maharashtra</p>",
-            "link_label": "",
+            "name": "Alphonso",
+            "origin": "Maharashtra",
+            "card_color": "",
             "link": ""
           }
         },
-        "column_ixkViB": {
-          "type": "column",
+        "mango_3HK7fz": {
+          "type": "mango",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
+            "name": "Totapuri",
+            "origin": "Karnataka",
+            "card_color": "",
             "link": ""
           }
         },
-        "column_nQGWN9": {
-          "type": "column",
+        "mango_eNrWd4": {
+          "type": "mango",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
+            "name": "Banganpalli",
+            "origin": "Andhra Pradesh",
+            "card_color": "",
+            "link": ""
+          }
+        },
+        "mango_JBgjgE": {
+          "type": "mango",
+          "settings": {
+            "name": "Dasheri",
+            "origin": "Uttar Pradesh",
+            "card_color": "",
+            "link": ""
+          }
+        },
+        "mango_met3Cz": {
+          "type": "mango",
+          "settings": {
+            "name": "Himsagar",
+            "origin": "West Bengal",
+            "card_color": "",
+            "link": ""
+          }
+        },
+        "mango_Jnz4G7": {
+          "type": "mango",
+          "settings": {
+            "name": "Kesar",
+            "origin": "Gujarat",
+            "card_color": "",
+            "link": ""
+          }
+        },
+        "mango_6p8eYM": {
+          "type": "mango",
+          "settings": {
+            "name": "Langda",
+            "origin": "Uttar Pradesh",
+            "card_color": "",
+            "link": ""
+          }
+        },
+        "mango_x9tGNH": {
+          "type": "mango",
+          "settings": {
+            "name": "Ambika",
+            "origin": "Uttar Pradesh",
+            "card_color": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column_pTepTK",
-        "column_ixkViB",
-        "column_nQGWN9"
+        "mango_WrHCFB",
+        "mango_3HK7fz",
+        "mango_eNrWd4",
+        "mango_JBgjgE",
+        "mango_met3Cz",
+        "mango_Jnz4G7",
+        "mango_6p8eYM",
+        "mango_x9tGNH"
       ],
-      "custom_css": [
-        ".multicolumn-card {background-color: #ffbe00; border-radius: 200px;}",
-        ".multicolumn-card__image-wrapper {background: transparent;}",
-        ".multicolumn-card__info ,.inline-richtext {color: white;}"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
+      "name": "Mango Types Grid",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
+        "section_bg": "#ffffff",
+        "heading": "",
+        "heading_color": "#1a1a1a",
+        "subheading": "",
+        "subheading_color": "#555555",
+        "card_color": "#ffbe00",
         "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 24,
+        "padding_bottom": 60
       }
     }
   },
@@ -128,6 +168,6 @@
     "mango_story_banner_nMXFjR",
     "rich_text_9HaFhK",
     "mango_follow_heading_VPGRby",
-    "multicolumn_PNeJXf"
+    "mango_types_grid_CPpDNr"
   ]
 }
