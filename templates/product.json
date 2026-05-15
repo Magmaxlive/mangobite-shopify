@@ -92,6 +92,9 @@
         "buy_buttons",
         "share"
       ],
+      "custom_css": [
+        ".product__info-wrapper{font-family: 'Poppins',sans-serif !important;}"
+      ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "",
