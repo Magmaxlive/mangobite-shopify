@@ -48,6 +48,9 @@
       "block_order": [
         "text_JCPqAK"
       ],
+      "custom_css": [
+        "p{text-align: left;}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
