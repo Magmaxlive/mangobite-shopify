@@ -27,6 +27,9 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
+        "facebook_link": "https://www.facebook.com/mangobitenz/",
+        "instagram_link": "https://www.instagram.com/mangobitenz/",
+        "youtube_link": "",
         "phone": "02772-24561",
         "wave_image": "shopify://shop_images/footer_w.png",
         "payment_enable": true,
