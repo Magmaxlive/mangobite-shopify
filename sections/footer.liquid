@@ -23,7 +23,15 @@
 
     <!-- Column 1: Logo -->
     <div class="mango-footer__col mango-footer__col--logo">
-      {%- if settings.brand_image != blank -%}
+      {%- if settings.logo != blank -%}
+        <a href="{{ routes.root_url }}">
+          {{
+            settings.logo
+            | image_url: width: 300
+            | image_tag: loading: 'lazy', width: 140, class: 'mango-footer__logo'
+          }}
+        </a>
+      {%- elsif settings.brand_image != blank -%}
         <a href="{{ routes.root_url }}">
           {{
             settings.brand_image

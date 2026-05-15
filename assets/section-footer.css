@@ -13,13 +13,14 @@
 .mango-footer__content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 5rem 0 18rem;
 }
 
 .mango-footer__col {
-  flex: 1;
+  flex: 0 0 auto;
   padding: 0 3rem;
+  min-width: 18rem;
 }
 
 .mango-footer__col--logo {
@@ -41,10 +42,30 @@
 }
 
 .mango-footer__divider {
-  width: 1px;
-  height: 220px;
-  background: rgba(0, 0, 0, 0.12);
-  flex-shrink: 0;
+  display: none;
+}
+
+.mango-footer__col--nav {
+  position: relative;
+}
+
+.mango-footer__col--nav::before,
+.mango-footer__col--nav::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 120px;
+  background: #FF6B00;
+}
+
+.mango-footer__col--nav::before {
+  left: -4rem;
+}
+
+.mango-footer__col--nav::after {
+  right: -4rem;
 }
 
 .mango-footer__col--nav {
@@ -86,10 +107,27 @@
 .mango-footer__social {
   display: flex !important;
   flex-direction: row !important;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start !important;
+  gap: 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.mango-footer__social .list-social__link {
+  color: #1a1a1a;
+  padding: 0.6rem;
+}
+
+.mango-footer__social .list-social__link:hover {
+  color: #FF6B00;
+}
+
+.mango-footer__social .svg-wrapper svg {
+  width: 2.4rem;
+  height: 2.4rem;
+  fill: currentColor;
 }
 
 .mango-footer__copyright {
@@ -150,6 +188,15 @@
 
   .mango-footer__col--contact {
     align-items: center;
+  }
+
+  .mango-footer__col--nav::before,
+  .mango-footer__col--nav::after {
+    display: none;
+  }
+
+  .mango-footer__social {
+    justify-content: center !important;
   }
 
   .mango-footer__divider {
