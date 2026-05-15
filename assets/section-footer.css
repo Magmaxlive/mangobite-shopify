@@ -130,6 +130,19 @@
   fill: currentColor;
 }
 
+.mango-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  padding: 0.4rem;
+  transition: color 0.2s;
+}
+
+.mango-footer__social-link:hover {
+  color: #FF6B00;
+}
+
 .mango-footer__copyright {
   font-size: 1.3rem;
   color: #555555;
