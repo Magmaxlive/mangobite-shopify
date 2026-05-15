@@ -21,7 +21,8 @@
       "type": "mango-story-banner",
       "name": "Mango Story Banner",
       "settings": {
-        "subtitle": "mangopedia",
+        "subtitle": "mangostory",
+        "heading_type": "custom",
         "heading": "MANGOPEDIA",
         "description": "From Seed to Savor: Our Incredible Mango Journey.",
         "description_color": "#aaaaaa",
