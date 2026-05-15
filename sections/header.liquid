@@ -205,44 +205,6 @@
     color: #ffffff !important;
   }
 
-  /* Equal spacing between all header icon items */
-  .header__icons {
-    gap: 0 !important;
-  }
-
-  .header__icon {
-    width: auto !important;
-    min-width: unset !important;
-    padding: 0.4rem 0.3rem !important;
-    margin: 0 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  /* Collections button */
-  .header__collections-btn {
-    display: inline-flex;
-    align-items: center;
-    margin-left: 0.3rem;
-    background-color: #22c55e;
-    color: #ffffff;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0.65rem 1.4rem;
-    border-radius: 50px;
-    white-space: nowrap;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .header__collections-btn:hover {
-    background-color: #16a34a;
-    transform: translateY(-1px);
-  }
 
   /* centered nav, space-between layout */
   @media screen and (min-width: 990px) {
@@ -491,14 +453,6 @@
         {%- endif -%}
       </a>
 
-      {%- if section.settings.collections_btn_text != blank -%}
-        <a
-          href="{{ section.settings.collections_btn_url | default: routes.collections_url }}"
-          class="header__collections-btn"
-        >
-          {{ section.settings.collections_btn_text }}
-        </a>
-      {%- endif -%}
     </div>
   </header>
 </{{ header_tag }}>
@@ -807,21 +761,6 @@
       "default": true,
       "label": "t:sections.header.settings.enable_customer_avatar.label",
       "info": "t:sections.header.settings.enable_customer_avatar.info"
-    },
-    {
-      "type": "header",
-      "content": "Collections button"
-    },
-    {
-      "type": "text",
-      "id": "collections_btn_text",
-      "label": "Button label",
-      "default": "Shop"
-    },
-    {
-      "type": "url",
-      "id": "collections_btn_url",
-      "label": "Button URL"
     },
     {
       "type": "header",
