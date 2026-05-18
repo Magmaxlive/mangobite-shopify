@@ -106,10 +106,118 @@
   /* Black background once user has scrolled past the header */
   .section-header.scrolled-past-header .header-wrapper,
   .section-header.scrolled-past-header .header-wrapper.gradient,
-  .section-header.scrolled-past-header [class*="color-"] {
+  .section-header.scrolled-past-header [class*="color-"]:not(#cart-notification):not(.cart-notification-product) {
     background: #1e1e1e !important;
     background-color: #1e1e1e !important;
     background-image: none !important;
+  }
+
+  /* Cart notification */
+  #cart-notification {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #1a1a1a !important;
+    border-radius: 16px !important;
+    border: none !important;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18) !important;
+    padding: 2rem 2.2rem 2rem !important;
+    overflow: hidden;
+  }
+
+  /* Orange top accent line */
+  #cart-notification::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, #FF6B00, #FFBE00);
+    border-radius: 4px 4px 0 0;
+    margin: -2rem -2.2rem 1.6rem;
+  }
+
+  #cart-notification * {
+    color: #1a1a1a !important;
+  }
+
+  /* Header */
+  #cart-notification .cart-notification__heading {
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em;
+  }
+
+  /* Green checkmark */
+  #cart-notification .icon-checkmark {
+    color: #22c55e !important;
+    width: 1.6rem !important;
+  }
+
+  /* Product row */
+  #cart-notification .cart-notification-product {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 1.2rem !important;
+    margin: 0.8rem 0 1.4rem !important;
+  }
+
+  /* View cart button */
+  #cart-notification .button--secondary {
+    background: transparent !important;
+    color: #1a1a1a !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 1.3rem !important;
+    transition: border-color 0.2s ease !important;
+  }
+
+  #cart-notification .button--secondary:hover {
+    border-color: #FF6B00 !important;
+    color: #FF6B00 !important;
+  }
+
+  #cart-notification .button--secondary:hover * {
+    color: #FF6B00 !important;
+  }
+
+  /* Checkout button */
+  #cart-notification .button--primary {
+    background: #FF6B00 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 1.3rem !important;
+    box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35) !important;
+    transition: background 0.2s ease !important;
+  }
+
+  #cart-notification .button--primary:hover {
+    background: #e55d00 !important;
+  }
+
+  #cart-notification .button--primary * {
+    color: #ffffff !important;
+  }
+
+  /* Continue shopping link */
+  #cart-notification .button-label {
+    color: #999999 !important;
+    font-size: 1.2rem !important;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+  }
+
+  /* Remove Dawn's button border trick */
+  #cart-notification .button::after,
+  #cart-notification .button::before {
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Button spacing */
+  #cart-notification .cart-notification__links > * {
+    margin-top: 0.8rem !important;
   }
 
   /* nav link styling */

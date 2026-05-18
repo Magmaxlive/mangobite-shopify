@@ -1,0 +1,167 @@
+/* ── Mango Product Card ── */
+
+.product-card-wrapper .card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: none !important;
+  background: #ffffff;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card-wrapper .card--card:after,
+.product-card-wrapper .card--standard .card__inner:after {
+  box-shadow: none !important;
+}
+
+.product-card-wrapper:hover .card {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.14);
+}
+
+/* Image container */
+.product-card-wrapper .card__inner {
+  border-radius: 16px 16px 0 0 !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.product-card-wrapper .card__media {
+  border-radius: 16px 16px 0 0 !important;
+  overflow: hidden;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Warm gradient overlay on hover */
+.product-card-wrapper .card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(255, 107, 0, 0.18) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.product-card-wrapper:hover .card__media::after {
+  opacity: 1;
+}
+
+/* Info section spacing */
+.product-card-wrapper .card__information {
+  padding: 1.4rem 2.4rem 0.6rem !important;
+}
+
+/* Product title */
+.product-card-wrapper .card__heading {
+  font-size: 1.4rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.01em;
+}
+
+.product-card-wrapper .card__heading a {
+  font-weight: 700;
+  color: #666666 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.2rem;
+}
+
+/* No underline on hover for card links */
+.product-card-wrapper.underline-links-hover:hover a {
+  text-decoration: none !important;
+}
+
+/* Price */
+.product-card-wrapper .price__container {
+  margin-top: 0.3rem;
+}
+
+.product-card-wrapper .price__container .price-item,
+.product-card-wrapper .price .price-item,
+.card-wrapper .price-item {
+  color: #1a1a1a !important;
+  font-weight: 900 !important;
+  font-size: 1.8rem !important;
+  letter-spacing: -0.02em;
+  text-decoration: none !important;
+}
+
+.product-card-wrapper .price__container .price-item--sale {
+  color: #1a1a1a !important;
+}
+
+.product-card-wrapper .price__container s,
+.product-card-wrapper .price__container .price-item--regular.price-item--last {
+  color: #bbbbbb !important;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0;
+}
+
+.product-card-wrapper .price__container .price-item--regular:not(:only-child) {
+  color: #bbbbbb !important;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+/* Quick add button */
+.product-card-wrapper .quick-add {
+  padding: 0.8rem 1.6rem 1.4rem;
+}
+
+.product-card-wrapper .quick-add__submit.button {
+  background: #FF6B00 !important;
+  color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+  border-radius: 50px !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 1rem 1.6rem;
+  min-height: unset !important;
+  transition: background 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3) !important;
+}
+
+.product-card-wrapper .quick-add__submit.button::after,
+.product-card-wrapper .quick-add__submit.button::before {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.product-card-wrapper .quick-add__submit.button:hover:not([disabled]) {
+  background: #e55d00 !important;
+}
+
+.product-card-wrapper .quick-add__submit.button[disabled] {
+  background: #cccccc !important;
+  box-shadow: none !important;
+}
+
+/* Badge */
+.product-card-wrapper .badge {
+  border-radius: 20px !important;
+  padding: 0.35rem 1.1rem !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Card content bottom padding */
+.product-card-wrapper .card:not(.ratio) > .card__content {
+  padding: 0 !important;
+}
+
+/* Vendor text */
+.product-card-wrapper .caption-with-letter-spacing {
+  font-size: 1.1rem;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.2rem;
+}
