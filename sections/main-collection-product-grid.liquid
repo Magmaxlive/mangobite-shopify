@@ -26,12 +26,28 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background: #ffffff;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Mobile: match featured-collection card sizing (88% width, centered) */
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }}-padding .product-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 28px !important;
+    }
+
+    .section-{{ section.id }}-padding .grid__item {
+      width: 88% !important;
+      max-width: 380px !important;
     }
   }
 {%- endstyle -%}

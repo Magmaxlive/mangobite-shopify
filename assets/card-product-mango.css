@@ -5,7 +5,7 @@
   overflow: hidden;
   border: none !important;
   background: #ffffff !important;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.14);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -16,7 +16,7 @@
 
 .product-card-wrapper:hover .card {
   transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
 }
 
 /* Image container — square crop via aspect-ratio */
