@@ -74,7 +74,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
-    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}{% if product.selected_or_first_available_variant.available == false %} product--sold-out{% endif %}" data-available="{{ product.selected_or_first_available_variant.available }}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
@@ -98,9 +98,9 @@
                 </p>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
+                  <h1 style="font-weight: 800;">{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
-                    <h2 class="h1">
+                    <h2 class="h1" style="font-weight: 800;">
                       {{ product.title | escape }}
                     </h2>
                   </a>
@@ -478,6 +478,10 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
+                <div class="product__sold-out-notice" style="display:none;">
+                  <span class="product__sold-out-badge">Out of Stock</span>
+                  <p class="product__sold-out-text">This product is currently unavailable.</p>
+                </div>
                 {%- render 'buy-buttons',
                   block: block,
                   product: product,
@@ -736,6 +740,71 @@
       {{ product | structured_data }}
     </script>
   </div>
+
+  <style>
+    /* ── Sold-out state ── */
+    .product--sold-out .product-form__quantity,
+    .product--sold-out .product-form__submit,
+    .product--sold-out .shopify-payment-button,
+    .product--sold-out .product__pickup-availabilities {
+      display: none !important;
+    }
+
+    .product--sold-out .product__sold-out-notice {
+      display: flex !important;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .product__sold-out-badge {
+      display: inline-block;
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.6rem;
+      border-radius: 50px;
+      width: fit-content;
+    }
+
+    .product__sold-out-text {
+      color: #888888;
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    /* ── Product media uniform sizing ── */
+    .product__media-wrapper .media {
+      background: #f8f8f8;
+    }
+
+    .product__media-wrapper .media img {
+      object-fit: contain !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .product-media-container {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('variant:change', function(event) {
+      const variant = event.detail.variant;
+      const productEl = event.target.closest('.product');
+      if (!productEl || !variant) return;
+      if (variant.available) {
+        productEl.classList.remove('product--sold-out');
+      } else {
+        productEl.classList.add('product--sold-out');
+      }
+    });
+  </script>
 </product-info>
 
 {% schema %}

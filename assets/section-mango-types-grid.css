@@ -97,12 +97,13 @@
 
 .mango-types-grid__name {
   display: block;
-  font-family: 'Nunito', sans-serif;
+  font-family: Georgia, 'Palatino Linotype', Palatino, 'Book Antiqua', serif !important;
   font-size: clamp(1.3rem, 1.6vw, 1.9rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
   letter-spacing: 0.01em;
+  font-style: italic;
 }
 
 .mango-types-grid__origin {

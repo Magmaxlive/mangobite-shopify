@@ -122,6 +122,39 @@
     #collection-{{ section.id }} .grid__item .card__information {
       padding: 1.4rem 2rem 0.6rem !important;
     }
+  }
+
+  /* View All button */
+  #collection-{{ section.id }} .collection__view-all {
+    margin-top: 2.4rem;
+  }
+
+  #collection-{{ section.id }} .collection__view-all .button {
+    background: #FF6B00 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em;
+    padding: 1.1rem 3rem !important;
+    box-shadow: 0 4px 14px rgba(255, 107, 0, 0.3) !important;
+    transition: background 0.2s ease !important;
+  }
+
+  #collection-{{ section.id }} .collection__view-all .button:hover {
+    background: #e55d00 !important;
+  }
+
+  #collection-{{ section.id }} .collection__view-all .button::after,
+  #collection-{{ section.id }} .collection__view-all .button::before {
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    #collection-{{ section.id }} .grid__item .card__information {
+      padding: 1.4rem 2rem 0.6rem !important;
+    }
 
     #collection-{{ section.id }} .grid__item .card__heading a {
       font-size: 1.2rem !important;
