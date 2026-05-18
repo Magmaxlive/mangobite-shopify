@@ -4,7 +4,7 @@
   border-radius: 16px;
   overflow: hidden;
   border: none !important;
-  background: #ffffff;
+  background: #ffffff !important;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -19,26 +19,47 @@
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.14);
 }
 
-/* Image container — force uniform square aspect ratio */
+/* Image container — square crop via aspect-ratio */
 .product-card-wrapper .card__inner {
   border-radius: 16px 16px 0 0 !important;
   border: none !important;
   padding: 0 !important;
-  --ratio-percent: 100% !important;
+  background: transparent !important;
+  aspect-ratio: 1 / 1 !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* Kill the ::before ratio trick — we use aspect-ratio instead */
+.product-card-wrapper .card__inner::before {
+  display: none !important;
 }
 
 .product-card-wrapper .card__media {
-  border-radius: 16px 16px 0 0 !important;
-  overflow: hidden;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  inset: 0 !important;
   margin: 0 !important;
   width: 100% !important;
+  height: 100% !important;
+}
+
+.product-card-wrapper .card__media .media {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .product-card-wrapper .card__media img {
-  object-fit: cover !important;
-  object-position: center !important;
+  position: absolute !important;
+  inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* Warm gradient overlay on hover */
