@@ -57,6 +57,9 @@
         "slide-2",
         "slide-3"
       ],
+      "custom_css": [
+        ".mango-hero__title {font-family: 'Lilita One', cursive !important; }"
+      ],
       "settings": {
         "leaf_image": "shopify://shop_images/leaf4.png",
         "autoplay": true,
