@@ -120,7 +120,7 @@
     "mango_split_hero": {
       "type": "mango-split-hero",
       "custom_css": [
-        ".mango-split__heading {font-family: 'Nunito', sans-serif !important; }"
+        ".mango-split__heading {font-family: \"Nunito\", sans-serif !important;}"
       ],
       "settings": {
         "background_color": "#ffffff",
@@ -314,6 +314,9 @@
         "testimonial_jTJ4TM",
         "testimonial_4EqBEr",
         "testimonial_X3Mk6x"
+      ],
+      "custom_css": [
+        ".mango-testimonials__title {font-family:'Nunito', sans-serif !important;}"
       ],
       "name": "Testimonials",
       "settings": {
