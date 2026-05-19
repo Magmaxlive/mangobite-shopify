@@ -15,6 +15,22 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .cart__next-step-note {
+    margin-top: 1.6rem;
+    font-size: 1.15rem;
+    color: #666666;
+    text-align: left;
+    line-height: 1.6;
+  }
+
+  .cart__next-step-note p {
+    margin-bottom: 0.8rem;
+  }
+
+  .cart__next-step-note p:last-child {
+    margin-bottom: 0;
+  }
 {%- endstyle -%}
 
 <div
@@ -122,6 +138,15 @@
               {%- if additional_checkout_buttons -%}
                 <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
                   {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+
+              {%- if cart.item_count > 0 -%}
+                <div class="cart__next-step-note">
+                  <p><strong>Next Step:</strong> Following selection of products or services, the customer is required to provide a billing address to proceed with the order. This address will be used for invoicing and shipping purposes.</p>
+                  <p><strong>Collection or Shipping Options:</strong> Upon providing the billing address, customers will be presented with options for product delivery. They may choose either to collect the product from our collection centre in Auckland or to have it shipped directly to their desired address.</p>
+                  <p><strong>Collection Centre:</strong> If the customer selects collection from our centre, they will be provided with details regarding the pickup location, operating hours, and any specific instructions for retrieval.</p>
+                  <p><strong>Shipping Details:</strong> For customers opting for direct shipping, they must specify the desired delivery address accurately during the ordering process. Any errors or discrepancies in the provided address may result in delays or additional charges for rerouting.</p>
                 </div>
               {%- endif -%}
           {%- endcase -%}

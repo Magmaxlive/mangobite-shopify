@@ -115,36 +115,12 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "rich_text_PmR8kX": {
-      "type": "rich-text",
-      "blocks": {
-        "text_7RHExD": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em><strong>Next Step :</strong></em><em> Following selection of products or services, the customer is required to provide a billing address to proceed with the order. This address will be used for invoicing and shipping purposes.<br/><br/></em></p><p><strong>Collection or Shipping Options:</strong> Upon providing the billing address, customers will be presented with options for product delivery. They may choose either to collect the product from our collection centre in Auckland or to have it shipped directly to their desired address.<br/><br/></p><p><strong>Collection Centre:</strong> If the customer selects collection from our centre, they will be provided with details regarding the pickup location, operating hours, and any specific instructions for retrieval.<br/><br/></p><p><strong>Shipping Details:</strong> For customers opting for direct shipping, they must specify the desired delivery address accurately during the ordering process. Any errors or discrepancies in the provided address may result in delays or additional charges for rerouting.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_7RHExD"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
     "mango_story_banner_tTnCye",
     "cart-items",
     "cart-footer",
-    "rich_text_PmR8kX",
     "rich_text_hABfaL",
     "featured-collection"
   ]
