@@ -75,7 +75,7 @@
             "name": "Alphonso",
             "origin": "Maharashtra",
             "card_color": "",
-            "link": ""
+            "link": "shopify://products/alphonso"
           }
         },
         "mango_3HK7fz": {
@@ -85,7 +85,7 @@
             "name": "Totapuri",
             "origin": "Karnataka",
             "card_color": "",
-            "link": ""
+            "link": "shopify://products/totapuri-mango"
           }
         },
         "mango_eNrWd4": {
@@ -95,17 +95,17 @@
             "name": "Banganpalli",
             "origin": "Andhra Pradesh",
             "card_color": "",
-            "link": ""
+            "link": "shopify://products/banganapali-badami-mango"
           }
         },
         "mango_JBgjgE": {
           "type": "mango",
           "settings": {
             "image": "shopify://shop_images/mango_4.png",
-            "name": "Dasheri",
+            "name": "Dusheri",
             "origin": "Uttar Pradesh",
             "card_color": "",
-            "link": ""
+            "link": "shopify://products/dusheri-mango"
           }
         },
         "mango_met3Cz": {
@@ -125,7 +125,7 @@
             "name": "Kesar",
             "origin": "Gujarat",
             "card_color": "",
-            "link": ""
+            "link": "shopify://products/kesar-mango"
           }
         },
         "mango_6p8eYM": {
@@ -135,7 +135,7 @@
             "name": "Langda",
             "origin": "Uttar Pradesh",
             "card_color": "",
-            "link": ""
+            "link": "shopify://products/langda-mango"
           }
         },
         "mango_x9tGNH": {
@@ -185,7 +185,7 @@
             "name": "Chaunsa",
             "origin": "Himacha, Bihar",
             "card_color": "",
-            "link": ""
+            "link": "shopify://products/chaunsa-mango"
           }
         }
       },
