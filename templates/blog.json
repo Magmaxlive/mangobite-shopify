@@ -43,8 +43,8 @@
     "featured_blog_bCceTH": {
       "type": "featured-blog",
       "custom_css": [
-        ".article-card-wrapper {border-radius: 15px; background-color: #f0f0f0;}",
-        ".card__inner img {border-radius: 15px;}"
+        ".article-card-wrapper {border-radius: 15px; background-color: #f0f0f0; overflow: hidden; }",
+        ".card__inner img {border-radius: 15px 15px 0 0; display: block; width: 100%; height: auto;}"
       ],
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
