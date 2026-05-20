@@ -42,17 +42,18 @@
     },
     "featured_blog_bCceTH": {
       "type": "featured-blog",
+      "custom_css": [],
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
-        "blog": "",
+        "blog": "news",
         "post_limit": 3,
         "heading": "",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "columns_desktop": 3,
         "show_view_all": true,
         "show_image": true,
         "show_date": true,
-        "show_author": false,
+        "show_author": true,
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
