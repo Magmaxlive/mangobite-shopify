@@ -44,6 +44,7 @@
       <p class="mango-story-banner__description" style="color: {{ section.settings.description_color }};">{{ section.settings.description }}</p>
     {%- endif -%}
 
+    {%- if section.settings.show_breadcrumb -%}
     <nav class="mango-story-banner__breadcrumb" aria-label="Breadcrumb">
       <a href="{{ routes.root_url }}">Home</a>
       {%- case request.page_type -%}
@@ -73,6 +74,7 @@
           <span>{{ page.title }}</span>
       {%- endcase -%}
     </nav>
+    {%- endif -%}
 
   </div>
 
@@ -83,6 +85,12 @@
   "name": "Mango Story Banner",
   "tag": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumb",
+      "label": "Show breadcrumb",
+      "default": true
+    },
     {
       "type": "text",
       "id": "subtitle",
