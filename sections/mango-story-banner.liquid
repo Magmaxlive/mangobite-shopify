@@ -29,20 +29,50 @@
     {%- endif -%}
 
     {%- if section.settings.heading != blank -%}
-     <h1 class="mango-story-banner__heading" style="color: {{ section.settings.heading_color }};">
-      {%- if section.settings.heading_type == 'product' -%}
-        {{ product.title }}
-      {%- elsif section.settings.heading_type == 'article' -%}
-        {{ article.title }}
-      {%- else -%}
-        {{ section.settings.heading }}
-      {%- endif -%}
-    </h1>
+      <h1 class="mango-story-banner__heading" style="color: {{ section.settings.heading_color }};">
+        {%- if section.settings.heading_type == 'product' -%}
+          {{ product.title }}
+        {%- elsif section.settings.heading_type == 'article' -%}
+          {{ article.title }}
+        {%- else -%}
+          {{ section.settings.heading }}
+        {%- endif -%}
+      </h1>
     {%- endif -%}
 
     {%- if section.settings.description != blank -%}
       <p class="mango-story-banner__description" style="color: {{ section.settings.description_color }};">{{ section.settings.description }}</p>
     {%- endif -%}
+
+    <nav class="mango-story-banner__breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      {%- case request.page_type -%}
+        {%- when 'article' -%}
+          <span aria-hidden="true">›</span>
+          <a href="{{ blog.url }}">{{ blog.title }}</a>
+          <span aria-hidden="true">›</span>
+          <span>{{ article.title }}</span>
+        {%- when 'blog' -%}
+          <span aria-hidden="true">›</span>
+          <span>{{ blog.title }}</span>
+        {%- when 'collection' -%}
+          <span aria-hidden="true">›</span>
+          <span>{{ collection.title }}</span>
+        {%- when 'product' -%}
+          {%- if product.collections.first -%}
+            <span aria-hidden="true">›</span>
+            <a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a>
+          {%- endif -%}
+          <span aria-hidden="true">›</span>
+          <span>{{ product.title }}</span>
+        {%- when 'cart' -%}
+          <span aria-hidden="true">›</span>
+          <span>Cart</span>
+        {%- when 'page' -%}
+          <span aria-hidden="true">›</span>
+          <span>{{ page.title }}</span>
+      {%- endcase -%}
+    </nav>
 
   </div>
 

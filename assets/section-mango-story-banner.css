@@ -26,6 +26,39 @@
   gap: 2rem;
 }
 
+.mango-story-banner__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.6rem;
+  animation: fadeSlideUp 0.7s ease 0.45s both;
+}
+
+.mango-story-banner__breadcrumb a,
+.mango-story-banner__breadcrumb span:not([aria-hidden]) {
+  max-width: 22ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mango-story-banner__breadcrumb a {
+  color: #777777;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mango-story-banner__breadcrumb a:hover {
+  color: #cccccc;
+}
+
+.mango-story-banner__breadcrumb span:not([aria-hidden]) {
+  color: #555555;
+}
+
 .mango-story-banner__subtitle {
   font-size: 1.2rem;
   letter-spacing: 0.25em;
