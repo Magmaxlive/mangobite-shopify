@@ -43,13 +43,13 @@
     "featured_blog_bCceTH": {
       "type": "featured-blog",
       "custom_css": [
-        ".article-card-wrapper {border-radius: 15px; background-color: #f0f0f0; overflow: hidden; }",
+        ".article-card-wrapper {border-radius: 15px; background-color: #f0f0f0; overflow: hidden;}",
         ".card__inner img {border-radius: 15px 15px 0 0; display: block; width: 100%; height: auto;}"
       ],
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
         "blog": "news",
-        "post_limit": 3,
+        "post_limit": 4,
         "heading": "",
         "heading_size": "h2",
         "columns_desktop": 3,
