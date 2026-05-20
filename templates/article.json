@@ -15,7 +15,7 @@
       "settings": {
         "subtitle": "Mango bite",
         "heading_type": "custom",
-        "heading": "Grab Your Snack Time Essential - Mango Bite!",
+        "heading": "BLOGS",
         "description": "",
         "description_color": "#aaaaaa",
         "left_leaf": "shopify://shop_images/home-leaf-right.png",
@@ -30,17 +30,17 @@
     "main": {
       "type": "main-article",
       "blocks": {
-        "featured_image": {
-          "type": "featured_image",
-          "settings": {
-            "image_height": "small"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
             "blog_show_date": true,
             "blog_show_author": false
+          }
+        },
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "medium"
           }
         },
         "share": {
@@ -55,8 +55,8 @@
         }
       },
       "block_order": [
-        "featured_image",
         "title",
+        "featured_image",
         "share",
         "content"
       ],
