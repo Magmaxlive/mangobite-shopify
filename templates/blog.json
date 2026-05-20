@@ -26,6 +26,7 @@
       "type": "mango-story-banner",
       "name": "Mango Story Banner",
       "settings": {
+        "show_breadcrumb": false,
         "subtitle": "mango bite",
         "heading_type": "custom",
         "heading": "BLOGS",
