@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-blog",
+      "disabled": true,
       "settings": {
         "layout": "collage",
         "show_image": true,
@@ -20,9 +21,28 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "mango_story_banner_yRWbhE": {
+      "type": "mango-story-banner",
+      "name": "Mango Story Banner",
+      "settings": {
+        "subtitle": "mango bite",
+        "heading_type": "custom",
+        "heading": "BLOGS",
+        "description": "Check out our blog articles",
+        "description_color": "#aaaaaa",
+        "left_leaf": "shopify://shop_images/home-leaf-right.png",
+        "right_leaf": "shopify://shop_images/image-from-rawpixel-id-2343322-png.png",
+        "bg_color": "#1e1e1e",
+        "heading_color": "#cccccc",
+        "subtitle_color": "#888888",
+        "padding_top": 160,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "mango_story_banner_yRWbhE"
   ]
 }
