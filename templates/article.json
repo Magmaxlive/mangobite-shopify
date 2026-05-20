@@ -9,13 +9,31 @@
  */
 {
   "sections": {
+    "mango_story_banner_HepawU": {
+      "type": "mango-story-banner",
+      "name": "Mango Story Banner",
+      "settings": {
+        "subtitle": "Mango bite",
+        "heading_type": "custom",
+        "heading": "Grab Your Snack Time Essential - Mango Bite!",
+        "description": "",
+        "description_color": "#aaaaaa",
+        "left_leaf": "shopify://shop_images/home-leaf-right.png",
+        "right_leaf": "shopify://shop_images/image-from-rawpixel-id-2343322-png.png",
+        "bg_color": "#1e1e1e",
+        "heading_color": "#cccccc",
+        "subtitle_color": "#888888",
+        "padding_top": 160,
+        "padding_bottom": 80
+      }
+    },
     "main": {
       "type": "main-article",
       "blocks": {
         "featured_image": {
           "type": "featured_image",
           "settings": {
-            "image_height": "adapt"
+            "image_height": "small"
           }
         },
         "title": {
@@ -46,6 +64,7 @@
     }
   },
   "order": [
+    "mango_story_banner_HepawU",
     "main"
   ]
 }
