@@ -32,6 +32,8 @@
      <h1 class="mango-story-banner__heading" style="color: {{ section.settings.heading_color }};">
       {%- if section.settings.heading_type == 'product' -%}
         {{ product.title }}
+      {%- elsif section.settings.heading_type == 'blog' -%}
+        {{ blog.title }}
       {%- else -%}
         {{ section.settings.heading }}
       {%- endif -%}
@@ -63,7 +65,8 @@
       "label": "Heading source",
       "options": [
         { "value": "custom", "label": "Custom text" },
-        { "value": "product", "label": "Product title" }
+        { "value": "product", "label": "Product title" },
+        { "value": "blog", "label": "Blog title" },
       ],
       "default": "custom"
     }
