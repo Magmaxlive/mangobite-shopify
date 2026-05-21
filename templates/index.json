@@ -435,6 +435,45 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "mango_faq_6eBMxg": {
+      "type": "mango-faq",
+      "blocks": {
+        "faq_item_qLJ9Wq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What mango varieties do you offer?",
+            "answer": "<p>We offer a wide range of premium Indian mango varieties including Alphonso, Banganapalli, Kesar, Dasheri, Langra, and more — all sourced directly from farms.</p>"
+          }
+        },
+        "faq_item_xFGixX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How are the mangoes delivered?",
+            "answer": "<p>Mangoes are carefully packed and delivered within 4 days of your order to ensure maximum freshness.</p>"
+          }
+        },
+        "faq_item_afi8k3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer a freshness guarantee?",
+            "answer": "<p>Yes! We offer a replacement guarantee on all our products. If you are not satisfied with the quality, contact us and we will make it right.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_qLJ9Wq",
+        "faq_item_xFGixX",
+        "faq_item_afi8k3"
+      ],
+      "name": "FAQ Accordion",
+      "settings": {
+        "subtitle": "Got Questions?",
+        "title": "Frequently Asked Questions",
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -447,6 +486,7 @@
     "mango_category_showcase_WXJRtt",
     "mango_testimonials_8zCbdL",
     "image_banner_J9zq6q",
-    "multicolumn_jgqip7"
+    "multicolumn_jgqip7",
+    "mango_faq_6eBMxg"
   ]
 }
