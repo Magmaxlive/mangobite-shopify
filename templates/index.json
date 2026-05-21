@@ -466,6 +466,9 @@
         "faq_item_xFGixX",
         "faq_item_afi8k3"
       ],
+      "custom_css": [
+        ".mango-faq {background-color: gray;}"
+      ],
       "name": "FAQ Accordion",
       "settings": {
         "subtitle": "Got Questions?",
