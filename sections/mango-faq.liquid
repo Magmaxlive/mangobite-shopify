@@ -1,0 +1,154 @@
+{{ 'section-mango-faq.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="mango-faq page-width section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+
+  {%- if section.settings.subtitle != blank or section.settings.title != blank -%}
+    <div class="mango-faq__header">
+      {%- if section.settings.subtitle != blank -%}
+        <span class="mango-faq__subtitle">{{ section.settings.subtitle }}</span>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="mango-faq__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="mango-faq__list">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.question != blank -%}
+          <details class="mango-faq__item" {{ block.shopify_attributes }}>
+            <summary class="mango-faq__question">
+              {{ block.settings.question }}
+              <span class="mango-faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </summary>
+            {%- if block.settings.answer != blank -%}
+              <div class="mango-faq__answer rte">
+                {{ block.settings.answer }}
+              </div>
+            {%- endif -%}
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+</div>
+
+{% schema %}
+{
+  "name": "FAQ Accordion",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Got Questions?"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What makes your mangoes special?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Our mangoes are sourced directly from premium farms and delivered fresh to your door.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Accordion",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What mango varieties do you offer?",
+            "answer": "<p>We offer a wide range of premium Indian mango varieties including Alphonso, Banganapalli, Kesar, Dasheri, Langra, and more — all sourced directly from farms.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How are the mangoes delivered?",
+            "answer": "<p>Mangoes are carefully packed and delivered within 4 days of your order to ensure maximum freshness.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer a freshness guarantee?",
+            "answer": "<p>Yes! We offer a replacement guarantee on all our products. If you are not satisfied with the quality, contact us and we will make it right.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
