@@ -13,6 +13,7 @@
       "type": "mango-story-banner",
       "name": "Mango Story Banner",
       "settings": {
+        "show_breadcrumb": true,
         "subtitle": "Mango bite",
         "heading_type": "product",
         "heading": "Grab Your Snack Time Essential - Mango Bite!",
@@ -93,7 +94,7 @@
         "share"
       ],
       "custom_css": [
-        ".product__info-wrapper{font-family: 'Poppins',sans-serif !important;}"
+        ".product__info-wrapper {font-family: \"Poppins\", sans-serif !important;}"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -153,7 +154,7 @@
       "custom_css": [
         ".multicolumn {padding-left: 15px; padding-right: 15px;}",
         ".multicolumn-card__image-wrapper {background: transparent;}",
-        ".multicolumn-card {box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3); border-radius: 25px;}"
+        ".multicolumn-card {box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2) !important; border-radius: 25px; background-color: #f2f2f2 !important;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
