@@ -468,7 +468,8 @@
         "faq_item_afi8k3"
       ],
       "custom_css": [
-        ".mango-faq__title {font-family: \"Nunito\", sans-serif !important;}"
+        ".mango-faq__title {font-family: \"Nunito\", sans-serif !important;}",
+        ".mango-faq__question {background-color: #e8e8e8;}"
       ],
       "name": "FAQ Accordion",
       "settings": {
