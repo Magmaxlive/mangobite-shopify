@@ -44,7 +44,7 @@
     video.preload    = 'auto';
     video.poster     = poster;
     video.style.cssText =
-      'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:2;';
+      'display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;background:transparent;z-index:2;';
 
     sources.forEach((s) => {
       const el = document.createElement('source');
