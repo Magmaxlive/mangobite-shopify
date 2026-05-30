@@ -11,17 +11,18 @@
 
   /* ── FIXED PREVIEW BOX ── */
 
-  /* <li> anchors the 1:1 square — must be position:relative so absolute children
-     don't affect its intrinsic height (aspect-ratio collapses if content is taller) */
+  /* padding-bottom trick: height:0 + padding-bottom:100% = 1:1 square.
+     More reliable than aspect-ratio on a flex-grow:1 item. */
   .product__media-wrapper .product__media-item {
-    aspect-ratio: 1 / 1 !important;
     width: 100% !important;
+    height: 0 !important;
+    padding-bottom: 100% !important;
     overflow: hidden !important;
-    flex-shrink: 0;
+    flex-shrink: 0 !important;
     position: relative !important;
   }
 
-  /* product-media-container is absolutely inset so it cannot push the <li> taller */
+  /* product-media-container fills the square absolutely — no in-flow height */
   .product__media-wrapper .product__media-item .product-media-container {
     position: absolute !important;
     inset: 0 !important;
@@ -30,7 +31,7 @@
     height: 100% !important;
   }
 
-  /* Image modal-opener fills the container absolutely */
+  /* Image modal-opener fills the container */
   .product__media-wrapper .product__media-item .product-media-container modal-opener.product__modal-opener--image,
   .product__media-wrapper .product__media-item .product-media-container .product__modal-opener--image {
     position: absolute !important;
@@ -50,7 +51,7 @@
     overflow: hidden !important;
   }
 
-  /* All images and videos cover-fill the fixed square box */
+  /* All images and videos cover-fill the fixed square */
   .product__media-wrapper .product__media-item .product-media-container img,
   .product__media-wrapper .product__media-item .product-media-container video {
     position: absolute !important;
@@ -62,7 +63,7 @@
     background: transparent !important;
   }
 
-  /* Deferred-media (video player) fills the container absolutely */
+  /* Deferred-media (video player) fills the container */
   .product__media-wrapper .product__media-item .product-media-container .deferred-media {
     position: absolute !important;
     inset: 0 !important;
@@ -71,7 +72,7 @@
     display: block !important;
   }
 
-  /* Poster button inside deferred-media fills the box */
+  /* Poster button fills the box */
   .product__media-wrapper .product__media-item .product-media-container .deferred-media__poster {
     position: absolute !important;
     inset: 0 !important;
