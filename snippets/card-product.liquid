@@ -65,17 +65,13 @@
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               {%- if card_product.featured_media.media_type == 'video' -%}
                 <div
-                  class="card__video-placeholder"
+                  class="card__video-media"
                   data-video-handle="{{ card_product.handle }}"
                   data-video-media-id="{{ card_product.featured_media.id }}"
                   data-video-poster="{{ card_product.featured_media.preview_image | image_url: width: 533 }}"
-                  style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;"
                 >
-                  <img
-                    src="{{ card_product.featured_media.preview_image | image_url: width: 533 }}"
-                    alt="{{ card_product.featured_media.alt | escape }}"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;"
-                  >
+                  {{- card_product.featured_media | media_tag: autoplay: true, muted: true, loop: true, controls: false -}}
                 </div>
               {%- elsif card_product.featured_media.media_type == 'external_video' -%}
                 <img

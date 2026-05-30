@@ -1,11 +1,21 @@
-// Load and autoplay video thumbnails on product cards
+// Ensure video thumbnails autoplay on product cards
 (function () {
   if (window.__mangoVideoInit) return;
   window.__mangoVideoInit = true;
 
   const cache = {};
 
-  async function getVideoSources(handle, mediaId) {
+  async function ensureSources(container, video) {
+    if (video.querySelector('source')) {
+      video.play().catch(() => {});
+      return;
+    }
+
+    // media_tag didn't include sources — fetch from product JSON as fallback
+    const handle = container.dataset.videoHandle;
+    const mediaId = parseInt(container.dataset.videoMediaId);
+    if (!handle || !mediaId) return;
+
     if (!cache[handle]) {
       try {
         const res = await fetch('/products/' + handle + '.js');
@@ -14,46 +24,27 @@
         cache[handle] = { media: [] };
       }
     }
-    const media = cache[handle].media.find((m) => m.id === mediaId);
-    return media && media.sources ? media.sources : [];
-  }
 
-  async function loadVideo(placeholder) {
-    if (placeholder.dataset.videoLoaded) return;
-    placeholder.dataset.videoLoaded = '1';
-
-    const handle = placeholder.dataset.videoHandle;
-    const mediaId = parseInt(placeholder.dataset.videoMediaId);
-    const poster = placeholder.dataset.videoPoster;
-
-    const sources = await getVideoSources(handle, mediaId);
+    const media = (cache[handle].media || []).find((m) => m.id === mediaId);
+    const sources = media && media.sources ? media.sources : [];
     if (!sources.length) return;
 
-    const video = document.createElement('video');
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.setAttribute('playsinline', '');
-    video.preload = 'auto';
-    video.poster = poster;
-    video.style.cssText =
-      'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;';
-
-    sources.forEach((source) => {
+    sources.forEach((s) => {
       const el = document.createElement('source');
-      el.src = source.url;
-      el.type = source.mime_type;
+      el.src = s.url;
+      el.type = s.mime_type;
       video.appendChild(el);
     });
 
-    placeholder.innerHTML = '';
-    placeholder.appendChild(video);
+    video.load();
     video.play().catch(() => {});
   }
 
   function init() {
-    document.querySelectorAll('.card__video-placeholder').forEach(loadVideo);
+    document.querySelectorAll('.card__video-media').forEach((container) => {
+      const video = container.querySelector('video');
+      if (video) ensureSources(container, video);
+    });
   }
 
   if (document.readyState === 'loading') {
