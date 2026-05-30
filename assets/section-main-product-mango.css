@@ -26,6 +26,11 @@
   object-position: center;
 }
 
+/* Hide non-active slides in main viewer — clicking a thumbnail reveals that slide */
+media-gallery.mango-featured-video .product__media-list .product__media-item:not(.is-active) {
+  display: none !important;
+}
+
 /* Playing video — cover-crop, no black bars */
 .product-media-container.media-type-video video {
   object-fit: cover;
