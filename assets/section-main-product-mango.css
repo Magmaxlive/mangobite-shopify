@@ -1,58 +1,57 @@
-/* ── Mango Product Page: landscape video + thumbnail gallery ── */
+/* ── Mango Product Page: fixed 16:9 preview + thumbnail gallery ── */
 
-/* Force every slide in the main product viewer to a fixed 16:9 frame.
-   We keep the original padding-top height trick — just lock it to 56.25%.
-   padding-top is a standard property so !important reliably overrides
-   the CSS-variable-based value from Dawn. */
+/* ── MAIN PREVIEW: every slide locked to 16:9 on both mobile and desktop ── */
 
-/* Full width — prevents the 'contain' layout from shrinking portrait containers */
+/* 1. Lock each slide (li) to 16:9 — this is the source of truth for the frame size */
+.product__media-wrapper .product__media-item {
+  aspect-ratio: 16 / 9 !important;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+/* 2. Media container fills the slide completely */
 .product__media-wrapper .product__media-item .product-media-container {
   width: 100% !important;
   max-width: 100% !important;
+  height: 100% !important;
 }
 
-/* Lock height to 16:9 on both normal and constrain-height variants */
+/* 3. Inner .media div fills the container — zero out the padding-top trick */
 .product__media-wrapper .product__media-item .product-media-container .media {
-  padding-top: 56.25% !important; /* 16:9 = 9/16 × 100% */
+  padding-top: 0 !important;
+  height: 100% !important;
+  position: relative !important;
 }
 
-/* All preview images cover-crop into the 16:9 frame */
-.product__media-wrapper .product__media-item .product-media-container img {
+/* 4. All images and videos cover-fill the 16:9 frame */
+.product__media-wrapper .product__media-item .product-media-container img,
+.product__media-wrapper .product__media-item .product-media-container video {
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-}
-
-/* Deferred-media poster (video play button overlay) */
-.product__media-wrapper .product__media-item .deferred-media__poster img {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-}
-
-/* Playing video — cover-crop, no black bars */
-.product__media-wrapper .product__media-item video {
   object-fit: cover !important;
   object-position: center !important;
   background: transparent !important;
-  width: 100% !important;
+}
+
+/* 5. Deferred-media poster also fills the frame */
+.product__media-wrapper .product__media-item .deferred-media {
   height: 100% !important;
 }
 
-/* Hide non-active slides — clicking a thumbnail reveals that slide */
-media-gallery.mango-featured-video .product__media-list .product__media-item:not(.is-active) {
-  display: none !important;
+/* 6. Desktop only: hide non-active slides so only one shows at a time.
+      On mobile Dawn uses a horizontal scroll slider — hiding slides there
+      causes a blank preview, so we leave mobile alone. */
+@media screen and (min-width: 750px) {
+  media-gallery.mango-featured-video .product__media-list .product__media-item:not(.is-active) {
+    display: none !important;
+  }
 }
 
-/* ── Thumbnail gallery strip below main media ── */
+/* ── THUMBNAIL GALLERY: small scrollable strip below the preview ── */
 
-/* Show thumbnail list even in stacked layout */
+/* Show even in stacked layout (Dawn hides it by default) */
 .product__media-wrapper .thumbnail-slider .thumbnail-list {
   display: flex !important;
 }
@@ -61,7 +60,6 @@ media-gallery.mango-featured-video .product__media-list .product__media-item:not
   margin-top: 1.2rem;
 }
 
-/* Horizontal scrollable strip */
 .thumbnail-slider .thumbnail-list,
 .thumbnail-slider .thumbnail-list.slider,
 .thumbnail-slider .thumbnail-list.slider--tablet-up {
@@ -73,10 +71,8 @@ media-gallery.mango-featured-video .product__media-list .product__media-item:not
   padding: 0.4rem !important;
   grid-template-columns: unset !important;
   scrollbar-width: thin;
-  scroll-behavior: smooth;
 }
 
-/* Fixed-size small square thumbnails */
 .thumbnail-slider .thumbnail-list__item,
 .thumbnail-slider .thumbnail-list__item.slider__slide,
 .thumbnail-slider .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide,
@@ -87,24 +83,18 @@ media-gallery.mango-featured-video .product__media-list .product__media-item:not
   position: relative;
 }
 
-/* Remove the padding-bottom ratio trick — explicit height is enough */
 .thumbnail-slider .thumbnail-list__item::before {
   display: none !important;
 }
 
-/* Thumbnail button fills its item box */
 .thumbnail-slider .thumbnail-list__item .thumbnail {
   position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  inset: 0 !important;
   border-radius: 8px;
   overflow: hidden;
   padding: 0 !important;
 }
 
-/* Thumbnail image — cover crop */
 .thumbnail-slider .thumbnail-list__item .thumbnail img {
   width: 100% !important;
   height: 100% !important;
@@ -113,7 +103,6 @@ media-gallery.mango-featured-video .product__media-list .product__media-item:not
   object-position: center !important;
 }
 
-/* Badge for video/3d thumbnails */
 .thumbnail-slider .thumbnail__badge {
   z-index: 2;
   position: absolute;
@@ -121,7 +110,6 @@ media-gallery.mango-featured-video .product__media-list .product__media-item:not
   right: 4px;
 }
 
-/* Hide slider nav buttons — the strip is scrollable */
 @media screen and (min-width: 750px) {
   .thumbnail-slider .slider-button {
     display: none !important;
