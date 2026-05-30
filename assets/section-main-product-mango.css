@@ -1,18 +1,26 @@
 /* ── Mango Product Page: fixed preview box + thumbnails below ── */
 
-@media screen and (min-width: 750px) {
+/* ── DISABLE ZOOM MODAL (all screens) ── */
+.product__media-wrapper .product__media-toggle,
+.product__media-wrapper .product__media-icon {
+  display: none !important;
+  pointer-events: none !important;
+}
 
-  /* Stack viewer above thumbnails */
-  .product__media-wrapper media-gallery {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem;
+/* ── MOBILE: full-width square media box ── */
+@media screen and (max-width: 749px) {
+  /* Remove the peek margins so slides go full width */
+  .product__media-wrapper .product__media-list {
+    width: 100% !important;
+    margin-left: 0 !important;
   }
 
-  /* ── FIXED PREVIEW BOX ── */
+  .product__media-wrapper slider-component:not(.thumbnail-slider) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 
-  /* padding-bottom trick: height:0 + padding-bottom:100% = 1:1 square.
-     More reliable than aspect-ratio on a flex-grow:1 item. */
+  /* Same 1:1 square trick as desktop */
   .product__media-wrapper .product__media-item {
     width: 100% !important;
     max-width: 100% !important;
@@ -23,7 +31,67 @@
     position: relative !important;
   }
 
-  /* product-media-container fills the square absolutely — no in-flow height */
+  .product__media-wrapper .product__media-item .product-media-container {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* On mobile, modal-opener is shown for all media types (deferred-media is hidden) */
+  .product__media-wrapper .product__media-item .product-media-container modal-opener,
+  .product__media-wrapper .product__media-item .product-media-container .product__modal-opener {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+  }
+
+  .product__media-wrapper .product__media-item .product-media-container .media {
+    padding-top: 0 !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .product__media-wrapper .product__media-item .product-media-container img,
+  .product__media-wrapper .product__media-item .product-media-container video {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    background: transparent !important;
+  }
+}
+
+/* ── DESKTOP: fixed preview box + thumbnails below ── */
+@media screen and (min-width: 750px) {
+
+  /* Stack viewer above thumbnails */
+  .product__media-wrapper media-gallery {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem;
+  }
+
+  /* padding-bottom trick: height:0 + padding-bottom:100% = 1:1 square */
+  .product__media-wrapper .product__media-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 0 !important;
+    padding-bottom: 100% !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+  }
+
+  /* product-media-container fills the square absolutely */
   .product__media-wrapper .product__media-item .product-media-container {
     position: absolute !important;
     inset: 0 !important;
