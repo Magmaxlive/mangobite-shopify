@@ -1,14 +1,13 @@
 /* ── Mango Product Page: fixed preview box + thumbnails below ── */
 
-/* ── PRODUCT COLUMN WIDTH FIX ──
-   Dawn's .grid__item has max-width: calc(50% - 1.5rem) which leaves a 3rem gap
-   on the right when the product grid uses gap:0. Override per breakpoint. ── */
+/* ── PAGE-WIDTH PADDING FIX ──
+   At tablet sizes (750-989px) Dawn's 5rem side padding eats ~160px
+   from a ~750px viewport — noticeably narrows the content. Reduce it. ── */
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
-  .product:not(.product--no-media) .product__media-wrapper,
-  .product:not(.product--no-media) .product__info-wrapper {
-    max-width: 50% !important;
-    width: 50% !important;
+  .page-width {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
   }
 }
 
