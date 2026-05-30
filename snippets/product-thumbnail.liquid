@@ -50,13 +50,8 @@
 {%- endcapture -%}
 
 {%- liquid
-  if media.media_type == 'video' or media.media_type == 'external_video'
-    assign display_ratio = 1.7778
-    assign display_preview_ratio = 1.7778
-  else
-    assign display_ratio = media.aspect_ratio | default: 1.0
-    assign display_preview_ratio = media.preview_image.aspect_ratio | default: 1.0
-  endif
+  assign display_ratio = 1.7778
+  assign display_preview_ratio = 1.7778
 -%}
 <div
   class="product-media-container media-type-{{ media.media_type }} media-fit-{{ media_fit }} global-media-settings gradient{% if constrain_to_viewport %} constrain-height{% endif %}"

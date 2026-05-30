@@ -1,17 +1,14 @@
 /* ── Mango Product Page: landscape video + thumbnail gallery ── */
 
-/* Video container: ratio is now set correctly via Liquid (1.7778 = 16:9).
-   These rules handle the remaining visual details. */
-
-/* Full width — override the contain-width calculation for portrait-ratio containers */
-.product-media-container.media-type-video,
-.product-media-container.media-type-video.constrain-height.media-fit-contain {
+/* All media in the main viewer use 16:9 via Liquid. Keep containers full-width. */
+.product-media-container,
+.product-media-container.constrain-height.media-fit-contain {
   width: 100% !important;
   max-width: 100% !important;
 }
 
-/* Preview image fills the landscape frame */
-.product-media-container.media-type-video .product__media img {
+/* All preview images fill the landscape frame consistently */
+.product-media-container .product__media img {
   object-fit: cover !important;
   object-position: center !important;
 }
