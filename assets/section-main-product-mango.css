@@ -1,20 +1,35 @@
 /* ── Mango Product Page: landscape video + thumbnail gallery ── */
 
-/* All media in the main viewer use 16:9 via Liquid. Keep containers full-width. */
-.product-media-container,
-.product-media-container.constrain-height.media-fit-contain {
+/* Force every slide in the main product viewer to a fixed 16:9 frame.
+   We use the CSS `aspect-ratio` property directly — it overrides the
+   --ratio / padding-top variable trick entirely and cannot be undone by
+   any inline style on the element. */
+
+.product__media-wrapper .product__media-item .product-media-container {
+  aspect-ratio: 16 / 9 !important;
   width: 100% !important;
   max-width: 100% !important;
 }
 
-/* All preview images fill the landscape frame consistently */
-.product-media-container .product__media img {
-  object-fit: cover !important;
-  object-position: center !important;
+/* The .media div uses a padding-top trick for height — zero it out and
+   let it fill the container via absolute positioning instead. */
+.product__media-wrapper .product__media-item .product-media-container .media {
+  padding-top: 0 !important;
+  position: absolute !important;
+  inset: 0 !important;
+  height: 100% !important;
 }
 
-/* Deferred-media poster fills the landscape frame */
-.product-media-container.media-type-video .deferred-media__poster img {
+/* All preview images cover-crop into the 16:9 frame */
+.product__media-wrapper .product__media-item .product-media-container img {
+  object-fit: cover !important;
+  object-position: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Deferred-media poster (video play button overlay) */
+.product__media-wrapper .product__media-item .deferred-media__poster img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -23,18 +38,18 @@
   object-position: center;
 }
 
-/* Hide non-active slides in main viewer — clicking a thumbnail reveals that slide */
-media-gallery.mango-featured-video .product__media-list .product__media-item:not(.is-active) {
-  display: none !important;
-}
-
 /* Playing video — cover-crop, no black bars */
-.product-media-container.media-type-video video {
+.product__media-wrapper .product__media-item video {
   object-fit: cover;
   object-position: center;
   background: transparent;
   width: 100%;
   height: 100%;
+}
+
+/* Hide non-active slides — clicking a thumbnail reveals that slide */
+media-gallery.mango-featured-video .product__media-list .product__media-item:not(.is-active) {
+  display: none !important;
 }
 
 /* ── Thumbnail gallery strip below main media ── */
