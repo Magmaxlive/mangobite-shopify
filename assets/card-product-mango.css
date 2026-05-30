@@ -1,13 +1,16 @@
 /* ── Mango Product Card ── */
 
-/* Video in card — media_tag output + JS-created fallback */
-.product-card-wrapper .card__video-media {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
+/* Video placeholder + JS-created video */
+.product-card-wrapper .card__video-placeholder {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1;
 }
 
-.product-card-wrapper .card__video-media video {
+.product-card-wrapper .card__video-placeholder video {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -15,6 +18,7 @@
   height: 100% !important;
   object-fit: cover !important;
   object-position: center !important;
+  z-index: 2 !important;
 }
 
 
