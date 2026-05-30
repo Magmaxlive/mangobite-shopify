@@ -4,7 +4,7 @@
    At tablet sizes (750-989px) Dawn's 5rem side padding eats ~160px
    from a ~750px viewport — noticeably narrows the content. Reduce it. ── */
 
-@media screen and (min-width: 750px) and (max-width: 989px) {
+@media screen and (min-width: 750px) and (max-width: 1199px) {
   .page-width {
     padding-left: 2rem !important;
     padding-right: 2rem !important;
