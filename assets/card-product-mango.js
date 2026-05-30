@@ -7,14 +7,21 @@
 
   async function getVideoSources(handle, mediaId) {
     if (!cache[handle]) {
-      const res = await fetch('/products/' + handle + '.js');
-      cache[handle] = await res.json();
+      try {
+        const res = await fetch('/products/' + handle + '.js');
+        cache[handle] = await res.json();
+      } catch (e) {
+        cache[handle] = { media: [] };
+      }
     }
     const media = cache[handle].media.find((m) => m.id === mediaId);
     return media && media.sources ? media.sources : [];
   }
 
   async function loadVideo(placeholder) {
+    if (placeholder.dataset.videoLoaded) return;
+    placeholder.dataset.videoLoaded = '1';
+
     const handle = placeholder.dataset.videoHandle;
     const mediaId = parseInt(placeholder.dataset.videoMediaId);
     const poster = placeholder.dataset.videoPoster;
@@ -45,21 +52,8 @@
     video.play().catch(() => {});
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        observer.unobserve(entry.target);
-        loadVideo(entry.target);
-      });
-    },
-    { threshold: 0.25 }
-  );
-
   function init() {
-    document.querySelectorAll('.card__video-placeholder').forEach((el) => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.card__video-placeholder').forEach(loadVideo);
   }
 
   if (document.readyState === 'loading') {
