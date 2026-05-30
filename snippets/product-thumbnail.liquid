@@ -49,9 +49,18 @@
   (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | divided_by: desktop_columns | round }}px, (min-width: 990px) calc({{ media_width | times: 100 | divided_by: desktop_columns }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw / {{ mobile_columns }} - 4rem)
 {%- endcapture -%}
 
+{%- liquid
+  if media.media_type == 'video' or media.media_type == 'external_video'
+    assign display_ratio = 1.7778
+    assign display_preview_ratio = 1.7778
+  else
+    assign display_ratio = media.aspect_ratio | default: 1.0
+    assign display_preview_ratio = media.preview_image.aspect_ratio | default: 1.0
+  endif
+-%}
 <div
   class="product-media-container media-type-{{ media.media_type }} media-fit-{{ media_fit }} global-media-settings gradient{% if constrain_to_viewport %} constrain-height{% endif %}"
-  style="--ratio: {{ media.aspect_ratio | default: 1.0 }}; --preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};"
+  style="--ratio: {{ display_ratio }}; --preview-ratio: {{ display_preview_ratio }};"
 >
   <modal-opener
     class="product__modal-opener product__modal-opener--{{ media.media_type }}"
