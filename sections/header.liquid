@@ -29,12 +29,25 @@
   {%- endif -%}
 
   {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
+    @media screen and (min-width: 1200px) {
       header-drawer {
         display: none;
       }
     }
   {%- endif -%}
+
+  /* ── Show hamburger, hide inline nav below 1200px ── */
+  @media screen and (min-width: 990px) and (max-width: 1199px) {
+    .header__inline-menu {
+      display: none !important;
+    }
+    header-drawer {
+      display: block !important;
+    }
+    .header__icon--menu {
+      display: flex !important;
+    }
+  }
 
   .menu-drawer-container {
     display: flex;
