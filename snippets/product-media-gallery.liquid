@@ -40,14 +40,14 @@
   elsif section.settings.media_size == 'small'
     assign media_width = 0.45
   endif
+
+  assign featured_media = product.selected_or_first_available_variant.featured_media
 -%}
 
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
-  {% if section.settings.enable_sticky_info %}
-    class="product__column-sticky"
-  {% endif %}
+  class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if featured_media.media_type == 'video' %} mango-featured-video{% endif %}"
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >

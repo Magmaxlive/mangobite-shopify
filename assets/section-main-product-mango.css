@@ -1,0 +1,111 @@
+/* ── Mango Product Page: landscape video + thumbnail gallery ── */
+
+/* Force video container to landscape 16:9 regardless of source ratio */
+.product-media-container.media-type-video {
+  --ratio: 1.7778 !important;
+  --preview-ratio: 1.7778 !important;
+  --aspect-ratio: 1.7778 !important;
+}
+
+/* Preview image covers the landscape frame (portrait images get top/bottom cropped) */
+.product-media-container.media-type-video .product__media img {
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.product-media-container.media-type-video .deferred-media__poster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Video covers the landscape frame — portrait videos will be centre-cropped */
+.product-media-container.media-type-video video {
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hide non-active slides in the main viewer when featured media is video.
+   Thumbnails below still let the user navigate to any image. */
+media-gallery.mango-featured-video .product__media-list .product__media-item:not(.is-active) {
+  display: none !important;
+}
+
+/* ── Small thumbnail gallery strip below main media ── */
+
+.thumbnail-slider {
+  margin-top: 1.2rem;
+}
+
+/* Horizontal scrollable strip */
+.thumbnail-slider .thumbnail-list,
+.thumbnail-slider .thumbnail-list.slider,
+.thumbnail-slider .thumbnail-list.slider--tablet-up {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  gap: 0.8rem !important;
+  padding: 0.4rem !important;
+  grid-template-columns: unset !important;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+/* Fixed-size small square thumbnails */
+.thumbnail-slider .thumbnail-list__item,
+.thumbnail-slider .thumbnail-list__item.slider__slide,
+.thumbnail-slider .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide,
+.thumbnail-slider .thumbnail-list.slider--tablet-up .thumbnail-list__item {
+  flex: 0 0 72px !important;
+  width: 72px !important;
+  height: 72px !important;
+  position: relative;
+}
+
+/* Remove the padding-bottom ratio trick — we use explicit height */
+.thumbnail-slider .thumbnail-list__item::before {
+  display: none !important;
+}
+
+/* Thumbnail button fills its item box */
+.thumbnail-slider .thumbnail-list__item .thumbnail {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+/* Thumbnail image — cover crop */
+.thumbnail-slider .thumbnail-list__item .thumbnail img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: unset !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Keep video/3d badge visible on top */
+.thumbnail-slider .thumbnail__badge {
+  z-index: 2;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+
+/* Slider nav buttons — hide when not needed, keep when the list overflows */
+@media screen and (min-width: 750px) {
+  .thumbnail-slider .slider-button {
+    display: none !important;
+  }
+}
