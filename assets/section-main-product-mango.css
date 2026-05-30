@@ -1,42 +1,34 @@
-/* ── Mango Product Page: thumbnails left, large preview right ── */
+/* ── Mango Product Page: large preview top, thumbnails bottom ── */
 
 @media screen and (min-width: 750px) {
 
-  /* media-gallery becomes a horizontal flex row */
+  /* Stack viewer above thumbnails */
   .product__media-wrapper media-gallery {
     display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
+    flex-direction: column !important;
     gap: 1rem;
   }
 
-  /* Main viewer (GalleryViewer) fills the remaining space */
-  .product__media-wrapper media-gallery > slider-component:not(.thumbnail-slider) {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-  }
-
-  /* Thumbnail column: fixed 72 px wide on the left */
+  /* Thumbnail row below the main viewer */
   .product__media-wrapper media-gallery .thumbnail-slider {
-    flex: 0 0 72px !important;
-    width: 72px !important;
-    order: -1 !important;
     display: flex !important;
-    flex-direction: column !important;
+    width: 100% !important;
+    order: 1 !important;
   }
 
-  /* Thumbnail list: vertical single-column stack */
+  /* Horizontal scrollable thumbnail strip */
   .product__media-wrapper .thumbnail-slider .thumbnail-list,
   .product__media-wrapper .thumbnail-slider .thumbnail-list.slider,
   .product__media-wrapper .thumbnail-slider .thumbnail-list.slider--tablet-up {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
     gap: 0.6rem !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
+    padding: 0.2rem !important;
     grid-template-columns: unset !important;
-    padding: 0 !important;
+    scrollbar-width: thin;
   }
 
   /* Fixed square thumbnail items */
@@ -77,7 +69,7 @@
     z-index: 2;
   }
 
-  /* Hide slider nav buttons inside thumbnail column */
+  /* Hide slider nav buttons */
   .product__media-wrapper .thumbnail-slider .slider-button {
     display: none !important;
   }
