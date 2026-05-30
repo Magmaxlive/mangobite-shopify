@@ -15,6 +15,7 @@
      More reliable than aspect-ratio on a flex-grow:1 item. */
   .product__media-wrapper .product__media-item {
     width: 100% !important;
+    max-width: 100% !important;
     height: 0 !important;
     padding-bottom: 100% !important;
     overflow: hidden !important;
