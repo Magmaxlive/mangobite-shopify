@@ -1,18 +1,29 @@
 /* ── Mango Product Page: landscape video + thumbnail gallery ── */
 
-/* Force video container to landscape 16:9 regardless of source ratio */
-.product-media-container.media-type-video {
-  --ratio: 1.7778 !important;
-  --preview-ratio: 1.7778 !important;
-  --aspect-ratio: 1.7778 !important;
+/* CSS custom properties (--ratio etc.) don't cascade with !important —
+   inline style="--ratio: 0.5625" wins. We override the real properties instead. */
+
+/* 1. Force container to full width (overrides the contain-width calculation) */
+.product-media-container.media-type-video,
+.product-media-container.media-type-video.constrain-height,
+.product-media-container.media-type-video.constrain-height.media-fit-contain {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
-/* Preview image covers the landscape frame (portrait images get top/bottom cropped) */
+/* 2. Force 16:9 height via padding-top — overrides both normal and constrain-height versions */
+.product-media-container.media-type-video .media,
+.product-media-container.media-type-video.constrain-height .media {
+  padding-top: 56.25% !important; /* 16:9 = 9/16 × 100% */
+}
+
+/* 3. Preview image fills the landscape frame */
 .product-media-container.media-type-video .product__media img {
   object-fit: cover !important;
   object-position: center !important;
 }
 
+/* 4. Deferred-media poster fills the landscape frame */
 .product-media-container.media-type-video .deferred-media__poster img {
   position: absolute;
   inset: 0;
@@ -22,7 +33,7 @@
   object-position: center;
 }
 
-/* Video covers the landscape frame — portrait videos will be centre-cropped */
+/* 5. Actual playing video — cover-crop to fill the 16:9 box, no black bars */
 .product-media-container.media-type-video video {
   object-fit: cover;
   object-position: center;
@@ -31,13 +42,17 @@
   height: 100%;
 }
 
-/* Hide non-active slides in the main viewer when featured media is video.
-   Thumbnails below still let the user navigate to any image. */
+/* 6. Hide non-active slides in main viewer when featured media is a video */
 media-gallery.mango-featured-video .product__media-list .product__media-item:not(.is-active) {
   display: none !important;
 }
 
-/* ── Small thumbnail gallery strip below main media ── */
+/* ── Thumbnail gallery strip below main media ── */
+
+/* 7. Show thumbnail list even in stacked layout (Dawn hides it by default for stacked) */
+.product__media-wrapper .thumbnail-slider .thumbnail-list {
+  display: flex !important;
+}
 
 .thumbnail-slider {
   margin-top: 1.2rem;
@@ -95,7 +110,7 @@ media-gallery.mango-featured-video .product__media-list .product__media-item:not
   object-position: center !important;
 }
 
-/* Keep video/3d badge visible on top */
+/* Badge for video/3d thumbnails */
 .thumbnail-slider .thumbnail__badge {
   z-index: 2;
   position: absolute;
@@ -103,7 +118,7 @@ media-gallery.mango-featured-video .product__media-list .product__media-item:not
   right: 4px;
 }
 
-/* Slider nav buttons — hide when not needed, keep when the list overflows */
+/* Hide slider nav buttons on desktop — scrolling handles navigation */
 @media screen and (min-width: 750px) {
   .thumbnail-slider .slider-button {
     display: none !important;
