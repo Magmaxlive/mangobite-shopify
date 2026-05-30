@@ -1,50 +1,48 @@
 /* ── Mango Product Page: landscape video + thumbnail gallery ── */
 
 /* Force every slide in the main product viewer to a fixed 16:9 frame.
-   We use the CSS `aspect-ratio` property directly — it overrides the
-   --ratio / padding-top variable trick entirely and cannot be undone by
-   any inline style on the element. */
+   We keep the original padding-top height trick — just lock it to 56.25%.
+   padding-top is a standard property so !important reliably overrides
+   the CSS-variable-based value from Dawn. */
 
+/* Full width — prevents the 'contain' layout from shrinking portrait containers */
 .product__media-wrapper .product__media-item .product-media-container {
-  aspect-ratio: 16 / 9 !important;
   width: 100% !important;
   max-width: 100% !important;
 }
 
-/* The .media div uses a padding-top trick for height — zero it out and
-   let it fill the container via absolute positioning instead. */
+/* Lock height to 16:9 on both normal and constrain-height variants */
 .product__media-wrapper .product__media-item .product-media-container .media {
-  padding-top: 0 !important;
-  position: absolute !important;
-  inset: 0 !important;
-  height: 100% !important;
+  padding-top: 56.25% !important; /* 16:9 = 9/16 × 100% */
 }
 
 /* All preview images cover-crop into the 16:9 frame */
 .product__media-wrapper .product__media-item .product-media-container img {
-  object-fit: cover !important;
-  object-position: center !important;
+  position: absolute !important;
+  inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* Deferred-media poster (video play button overlay) */
 .product__media-wrapper .product__media-item .deferred-media__poster img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* Playing video — cover-crop, no black bars */
 .product__media-wrapper .product__media-item video {
-  object-fit: cover;
-  object-position: center;
-  background: transparent;
-  width: 100%;
-  height: 100%;
+  object-fit: cover !important;
+  object-position: center !important;
+  background: transparent !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* Hide non-active slides — clicking a thumbnail reveals that slide */
