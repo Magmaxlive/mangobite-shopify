@@ -96,7 +96,9 @@
 
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
           {%- if featured_media.media_type == 'video' or featured_media.media_type == 'external_video' -%}
-            {%- continue -%}
+            {%- unless media.media_type == 'video' or media.media_type == 'external_video' -%}
+              {%- continue -%}
+            {%- endunless -%}
           {%- endif -%}
           <li
             id="Slide-{{ section.id }}-{{ media.id }}"
