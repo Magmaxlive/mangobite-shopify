@@ -1,4 +1,4 @@
-/* ── Mango Product Page: large preview top, thumbnails bottom ── */
+/* ── Mango Product Page: fixed preview box + thumbnails below ── */
 
 @media screen and (min-width: 750px) {
 
@@ -9,14 +9,61 @@
     gap: 1rem;
   }
 
-  /* Thumbnail row below the main viewer */
+  /* ── FIXED PREVIEW BOX ── */
+
+  /* Lock every slide to a 1:1 square — all media the same size */
+  .product__media-wrapper .product__media-item {
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    flex-shrink: 0;
+  }
+
+  /* Container fills the slide */
+  .product__media-wrapper .product__media-item .product-media-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* .media fills the container — zero out the padding-top ratio trick */
+  .product__media-wrapper .product__media-item .product-media-container .media {
+    padding-top: 0 !important;
+    height: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  /* All images and videos cover-fill the fixed square box */
+  .product__media-wrapper .product__media-item .product-media-container img,
+  .product__media-wrapper .product__media-item .product-media-container video {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    background: transparent !important;
+  }
+
+  /* Deferred-media fills the box too */
+  .product__media-wrapper .product__media-item .deferred-media {
+    height: 100% !important;
+  }
+
+  /* Only show the active slide */
+  .product__media-wrapper .product__media-item:not(.is-active) {
+    display: none !important;
+  }
+
+  /* ── THUMBNAIL ROW BELOW ── */
+
   .product__media-wrapper media-gallery .thumbnail-slider {
     display: flex !important;
     width: 100% !important;
     order: 1 !important;
   }
 
-  /* Horizontal scrollable thumbnail strip */
   .product__media-wrapper .thumbnail-slider .thumbnail-list,
   .product__media-wrapper .thumbnail-slider .thumbnail-list.slider,
   .product__media-wrapper .thumbnail-slider .thumbnail-list.slider--tablet-up {
@@ -31,7 +78,6 @@
     scrollbar-width: thin;
   }
 
-  /* Fixed square thumbnail items */
   .product__media-wrapper .thumbnail-slider .thumbnail-list__item,
   .product__media-wrapper .thumbnail-slider .thumbnail-list__item.slider__slide,
   .product__media-wrapper .thumbnail-slider .thumbnail-list.slider--tablet-up .thumbnail-list__item {
@@ -61,7 +107,6 @@
     object-position: center !important;
   }
 
-  /* Badge for video/3d thumbnails */
   .product__media-wrapper .thumbnail-slider .thumbnail__badge {
     position: absolute;
     bottom: 4px;
@@ -69,13 +114,7 @@
     z-index: 2;
   }
 
-  /* Hide slider nav buttons */
   .product__media-wrapper .thumbnail-slider .slider-button {
-    display: none !important;
-  }
-
-  /* Only show the active slide in the main viewer */
-  .product__media-wrapper .product__media-item:not(.is-active) {
     display: none !important;
   }
 }
