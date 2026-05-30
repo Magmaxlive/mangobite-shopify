@@ -26,6 +26,14 @@
     height: 100% !important;
   }
 
+  /* modal-opener sits between container and .media — must pass height through */
+  .product__media-wrapper .product__media-item .product-media-container modal-opener,
+  .product__media-wrapper .product__media-item .product-media-container .product__modal-opener {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
   /* .media fills the container — zero out the padding-top ratio trick */
   .product__media-wrapper .product__media-item .product-media-container .media {
     padding-top: 0 !important;
