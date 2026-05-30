@@ -1,117 +1,89 @@
-/* ── Mango Product Page: fixed 16:9 preview + thumbnail gallery ── */
+/* ── Mango Product Page: thumbnails left, large preview right ── */
 
-/* ── MAIN PREVIEW: every slide locked to 16:9 on both mobile and desktop ── */
-
-/* 1. Lock each slide (li) to 16:9 — this is the source of truth for the frame size */
-.product__media-wrapper .product__media-item {
-  aspect-ratio: 16 / 9 !important;
-  width: 100% !important;
-  overflow: hidden;
-}
-
-/* 2. Media container fills the slide completely */
-.product__media-wrapper .product__media-item .product-media-container {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: 100% !important;
-}
-
-/* 3. Inner .media div fills the container — zero out the padding-top trick */
-.product__media-wrapper .product__media-item .product-media-container .media {
-  padding-top: 0 !important;
-  height: 100% !important;
-  position: relative !important;
-}
-
-/* 4. All images and videos cover-fill the 16:9 frame */
-.product__media-wrapper .product__media-item .product-media-container img,
-.product__media-wrapper .product__media-item .product-media-container video {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  background: transparent !important;
-}
-
-/* 5. Deferred-media poster also fills the frame */
-.product__media-wrapper .product__media-item .deferred-media {
-  height: 100% !important;
-}
-
-/* 6. Desktop only: hide non-active slides so only one shows at a time.
-      On mobile Dawn uses a horizontal scroll slider — hiding slides there
-      causes a blank preview, so we leave mobile alone. */
 @media screen and (min-width: 750px) {
-  media-gallery.mango-featured-video .product__media-list .product__media-item:not(.is-active) {
+
+  /* media-gallery becomes a horizontal flex row */
+  .product__media-wrapper media-gallery {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  /* Main viewer (GalleryViewer) fills the remaining space */
+  .product__media-wrapper media-gallery > slider-component:not(.thumbnail-slider) {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  /* Thumbnail column: fixed 72 px wide on the left */
+  .product__media-wrapper media-gallery .thumbnail-slider {
+    flex: 0 0 72px !important;
+    width: 72px !important;
+    order: -1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Thumbnail list: vertical single-column stack */
+  .product__media-wrapper .thumbnail-slider .thumbnail-list,
+  .product__media-wrapper .thumbnail-slider .thumbnail-list.slider,
+  .product__media-wrapper .thumbnail-slider .thumbnail-list.slider--tablet-up {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    gap: 0.6rem !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    grid-template-columns: unset !important;
+    padding: 0 !important;
+  }
+
+  /* Fixed square thumbnail items */
+  .product__media-wrapper .thumbnail-slider .thumbnail-list__item,
+  .product__media-wrapper .thumbnail-slider .thumbnail-list__item.slider__slide,
+  .product__media-wrapper .thumbnail-slider .thumbnail-list.slider--tablet-up .thumbnail-list__item {
+    flex: 0 0 72px !important;
+    width: 72px !important;
+    height: 72px !important;
+    position: relative;
+  }
+
+  .product__media-wrapper .thumbnail-slider .thumbnail-list__item::before {
     display: none !important;
   }
-}
 
-/* ── THUMBNAIL GALLERY: small scrollable strip below the preview ── */
+  .product__media-wrapper .thumbnail-slider .thumbnail-list__item .thumbnail {
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0 !important;
+  }
 
-/* Show even in stacked layout (Dawn hides it by default) */
-.product__media-wrapper .thumbnail-slider .thumbnail-list {
-  display: flex !important;
-}
+  .product__media-wrapper .thumbnail-slider .thumbnail-list__item .thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: unset !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
 
-.thumbnail-slider {
-  margin-top: 1.2rem;
-}
+  /* Badge for video/3d thumbnails */
+  .product__media-wrapper .thumbnail-slider .thumbnail__badge {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    z-index: 2;
+  }
 
-.thumbnail-slider .thumbnail-list,
-.thumbnail-slider .thumbnail-list.slider,
-.thumbnail-slider .thumbnail-list.slider--tablet-up {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  overflow-x: auto !important;
-  gap: 0.8rem !important;
-  padding: 0.4rem !important;
-  grid-template-columns: unset !important;
-  scrollbar-width: thin;
-}
+  /* Hide slider nav buttons inside thumbnail column */
+  .product__media-wrapper .thumbnail-slider .slider-button {
+    display: none !important;
+  }
 
-.thumbnail-slider .thumbnail-list__item,
-.thumbnail-slider .thumbnail-list__item.slider__slide,
-.thumbnail-slider .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide,
-.thumbnail-slider .thumbnail-list.slider--tablet-up .thumbnail-list__item {
-  flex: 0 0 72px !important;
-  width: 72px !important;
-  height: 72px !important;
-  position: relative;
-}
-
-.thumbnail-slider .thumbnail-list__item::before {
-  display: none !important;
-}
-
-.thumbnail-slider .thumbnail-list__item .thumbnail {
-  position: absolute !important;
-  inset: 0 !important;
-  border-radius: 8px;
-  overflow: hidden;
-  padding: 0 !important;
-}
-
-.thumbnail-slider .thumbnail-list__item .thumbnail img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: unset !important;
-  object-fit: cover !important;
-  object-position: center !important;
-}
-
-.thumbnail-slider .thumbnail__badge {
-  z-index: 2;
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-}
-
-@media screen and (min-width: 750px) {
-  .thumbnail-slider .slider-button {
+  /* Only show the active slide in the main viewer */
+  .product__media-wrapper .product__media-item:not(.is-active) {
     display: none !important;
   }
 }
