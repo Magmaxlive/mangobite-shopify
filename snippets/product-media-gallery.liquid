@@ -41,13 +41,14 @@
     assign media_width = 0.45
   endif
 
-  assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.media.first
 -%}
 
 <media-gallery
   id="MediaGallery-{{ section.id }}"
   role="region"
-  class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}{% if featured_media.media_type == 'video' %} mango-featured-video{% endif %}"
+  {% if section.settings.enable_sticky_info %}
+    class="product__column-sticky"
+  {% endif %}
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
@@ -176,10 +177,14 @@
       assign is_not_limited_to_single_item = true
     endif
   -%}
-  {%- if is_not_limited_to_single_item and media_count > 1 -%}
+  {%- if is_not_limited_to_single_item
+    and media_count > 1
+    and section.settings.gallery_layout contains 'thumbnail'
+    or section.settings.mobile_thumbnails == 'show'
+  -%}
     <slider-component
       id="GalleryThumbnails-{{ section.id }}"
-      class="thumbnail-slider slider-mobile-gutter quick-add-hidden{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}"
+      class="thumbnail-slider slider-mobile-gutter quick-add-hidden{% unless section.settings.gallery_layout contains 'thumbnail' %} medium-hide large-up-hide{% endunless %}{% if section.settings.mobile_thumbnails != 'show' %} small-hide{% endif %}{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}"
     >
       <button
         type="button"
