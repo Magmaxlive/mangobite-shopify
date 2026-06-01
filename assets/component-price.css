@@ -103,7 +103,7 @@
   margin-left: 0.8rem;
 }
 
-.price:not(.price--sold-out):not(.price--unavailable) .price__badge-in-stock {
+.price:not(.price--sold-out):not(.price--unavailable):not(.price--on-sale) .price__badge-in-stock {
   display: inline-block;
 }
 
