@@ -98,6 +98,14 @@
   font-size: 1.5rem !important;
 }
 
+.price__badge-in-stock {
+  display: none;
+}
+
+.price:not(.price--sold-out):not(.price--unavailable) .price__badge-in-stock {
+  display: inline-block;
+}
+
 .unit-price {
   display: block;
   font-size: 1.1rem;
