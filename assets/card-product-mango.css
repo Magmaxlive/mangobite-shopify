@@ -207,8 +207,8 @@
   letter-spacing: 0.04em;
 }
 
-/* Sale badge: red bg, white text */
-.product-card-wrapper .badge--sale-mango {
+/* Sale badge: red bg, white text (applies on cards and detail page) */
+.badge--sale-mango {
   background-color: #cc2200 !important;
   color: #ffffff !important;
 }

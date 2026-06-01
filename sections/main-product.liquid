@@ -115,6 +115,11 @@
                     price_class: 'price--large'
                   -%}
                 </div>
+                {%- if product.selected_or_first_available_variant.available -%}
+                  <span class="badge badge--sale-mango badge--product-availability">
+                    {{- 'products.product.on_sale' | t -}}
+                  </span>
+                {%- endif -%}
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>

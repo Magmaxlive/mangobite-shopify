@@ -39,6 +39,17 @@
   }
 }
 
+/* ── DETAIL PAGE AVAILABILITY BADGE ── */
+.badge--product-availability {
+  display: inline-block;
+  margin-top: 0.8rem;
+}
+
+/* Hide the price-snippet sale badge on detail page — custom badge handles it */
+.product .price--large .price__badge-sale {
+  display: none !important;
+}
+
 /* ── DISABLE ZOOM MODAL (all screens) ── */
 .product__media-wrapper .product__media-toggle,
 .product__media-wrapper .product__media-icon {
