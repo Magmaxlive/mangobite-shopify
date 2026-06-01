@@ -65,6 +65,16 @@
     els.forEach(loadVideo);
   }
 
+  function autoSortCollection() {
+    if (!window.location.pathname.startsWith('/collections/')) return;
+    var params = new URLSearchParams(window.location.search);
+    if (!params.has('sort_by')) {
+      params.set('sort_by', 'best-selling');
+      params.delete('page');
+      window.location.replace(window.location.pathname + '?' + params.toString());
+    }
+  }
+
   function sortAvailableFirst() {
     document.querySelectorAll('ul.product-grid').forEach(function (grid) {
       var items = Array.from(grid.children);
@@ -81,6 +91,8 @@
       });
     });
   }
+
+  autoSortCollection();
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
