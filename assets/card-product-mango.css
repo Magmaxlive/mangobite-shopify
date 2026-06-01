@@ -207,6 +207,12 @@
   letter-spacing: 0.04em;
 }
 
+/* Sale badge: red bg, white text */
+.product-card-wrapper .badge--sale-mango {
+  background-color: #cc2200 !important;
+  color: #ffffff !important;
+}
+
 /* Card content bottom padding */
 .product-card-wrapper .card:not(.ratio) > .card__content {
   padding: 0 !important;

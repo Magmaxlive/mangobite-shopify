@@ -42,7 +42,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">
+  <div class="card-wrapper product-card-wrapper underline-links-hover" data-available="{{ card_product.available }}">
     <div
       class="
         card card--{{ settings.card_style }}
@@ -164,7 +164,7 @@
             {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }} badge--sale-mango"
               >
                 {{- 'products.product.on_sale' | t -}}
               </span>
@@ -605,7 +605,7 @@
       assign ratio = 0.8
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">
+  <div class="card-wrapper product-card-wrapper underline-links-hover" data-available="{{ card_product.available }}">
     <div
       class="
         card card--{{ settings.card_style }}

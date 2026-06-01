@@ -65,9 +65,30 @@
     els.forEach(loadVideo);
   }
 
+  function sortAvailableFirst() {
+    document.querySelectorAll('ul.product-grid').forEach(function (grid) {
+      var items = Array.from(grid.children);
+      var available = items.filter(function (li) {
+        var card = li.querySelector('.product-card-wrapper');
+        return card && card.dataset.available === 'true';
+      });
+      var unavailable = items.filter(function (li) {
+        var card = li.querySelector('.product-card-wrapper');
+        return !card || card.dataset.available !== 'true';
+      });
+      available.concat(unavailable).forEach(function (li) {
+        grid.appendChild(li);
+      });
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', function () {
+      init();
+      sortAvailableFirst();
+    });
   } else {
     init();
+    sortAvailableFirst();
   }
 })();
