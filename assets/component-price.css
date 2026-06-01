@@ -85,9 +85,16 @@
 }
 
 .price--on-sale .price-item--regular {
-  text-decoration: line-through;
-  color: #cc2200;
-  font-size: 1.2rem;
+  text-decoration: line-through !important;
+  color: #cc2200 !important;
+  font-size: 1.2rem !important;
+}
+
+.price__sale s,
+.price__sale .price-item--regular {
+  color: #cc2200 !important;
+  text-decoration: line-through !important;
+  font-size: 1.2rem !important;
 }
 
 .unit-price {
