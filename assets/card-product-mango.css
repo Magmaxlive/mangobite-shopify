@@ -101,6 +101,30 @@
   opacity: 1;
 }
 
+/* Badge overlay — cover the full image area and pin badge to top-left */
+.product-card-wrapper .card__inner > .card__content {
+  position: absolute !important;
+  inset: 0;
+  z-index: 2;
+  padding: 0 !important;
+  pointer-events: none;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+.product-card-wrapper .card__inner > .card__content > .card__information {
+  pointer-events: auto;
+}
+
+.product-card-wrapper .card__inner > .card__content > .card__badge {
+  pointer-events: auto;
+  margin: 1rem !important;
+  align-self: flex-start !important;
+  order: -1 !important;
+}
+
 /* Info section spacing */
 .product-card-wrapper .card__information {
   padding: 1.4rem 2.4rem 0.6rem !important;
