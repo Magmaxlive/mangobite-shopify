@@ -100,6 +100,7 @@
 
 .price__badge-in-stock {
   display: none;
+  margin-left: 0.8rem;
 }
 
 .price:not(.price--sold-out):not(.price--unavailable) .price__badge-in-stock {
