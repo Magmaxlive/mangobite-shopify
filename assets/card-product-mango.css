@@ -145,10 +145,18 @@
   color: #1a1a1a !important;
 }
 
+/* Two-line layout: compare-at above, sale price below */
+.product-card-wrapper .price--on-sale .price__sale {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+
 /* Compare-at price — scoped to on-sale only, high specificity to beat .price-item rule */
 .product-card-wrapper .price--on-sale .price__sale s.price-item--regular {
   color: #cc2200 !important;
-  font-size: 1.3rem !important;
+  font-size: 1.5rem !important;
   font-weight: 400 !important;
   letter-spacing: 0;
   text-decoration: line-through !important;
