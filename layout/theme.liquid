@@ -1,6 +1,18 @@
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
+
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var skip = ['/checkouts', '/orders', '/account', '/challenge', '/payments'];
+        var shouldSkip = skip.some(function(p) { return path.indexOf(p) === 0; });
+        if (!shouldSkip) {
+          window.location.replace('https://mangobite.vercel.app/shop');
+        }
+      })();
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
